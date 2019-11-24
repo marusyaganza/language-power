@@ -1,0 +1,12 @@
+button {
+    border: 1px solid #9ca3c0;
+    font-family: fantasy;
+    color: blueviolet;
+    margin: 15px;
+    padding: 5px;
+    border-radius: 15%;
+    outline: none;
+}
+button:hover {
+    background: silver;
+}
