@@ -1,4 +1,4 @@
-import src from './assets/sample.jpeg';
+import src from './assets/sample.jpg';
 const img = document.createElement('img');
 
 img.src = src;
