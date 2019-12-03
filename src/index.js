@@ -1,14 +1,14 @@
-import {nav} from "./nav";
+import express from 'express';
+import {renderer} from "./helpers/renderer";
 
-const loadImage = () => import("./img");
-import {button} from "./button";
+const app = express();
 
-document.body.appendChild(nav);
-document.body.appendChild(button);
-button.addEventListener('click', event => {
-    loadImage().then(m =>
-        document.body.appendChild(m.img)
-)
-    ;
+app.use(express.static('public'));
+
+app.get('*', (req, res) => {
+    res.send(renderer(req.path));
 });
 
+app.listen(3000, () => {
+    console.log('Running on port 3000');
+});

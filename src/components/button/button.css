@@ -1,4 +1,4 @@
-button {
+.button {
     border: 1px solid #9ca3c0;
     font-family: fantasy;
     color: blueviolet;
@@ -6,7 +6,8 @@ button {
     padding: 5px;
     border-radius: 15%;
     outline: none;
+    display: block;
 }
-button:hover {
+.button:hover {
     background: silver;
 }

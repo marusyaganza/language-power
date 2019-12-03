@@ -4,12 +4,17 @@
   "description": "",
   "main": "src/index.js",
   "scripts": {
+    "dev:all": "npm-run-all --parallel dev:server prod:client dev:build:server",
     "webpack": "webpack",
     "dev": "yarn webpack-dev-server --env.mode development",
     "prod": "yarn webpack -- --env.mode production",
-    "debugThis:": "yarn node --inspect --inspect-brk webpack.config.js",
+    "dev:client": "yarn dev --env.presets client",
+    "prod:client": "yarn prod -- --env.presets client --watch",
     "prod:analyze": "yarn prod -- --env.presets analyze",
-    "prod:test": "yarn prod:analyze -- --env.presets test"
+    "prod:test": "yarn prod:analyze -- --env.presets test",
+    "dev:build:server": "yarn prod -- --env.presets server --watch",
+    "dev:server": "nodemon --watch build --exec \"node build/bundle.js\"",
+    "debugThis:": "yarn node --inspect --inspect-brk webpack.config.js"
   },
   "repository": {
     "type": "git",
@@ -22,18 +27,29 @@
   },
   "homepage": "https://github.com/marusyaganza/language-power#readme",
   "dependencies": {
+    "express": "^4.17.1",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
     "webpack": "^4.41.2"
   },
   "devDependencies": {
+    "@babel/core": "^7.7.4",
+    "@babel/preset-react": "^7.7.4",
+    "babel": "^6.23.0",
+    "babel-loader": "^8.0.6",
+    "babel-preset-react": "^6.24.1",
     "css-loader": "^3.2.0",
     "file-loader": "^4.3.0",
     "html-webpack-plugin": "^3.2.0",
     "mini-css-extract-plugin": "^0.8.0",
+    "npm-run-all": "^4.1.5",
+    "react-router-dom": "^5.1.2",
     "style-loader": "^1.0.0",
     "url-loader": "^2.3.0",
     "webpack-bundle-analyzer": "^3.6.0",
     "webpack-cli": "^3.3.10",
     "webpack-dev-server": "^3.9.0",
-    "webpack-merge": "^4.2.2"
+    "webpack-merge": "^4.2.2",
+    "webpack-node-externals": "^1.7.2"
   }
 }

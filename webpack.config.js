@@ -1,37 +1,38 @@
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const webpack = require('webpack');
 const modeConfig = env => require(`./build-utils/webpack.${env}`)(env);
 const webpackMerge = require('webpack-merge');
 const loadPresets = require('./build-utils/load-presets');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = ({mode, presets} = {mode: 'production', presets: []}) => {
-    console.log('env', {presets});
     return webpackMerge({
         mode,
         output: {
             filename: 'bundle.js'
         },
-        module: {
-            rules: [
-                {
-                    test: /\.css$/,
-                    use: [MiniCssExtractPlugin.loader, 'css-loader']
-                },
-                {
-                    test: /\.(jpg|jpeg|png|svg|gif)$/,
-                    use: {
-                        loader: 'url-loader',
-                        options: {
-                            limit: 500
+            module: {
+                rules: [
+                    {
+                        test: /\.css$/,
+                        use: [MiniCssExtractPlugin.loader, 'css-loader']
+                    },
+                    {
+                        test: /\.(jpg|jpeg|png|svg|gif)$/,
+                        use: {
+                            loader: 'url-loader',
+                            options: {
+                                limit: 500
+                            }
                         }
+                    },
+                    {
+                        test: /\.js?$/,
+                        loader: 'babel-loader',
+                        exclude: /node_modules/
                     }
-                }
-            ]
+                ]
+            },
+            plugins: [new MiniCssExtractPlugin()]
         },
-
-        plugins: [new HtmlWebpackPlugin(), new webpack.ProgressPlugin(), new MiniCssExtractPlugin()]
-    },
         modeConfig(mode),
     loadPresets({presets})
     )
