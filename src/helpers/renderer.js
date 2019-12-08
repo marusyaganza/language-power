@@ -3,12 +3,14 @@ import {StaticRouter} from 'react-router-dom';
 import React from "react";
 import {Routes} from "../Routes";
 import {Provider} from "react-redux";
+import {renderRoutes} from "react-router-config";
+import serialize from 'serialize-javascript';
 
 export function renderer(url, store) {
     const content = renderToString(
         <Provider store={store}>
         <StaticRouter location={url} context={{}}>
-            <Routes/>
+            <div id="page">{renderRoutes(Routes)}</div>
         </StaticRouter>
         </Provider>
     );
@@ -21,6 +23,7 @@ export function renderer(url, store) {
         </head>
         <body>
             <div id="root">${content}</div>
+            <script> window.APP_STATE = ${serialize(store.getState())} </script>
             <script src="client.js"></script>
         </body>
     </html>

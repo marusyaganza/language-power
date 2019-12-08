@@ -3,7 +3,7 @@ import {Button} from "../../components/button/button";
 import './home.css';
 import {Img} from "../../components/img";
 import {Link} from 'react-router-dom';
-import {WordCard} from "../../components/word-card";
+// import {WordCard} from "../../components/word-card";
 
 const Home = () => {
     return (
@@ -12,7 +12,7 @@ const Home = () => {
             <Img width={600} height={400} alt="wild cat"/>
             <Button onClick={(e) => console.log('clicked!', e) }>Click to continue</Button>
             <Link to="/words">Words</Link>
-            <WordCard word="time"/>
+            {/*<WordCard word="time"/>*/}
         </main>
     )
 };
