@@ -1,6 +1,6 @@
 import {nav} from "./nav";
 
-const loadImage = () => import("./img");
+var loadImage = () => import("./img");
 import {button} from "./button";
 
 document.body.appendChild(nav);

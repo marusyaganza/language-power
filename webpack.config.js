@@ -29,7 +29,7 @@ module.exports = ({mode, presets} = {mode: 'production', presets: []}) => {
             ]
         },
 
-        plugins: [new HtmlWebpackPlugin(), new webpack.ProgressPlugin(), new MiniCssExtractPlugin()]
+        plugins: [new HtmlWebpackPlugin({template: 'src/index.html'}), new webpack.ProgressPlugin(), new MiniCssExtractPlugin()]
     },
         modeConfig(mode),
     loadPresets({presets})
