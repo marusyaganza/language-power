@@ -6,10 +6,10 @@ import {Provider} from "react-redux";
 import {renderRoutes} from "react-router-config";
 import serialize from 'serialize-javascript';
 
-export function renderer(url, store) {
+export function renderer(url, store, context) {
     const content = renderToString(
         <Provider store={store}>
-        <StaticRouter location={url} context={{}}>
+        <StaticRouter location={url} context={context}>
             <div id="page">{renderRoutes(Routes)}</div>
         </StaticRouter>
         </Provider>

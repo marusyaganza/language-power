@@ -1,0 +1,21 @@
+.header {
+    height: 20px;
+    width: 100%;
+    color: rebeccapurple;
+    background: #000;
+    justify-content: space-between;
+    margin-bottom: 40px;
+    padding: 20px 0;
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+.logo {
+    width: 20%;
+}
+
+.nav-bar {
+    margin: 0;
+    width: 80%;
+    display: flex;
+    justify-content: space-evenly;
+}
