@@ -8,8 +8,7 @@
     "dev": "yarn webpack-dev-server --env.mode development",
     "prod": "yarn webpack -- --env.mode production",
     "debugThis:": "yarn node --inspect --inspect-brk webpack.config.js",
-    "prod:analyze": "yarn prod -- --env.presets analyze",
-    "prod:test": "yarn prod:analyze -- --env.presets test"
+    "prod:analyze": "yarn prod -- --env.presets analyze"
   },
   "repository": {
     "type": "git",
