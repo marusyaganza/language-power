@@ -43,6 +43,7 @@ export const SearchResult = memo(({ word }) => {
     if (!defsArr) return null;
     return defsArr.map(def => {
       return defsArr.length ? (
+        // TODO create list component for this
         <li className="def-list__item" key={uuid()}>
           <i className="text-icon">
             <Icon width={14} height={16} id="book" />
