@@ -25,6 +25,10 @@ module.exports = ({mode, presets} = {mode: 'production', presets: []}) => {
                             limit: 500
                         }
                     }
+                },
+                {
+                    test: /\.woff$/,
+                    use: 'file-loader'
                 }
             ]
         },

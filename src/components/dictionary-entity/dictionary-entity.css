@@ -1,0 +1,5 @@
+.info {
+    display: inline;
+    color: var(--purple-lightest);
+    font-style: italic;
+}

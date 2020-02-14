@@ -1,0 +1,69 @@
+@import '../../assets/styles/colors.css';
+@import '../../assets/styles/fonts.css';
+
+.word {
+    padding: 15px;
+    margin: 10px 20px;
+    border: 1px solid var(--purple-lighter);
+    box-shadow: 0 3px 0 var(--gray-lightest);
+    font-family: var(--font-libreBaskerville);
+}
+
+.defs-list {
+    list-style: none;
+}
+
+.word-header {
+    display: flex;
+    align-items: baseline;
+}
+
+.particle {
+    margin: 0 10px;
+    font-style: italic;
+}
+
+.text-icon {
+    margin-right: 5px;
+    color: var(--yellow-darker);
+}
+.name {
+    color: var(--purple-darker);
+    font-weight: bold;
+}
+.examples {
+    font-family: var(--font-kalam);
+}
+.examples-title {
+    font-size: 18px;
+}
+
+.examples-list {
+    padding: 0 10px;
+    margin: 0 50px;
+    outline: none;
+}
+
+.examples-list__info {
+    color: var(--purple-base);
+    font-weight: bold;
+}
+
+.example-item {
+    padding: 5px;
+    color: var(--gray-darkest);
+}
+
+.examples-title {
+    cursor: pointer;
+    outline: none;
+}
+
+.def-list__item {
+    display: flex;
+    align-items: baseline;
+}
+.def-item {
+    margin: 10px 0;
+    line-height: 1.5em;
+}

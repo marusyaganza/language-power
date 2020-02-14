@@ -1,0 +1,29 @@
+@import '../../assets/styles/colors.css';
+@import '../../assets/styles/fonts.css';
+
+.word-form {
+    margin: 10px 20px;
+    font-size: 16px;
+}
+.word-input {
+    padding: 5px;
+    margin-right: 10px;
+    font-family: var(--font-roboto);
+    font-size: 16px;
+    outline: none;
+}
+
+.add-word {
+    padding: 5px 10px;
+    border: 2px solid var(--purple-lighter);
+    border-radius: 7%;
+    box-shadow: 0 3px 0 var(--gray-lightest);
+    cursor: pointer;
+    font-size: 16px;
+    outline: none;
+}
+
+.add-word:hover {
+    background: var(--purple-lightest);
+    color: var(--gray-lighter);
+}

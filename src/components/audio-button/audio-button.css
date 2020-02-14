@@ -1,0 +1,20 @@
+@import '../../assets/styles/colors.css';
+.play-button {
+    display: flex;
+    padding: 0;
+    border: 0;
+    cursor: pointer;
+    outline: none;
+    background: transparent;
+}
+.button-text {
+    margin-right: 2px;
+    font-size: 16px;
+    font-style: italic;
+}
+.play-button:hover {
+    color: var(--purple-lighter);
+}
+.play-button__icon {
+    vertical-align: bottom;
+}

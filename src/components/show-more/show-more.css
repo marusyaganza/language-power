@@ -1,0 +1,23 @@
+@import '../../assets/styles/colors.css';
+
+.show-more__title {
+    display: inline;
+    margin-right: 5px;
+    font-size: 14px;
+}
+
+.show-more__item {
+    display: inline;
+}
+
+.show-more__tag {
+    border: 0;
+    color: var(--purple-lighter);
+    font-size: 14px;
+    outline: none;
+    background: transparent;
+}
+
+.show-more {
+    font-size: 14px;
+}

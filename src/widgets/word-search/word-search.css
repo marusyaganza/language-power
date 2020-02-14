@@ -1,0 +1,28 @@
+@import '../../assets/styles/colors.css';
+@import '../../assets/styles/fonts.css';
+
+.search-form {
+    display: flex;
+    margin: 10px 20px;
+    font-family: var(--font-roboto);
+    font-size: 18px;
+}
+.search-input {
+    width: 60%;
+    padding: 10px;
+    border: 0.5px solid var(--purple-lightest);
+    margin-right: 10px;
+    color: var(--purple-darker);
+    font-size: 16px;
+    outline: none;
+}
+
+.search-button {
+    padding: 10px 20px;
+    border: 1px solid var(--yellow-dark);
+    background: var(--yellow-base);
+    border-radius: 5%;
+    color: var(--purple-base);
+    font-size: 16px;
+    outline: none;
+}
