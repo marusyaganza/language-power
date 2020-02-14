@@ -4,7 +4,8 @@
   "description": "",
   "main": "src/index.js",
   "scripts": {
-    "webpack": "webpack",
+    "start": "yarn dev --env.presets react",
+    "build": "yarn prod --env.presets react",
     "dev": "yarn webpack-dev-server --env.mode development",
     "prod": "yarn webpack -- --env.mode production",
     "prod:analyze": "yarn prod -- --env.presets analyze",
