@@ -11,7 +11,10 @@ const navLinks = [
 ];
 const App = () => (
   <>
-    <Header navItems={navLinks} />
+    <Header navItems={navLinks}>
+      {' '}
+      <button>Some button</button>{' '}
+    </Header>
     <SearchPage />
   </>
 );

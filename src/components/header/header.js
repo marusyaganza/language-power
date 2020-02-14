@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
+import { Icon } from '../icons/icon';
 import './header.css';
 
 export const Header = ({ navItems, children }) => {
@@ -15,12 +15,19 @@ export const Header = ({ navItems, children }) => {
       );
     });
   };
+  // TODO fix logo icon
   return (
     <header className="header">
+      <a className="header_logo link" href="/">
+        <div className="header_logo__text">Language power</div>
+        <i>
+          <Icon width={11} height={12} id="book" />
+        </i>
+      </a>
       <nav className="header_nav">
         <ul className="header_nav-items">{renderNav(navItems)}</ul>
       </nav>
-      {children}
+      <div className="header_items">{children}</div>
     </header>
   );
 };

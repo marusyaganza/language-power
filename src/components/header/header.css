@@ -10,6 +10,8 @@
   box-sizing: border-box;
   text-transform: uppercase;
   font-size: 14px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .header_nav-items {
@@ -30,4 +32,20 @@
 .header_nav-item:hover {
   background: var(--purple-dark);
   color: (--yellow-lightest);
+}
+
+.header_logo {
+  padding: 9px 30px;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.header_items {
+  padding: 9px;
+  margin-right: 30px;
+}
+
+.header_logo__text {
+  margin: 0 10px;
 }
