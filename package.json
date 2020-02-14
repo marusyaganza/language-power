@@ -10,7 +10,7 @@
     "prod": "yarn webpack -- --env.mode production",
     "prod:analyze": "yarn prod -- --env.presets analyze",
     "react": "yarn dev -- --env.presets react",
-    "test": "yarn prod:analyze -- --env.presets react"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -32,12 +32,19 @@
     "@babel/preset-env": "^7.8.4",
     "@babel/preset-react": "^7.8.3",
     "babel": "^6.23.0",
+    "babel-jest": "^25.1.0",
     "babel-loader": "^8.0.6",
     "css-loader": "^3.2.0",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.2",
     "file-loader": "^5.0.2",
     "html-webpack-plugin": "^3.2.0",
+    "jest": "^25.1.0",
+    "jest-svg-transformer": "^1.0.0",
+    "jest-transform-css": "^2.0.0",
     "mini-css-extract-plugin": "^0.8.0",
     "prop-types": "^15.7.2",
+    "react-test-renderer": "^16.12.0",
     "style-loader": "^1.0.0",
     "uglifyjs-webpack-plugin": "^2.2.0",
     "url-loader": "^2.3.0",

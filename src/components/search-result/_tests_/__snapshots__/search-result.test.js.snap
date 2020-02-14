@@ -1,0 +1,189 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SearchResult should match snapshot 1`] = `
+<article
+  className="word"
+>
+  <header
+    className="word-header"
+  >
+    <span
+      className="name"
+    >
+      demure
+    </span>
+    <span
+      className="particle"
+    >
+      adjective
+    </span>
+     
+    <div>
+      <button
+        className="play-button"
+        onClick={[Function]}
+        type="button"
+      >
+        <span
+          className="button-text"
+        >
+          [dɪˈmjuɚ]
+        </span>
+        <svg
+          className="play-button__icon"
+          height={18}
+          width={18}
+        >
+          <use
+            xlinkHref="function SvgSprite(props) {
+  return React.createElement(
+    'svg', 
+    Object.assign({}, props, {'data-file-name': SvgSprite.name})
+  );
+}#play"
+          />
+        </svg>
+      </button>
+    </div>
+  </header>
+  <ul
+    className="defs-list"
+  >
+    <li
+      className="def-list__item"
+    >
+      <i
+        className="text-icon"
+      >
+        <svg
+          className={null}
+          height={16}
+          width={14}
+        >
+          <use
+            xlinkHref="function SvgSprite(props) {
+  return React.createElement(
+    'svg', 
+    Object.assign({}, props, {'data-file-name': SvgSprite.name})
+  );
+}#book"
+          />
+        </svg>
+      </i>
+      <p
+        className="def-item"
+      >
+         quiet and polite 
+      </p>
+    </li>
+    <li
+      className="def-list__item"
+    >
+      <i
+        className="text-icon"
+      >
+        <svg
+          className={null}
+          height={16}
+          width={14}
+        >
+          <use
+            xlinkHref="function SvgSprite(props) {
+  return React.createElement(
+    'svg', 
+    Object.assign({}, props, {'data-file-name': SvgSprite.name})
+  );
+}#book"
+          />
+        </svg>
+      </i>
+      <p
+        className="def-item"
+      >
+         not attracting or demanding a lot of attention  not showy or flashy 
+      </p>
+    </li>
+  </ul>
+  <section
+    className="show-more"
+  >
+    <p
+      className="show-more__items"
+    >
+      <h3
+        className="show-more__title"
+      >
+        word forms: 
+      </h3>
+      demure, demurely, demureness
+    </p>
+  </section>
+  <section
+    className="examples"
+  >
+    <details>
+      <summary
+        className="examples-title"
+      >
+        Examples
+      </summary>
+      <ol
+        className="examples-list"
+      >
+        <li
+          className="example-item"
+        >
+          a 
+          <i
+            className="examples-list__info"
+          >
+             
+            demure 
+             
+          </i>
+          young lady 
+        </li>
+        <li
+          className="example-item"
+        >
+          She was wearing a 
+          <i
+            className="examples-list__info"
+          >
+             
+            demure 
+             
+          </i>
+          gray suit. 
+        </li>
+        <li
+          className="example-item"
+        >
+          the 
+          <i
+            className="examples-list__info"
+          >
+             
+            demure 
+             
+          </i>
+          charm of the cottage 
+        </li>
+        <li
+          className="example-item"
+        >
+          a 
+          <i
+            className="examples-list__info"
+          >
+             
+            demure 
+             
+          </i>
+          personality 
+        </li>
+      </ol>
+    </details>
+  </section>
+</article>
+`;
