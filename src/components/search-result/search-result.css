@@ -3,8 +3,8 @@
 
 .word {
     padding: 15px;
-    margin: 10px 20px;
     border: 1px solid var(--purple-lighter);
+    margin: 10px 20px;
     box-shadow: 0 3px 0 var(--gray-lightest);
     font-family: var(--font-libreBaskerville);
 }
@@ -35,7 +35,9 @@
     font-family: var(--font-kalam);
 }
 .examples-title {
+    cursor: pointer;
     font-size: 18px;
+    outline: none;
 }
 
 .examples-list {
@@ -52,11 +54,6 @@
 .example-item {
     padding: 5px;
     color: var(--gray-darkest);
-}
-
-.examples-title {
-    cursor: pointer;
-    outline: none;
 }
 
 .def-list__item {

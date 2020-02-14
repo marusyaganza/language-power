@@ -1,0 +1,13 @@
+@import '../../styles/colors.css';
+@import '../../styles/fonts.css';
+
+.word-card {
+    padding: 10px;
+    border: 1px solid var(--purple-lighter);
+    margin: 10px 20px;
+    box-shadow: 0 3px 0 var(--gray-lightest);
+    font-family: var(--font-gayathry);
+}
+h3 {
+    margin-top: 0;
+}

@@ -3,9 +3,9 @@
     display: flex;
     padding: 0;
     border: 0;
+    background: transparent;
     cursor: pointer;
     outline: none;
-    background: transparent;
 }
 .button-text {
     margin-right: 2px;

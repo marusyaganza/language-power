@@ -1,0 +1,8 @@
+@import '../../styles/colors.css';
+@import '../../styles/fonts.css';
+
+.words-heading {
+    color: var(--purple-darker);
+    font-family: var(--font-roboto);
+    text-align: center;
+}

@@ -12,6 +12,7 @@
 
 .show-more__tag {
     border: 0;
+    background: transparent;
     color: var(--purple-lighter);
     font-size: 14px;
     outline: none;

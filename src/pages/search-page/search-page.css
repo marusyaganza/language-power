@@ -1,7 +1,7 @@
-@import "../../assets/styles/colors.css";
-@import "../../assets/styles/fonts.css";
+@import '../../assets/styles/colors.css';
+@import '../../assets/styles/fonts.css';
 .main-heading {
-    text-transform: uppercase;
     color: var(--purple-darker);
     font-family: var(--font-gayathry);
+    text-transform: uppercase;
 }
