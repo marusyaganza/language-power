@@ -8,8 +8,7 @@ module.exports = () => {
       publicPath: '/'
     },
     devServer: {
-      historyApiFallback: true,
-      color: true
+      historyApiFallback: true
     }
   };
 };

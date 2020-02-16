@@ -2,16 +2,16 @@
 
 /* use it for <li > tags */
 .list {
-  list-style: none;
+    list-style: none;
 }
 
 /* use it for <a> tags */
 .link {
-  text-decoration: none;
-  color: inherit;
+    color: inherit;
+    text-decoration: none;
 }
 
 * {
-  padding: 0;
-  margin: 0;
+    padding: 0;
+    margin: 0;
 }

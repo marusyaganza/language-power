@@ -2,50 +2,50 @@
 @import '../../assets/styles/fonts.css';
 
 .header {
-  font-family: var(--font-kalam);
-  height: 40px;
-  background: var(--purple-darker);
-  color: var(--yellow-base);
-  margin-bottom: 40px;
-  box-sizing: border-box;
-  text-transform: uppercase;
-  font-size: 14px;
-  display: flex;
-  justify-content: space-between;
+    display: flex;
+    height: 40px;
+    box-sizing: border-box;
+    justify-content: space-between;
+    margin-bottom: 40px;
+    background: var(--purple-darker);
+    color: var(--yellow-base);
+    font-family: var(--font-kalam);
+    font-size: 14px;
+    text-transform: uppercase;
 }
 
 .header_nav-items {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-content: center;
-  height: 100%;
-  width: 100%;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: row;
+    align-content: center;
+    justify-content: space-around;
 }
 
 .header_nav-item {
-  align-self: baseline;
-  padding: 12px;
-  margin: 0 15px;
+    align-self: baseline;
+    padding: 12px;
+    margin: 0 15px;
 }
 
 .header_nav-item:hover {
-  background: var(--purple-dark);
-  color: (--yellow-lightest);
+    background: var(--purple-dark);
+    color: (--yellow-lightest);
 }
 
 .header_logo {
-  padding: 9px 30px;
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    padding: 9px 30px;
 }
 
 .header_items {
-  padding: 9px;
-  margin-right: 30px;
+    padding: 9px;
+    margin-right: 30px;
 }
 
 .header_logo__text {
-  margin: 0 10px;
+    margin: 0 10px;
 }

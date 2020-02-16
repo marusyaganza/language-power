@@ -42,6 +42,6 @@ Header.propTypes = {
 };
 
 Header.defaultProps = {
-  navItems: [{ label: 'Search word', link: '/search_word' }],
+  navItems: [],
   children: null
 };

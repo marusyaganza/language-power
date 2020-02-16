@@ -21,6 +21,7 @@ const routing = tags.map(tag => {
       />
     );
   }
+  return null;
 });
 
 export const App = () => (

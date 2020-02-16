@@ -1,5 +1,5 @@
-@import '../../styles/colors.css';
-@import '../../styles/fonts.css';
+@import '../../assets/styles/colors.css';
+@import '../../assets/styles/fonts.css';
 
 .words-heading {
     color: var(--purple-darker);
