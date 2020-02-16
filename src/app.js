@@ -1,22 +1,34 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import { SearchPage } from './pages/search-page/search-page';
-// import { HomePage } from './pages/home-page/homePage';
+import { Route, Switch } from 'react-router-dom';
 import { Header } from './components/header/header';
 import './styles.css';
-// TODO add react router to manage pages
-const navLinks = [
-  { label: 'search words', link: '/search_words' },
-  { label: 'word cards', link: '/word_cards' }
-];
-const App = () => (
-  <>
-    <Header navItems={navLinks}>
-      {' '}
-      <button>Some button</button>{' '}
-    </Header>
-    <SearchPage />
-  </>
+import { NotFoundPage } from './pages/not-found/not-found';
+import { PATHS } from './constants/paths';
+import { PAGES } from './constants/pages';
+
+const tags = Object.keys(PATHS);
+const navItems = Object.values(PATHS);
+const routing = tags.map(tag => {
+  const path = PATHS[tag];
+  const component = PAGES[tag];
+  if (component) {
+    return (
+      <Route
+        key={tag}
+        exact={path.exact}
+        path={path.link}
+        component={PAGES[tag]}
+      />
+    );
+  }
+});
+
+export const App = () => (
+  <div className="page">
+    <Header navItems={navItems} />
+    <Switch>
+      {routing}
+      <Route path="*" component={NotFoundPage} />
+    </Switch>
+  </div>
 );
-// ReactDOM.render(<SearchPage />, document.getElementById("root"));
-ReactDOM.render(<App />, document.getElementById('root'));

@@ -1,5 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import uuid from 'uuid';
+import { Link } from 'react-router-dom';
 import { Icon } from '../icons/icon';
 import './header.css';
 
@@ -7,10 +9,10 @@ export const Header = ({ navItems, children }) => {
   const renderNav = items => {
     return items.map(element => {
       return (
-        <li className="header_nav-item list">
-          <a href={element.link} className="header_nav-link link">
+        <li key={uuid()} className="header_nav-item list">
+          <Link to={element.link} className="header_nav-link link">
             {element.label}
-          </a>
+          </Link>
         </li>
       );
     });
@@ -40,6 +42,6 @@ Header.propTypes = {
 };
 
 Header.defaultProps = {
-  navItems: [],
+  navItems: [{ label: 'Search word', link: '/search_word' }],
   children: null
 };
