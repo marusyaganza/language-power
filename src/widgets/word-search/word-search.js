@@ -1,95 +1,55 @@
-import React, { useState } from 'react';
-import { RESPONSE_ERROR, RESPONSE_COMPLETE, FETCHING } from './actions';
+import React from 'react';
+import uuid from 'uuid';
 import { reducer } from './reducer';
 import { initialState } from './initialState';
 import { ShowMore } from '../../components/show-more/show-more';
 import { getSearchUrl } from './helpers';
-import { useThunkReducer } from './thunkReducer';
-import './word-search.css';
+import { useThunkReducer } from '../../utils/useThunkReducer';
 
 import { SearchResult } from '../../components/search-result/search-result';
+import { useFetch } from '../../utils/useFetch';
+import { SearchForm } from '../../components/search-form/search-form';
 
 export const WordSearch = () => {
-  const [query, setQuery] = useState('');
   const [state, dispatch] = useThunkReducer(reducer, initialState);
   const { result, loading, error } = state;
-  const useFetch = url => {
-    dispatch({
-      type: FETCHING
-    });
-    fetch(url)
-      .then(res => res.json())
-      .then(res => {
-        dispatch({
-          type: RESPONSE_COMPLETE,
-          payload: {
-            res,
-            query
-          }
-        });
-      })
-      .catch(e => {
-        dispatch({
-          type: RESPONSE_ERROR,
-          payload: {
-            error: e
-          }
-        });
-      });
+
+  const handleSearchSubmit = query => {
+    const url = getSearchUrl(query);
+    useFetch({ url, query, dispatch });
   };
 
-  const handleChange = event => {
-    event.preventDefault();
-    setQuery(event.target.value);
-  };
-
-  const handleSearchSubmit = e => {
-    e.preventDefault();
-    useFetch(getSearchUrl(query));
-  };
-  // TODO refactor this
-  const renderResult = resultArr => {
-    if (!resultArr) return null;
-    if (resultArr.suggestions) {
-      return (
-        <section className="search-results">
-          <ShowMore title="suggestions" items={resultArr.suggestions} />
-        </section>
-      );
+  const renderResult = () => {
+    if (loading) {
+      return <div> Loading... </div>;
     }
-    if (!resultArr.length) {
-      return (
-        <section>
-          <div>No results</div>
-        </section>
-      );
+    if (error) {
+      return <div> {error.message} </div>;
     }
-    return (
-      <section className="search-results">
-        {resultArr && resultArr.map(item => <SearchResult word={item} />)}
-      </section>
-    );
+    if (result) {
+      let resultContent = <div>No results</div>;
+      if (result.suggestions) {
+        resultContent = (
+          <ShowMore title="suggestions" items={result.suggestions} />
+        );
+      }
+      if (result.length) {
+        resultContent = result.map(item => (
+          <ul>
+            <li key={uuid()} className="list">
+              <SearchResult word={item} />
+            </li>
+          </ul>
+        ));
+      }
+      return <section className="search-result">{resultContent}</section>;
+    }
+    return null;
   };
   return (
     <section className="word-search">
-      {loading && <div> Loading... </div>}
-      {error && <div> {error} </div>}
-      <form onSubmit={handleSearchSubmit} className="search-form">
-        <input
-          className="search-input"
-          onChange={handleChange}
-          placeholder="word"
-          value={query}
-          type="text"
-        />
-        <button className="search-button" type="submit">
-          Search
-        </button>
-      </form>
-      {/* <section className="search-results"> */}
-      {/*  {result && result.map(item => <SearchResult word={item} />)} */}
-      {/* </section> */}
-      {renderResult(result)}
+      <SearchForm onFormSubmit={handleSearchSubmit} />
+      {renderResult()}
     </section>
   );
 };

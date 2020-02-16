@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import sprite from '../../assets/img/sprite.svg';
+import sprite from './sprite.svg';
 
 const Icon = ({ width, height, id, className }) => {
   const img = `${sprite}#${id}`;
