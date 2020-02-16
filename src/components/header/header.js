@@ -23,7 +23,7 @@ export const Header = ({ navItems, children }) => {
       <a className="header_logo link" href="/">
         <div className="header_logo__text">Language power</div>
         <i>
-          <Icon width={11} height={12} id="book" />
+          <Icon width={16} height={16} id="hand-spock" />
         </i>
       </a>
       <nav className="header_nav">
