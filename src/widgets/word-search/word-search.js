@@ -27,31 +27,22 @@ export const WordSearch = () => {
       return <div> {error.message} </div>;
     }
     if (result) {
+      let resultContent = <div>No results</div>;
       if (result.suggestions) {
-        return (
-          <section className="search-results">
-            <ShowMore title="suggestions" items={result.suggestions} />
-          </section>
+        resultContent = (
+          <ShowMore title="suggestions" items={result.suggestions} />
         );
       }
       if (result.length) {
-        return (
-          <section className="search-results">
-            {result.map(item => (
-              <ul>
-                <li key={uuid()} className="list">
-                  <SearchResult word={item} />
-                </li>
-              </ul>
-            ))}
-          </section>
-        );
+        resultContent = result.map(item => (
+          <ul>
+            <li key={uuid()} className="list">
+              <SearchResult word={item} />
+            </li>
+          </ul>
+        ));
       }
-      return (
-        <section className="search-result">
-          <div>No results</div>
-        </section>
-      );
+      return <section className="search-result">{resultContent}</section>;
     }
     return null;
   };
