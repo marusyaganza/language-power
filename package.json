@@ -29,7 +29,10 @@
   "homepage": "https://github.com/marusyaganza/language-power#readme",
   "config": {
     "commitizen": {
-      "path": "cz-conventional-changelog"
+      "path": "node_modules/cz-customizable"
+    },
+    "cz-customizable": {
+      "config": "commitizen.js"
     }
   },
   "dependencies": {
@@ -51,7 +54,6 @@
     "babel-loader": "^8.0.6",
     "commitizen": "^4.0.3",
     "css-loader": "^3.4.2",
-    "cz-conventional-changelog": "^3.1.0",
     "cz-customizable": "^6.2.0",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",
@@ -90,10 +92,5 @@
     "webpack-cli": "^3.3.11",
     "webpack-dev-server": "^3.10.3",
     "webpack-merge": "^4.2.2"
-  },
-  "config": {
-    "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
-    }
   }
 }
