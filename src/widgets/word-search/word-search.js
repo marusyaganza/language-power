@@ -6,7 +6,7 @@ import { ShowMore } from '../../components/show-more/show-more';
 import { getSearchUrl } from './helpers';
 import { useThunkReducer } from '../../utils/useThunkReducer';
 
-import { SearchResult } from '../../components/search-result/search-result';
+import { WordCard } from '../../components/word-card/word-card';
 import { useFetch } from '../../utils/useFetch';
 import { SearchForm } from '../../components/search-form/search-form';
 
@@ -37,7 +37,7 @@ export const WordSearch = () => {
         resultContent = result.map(item => (
           <ul>
             <li key={uuid()} className="list">
-              <SearchResult word={item} />
+              <WordCard word={item} />
             </li>
           </ul>
         ));
