@@ -19,7 +19,8 @@
   },
   "husky": {
     "hooks": {
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS -g './commitlint.js'"
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS -g './commitlint.js'",
+      "pre-commit": "yarn ready"
     }
   },
   "repository": {
