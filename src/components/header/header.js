@@ -1,35 +1,35 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import uuid from 'uuid';
-import { Link } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
+import classnames from 'classnames';
 import { Icon } from '../icons/icon';
-import './header.css';
+import styles from './header.css';
 
 export const Header = ({ navItems, children }) => {
   const renderNav = items => {
     return items.map(element => {
       return (
-        <li key={uuid()} className="header_nav-item list">
-          <Link to={element.link} className="header_nav-link link">
+        <li key={uuid()} className={styles.navItem}>
+          <NavLink exact activeClassName={styles.activeLink} to={element.link}>
             {element.label}
-          </Link>
+          </NavLink>
         </li>
       );
     });
   };
-  // TODO fix logo icon
   return (
-    <header className="header">
-      <a className="header_logo link" href="/">
-        <div className="header_logo__text">Language power</div>
-        <i>
+    <header className={styles.header}>
+      <Link className={classnames(styles.logo, styles.navLink)} to="/">
+        <div>Language power</div>
+        <i className={styles.logoIcon}>
           <Icon width={16} height={16} id="hand-spock" />
         </i>
-      </a>
-      <nav className="header_nav">
-        <ul className="header_nav-items">{renderNav(navItems)}</ul>
+      </Link>
+      <nav className={styles.headerNav}>
+        <ul className={styles.navItems}>{renderNav(navItems)}</ul>
       </nav>
-      <div className="header_items">{children}</div>
+      <div className={styles.items}>{children}</div>
     </header>
   );
 };

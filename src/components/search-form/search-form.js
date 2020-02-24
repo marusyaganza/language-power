@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import './search-form.css';
+import styles from './search-form.css';
 
 export const SearchForm = ({ onFormSubmit }) => {
   const [query, setQuery] = useState('');
@@ -17,15 +17,15 @@ export const SearchForm = ({ onFormSubmit }) => {
   };
   // TODO extract button component
   return (
-    <form onSubmit={handleSearchSubmit} className="search-form">
+    <form onSubmit={handleSearchSubmit} className={SearchForm}>
       <input
-        className="search-input"
+        className={styles.searchInput}
         onChange={handleChange}
         placeholder="word"
         value={query}
         type="text"
       />
-      <button className="search-button" type="submit">
+      <button className={styles.searchButton} type="submit">
         Search
       </button>
     </form>

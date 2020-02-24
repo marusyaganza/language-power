@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { Header } from './components/header/header';
-import './styles.css';
+import styles from './styles.css';
 import { NotFoundPage } from './pages/not-found-page/not-found-page';
 import { PATHS } from './constants/paths';
 import { PAGES } from './constants/pages';
@@ -23,13 +23,15 @@ const routing = tags.map(tag => {
   }
   return null;
 });
-
+// TODO create component for main
 export const App = () => (
   <div className="page">
     <Header navItems={navItems} />
-    <Switch>
-      {routing}
-      <Route path="*" component={NotFoundPage} />
-    </Switch>
+    <main className={styles.main}>
+      <Switch>
+        {routing}
+        <Route path="*" component={NotFoundPage} />
+      </Switch>
+    </main>
   </div>
 );
