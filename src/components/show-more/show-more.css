@@ -1,16 +1,17 @@
 @import '../../assets/styles/colors.css';
 
-.show-more__title {
+.title {
     display: inline;
     margin-right: 5px;
     font-size: 14px;
 }
 
-.show-more__item {
+.item {
     display: inline;
+    font-size: 14px;
 }
 
-.show-more__tag {
+.tag {
     border: 0;
     background: transparent;
     color: var(--purple-lighter);

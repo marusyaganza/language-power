@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { cleanString, isSuff } from './helpers';
 import { CLOSING, OPENING } from './constants';
-import './dictionary-entity.css';
+import styles from './dictionary-entity.css';
 
 export const DictionaryEntity = ({ text, className }) => {
   const decorateWord = word => {
@@ -46,5 +46,5 @@ DictionaryEntity.propTypes = {
 
 DictionaryEntity.defaultProps = {
   text: '',
-  className: 'info'
+  className: styles.info
 };

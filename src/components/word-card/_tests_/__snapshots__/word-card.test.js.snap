@@ -1,36 +1,25 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`SearchResult should match snapshot 1`] = `
-<article
-  className="word"
->
-  <header
-    className="word-header"
-  >
-    <span
-      className="name"
-    >
+<article>
+  <header>
+    <span>
       demure
     </span>
-    <span
-      className="particle"
-    >
+    <span>
       adjective
     </span>
      
     <div>
       <button
-        className="play-button"
         onClick={[Function]}
         type="button"
       >
-        <span
-          className="button-text"
-        >
+        <span>
           [dɪˈmjuɚ]
         </span>
         <svg
-          className="play-button__icon"
+          className={null}
           height={18}
           width={18}
         >
@@ -46,15 +35,9 @@ exports[`SearchResult should match snapshot 1`] = `
       </button>
     </div>
   </header>
-  <ul
-    className="defs-list"
-  >
-    <li
-      className="def-list__item"
-    >
-      <i
-        className="text-icon"
-      >
+  <ul>
+    <li>
+      <i>
         <svg
           className={null}
           height={16}
@@ -70,18 +53,12 @@ exports[`SearchResult should match snapshot 1`] = `
           />
         </svg>
       </i>
-      <p
-        className="def-item"
-      >
+      <p>
          quiet and polite 
       </p>
     </li>
-    <li
-      className="def-list__item"
-    >
-      <i
-        className="text-icon"
-      >
+    <li>
+      <i>
         <svg
           className={null}
           height={16}
@@ -97,9 +74,7 @@ exports[`SearchResult should match snapshot 1`] = `
           />
         </svg>
       </i>
-      <p
-        className="def-item"
-      >
+      <p>
          not attracting or demanding a lot of attention  not showy or flashy 
       </p>
     </li>
@@ -107,75 +82,49 @@ exports[`SearchResult should match snapshot 1`] = `
   <section
     className="show-more"
   >
-    <p
-      className="show-more__items"
-    >
-      <h3
-        className="show-more__title"
-      >
+    <p>
+      <h3>
         word forms: 
       </h3>
       demure, demurely, demureness
     </p>
   </section>
-  <section
-    className="examples"
-  >
+  <section>
     <details>
-      <summary
-        className="examples-title"
-      >
+      <summary>
         Examples
       </summary>
-      <ol
-        className="examples-list"
-      >
-        <li
-          className="example-item"
-        >
+      <ol>
+        <li>
           a 
-          <i
-            className="examples-list__info"
-          >
+          <i>
              
             demure 
              
           </i>
           young lady 
         </li>
-        <li
-          className="example-item"
-        >
+        <li>
           She was wearing a 
-          <i
-            className="examples-list__info"
-          >
+          <i>
              
             demure 
              
           </i>
           gray suit. 
         </li>
-        <li
-          className="example-item"
-        >
+        <li>
           the 
-          <i
-            className="examples-list__info"
-          >
+          <i>
              
             demure 
              
           </i>
           charm of the cottage 
         </li>
-        <li
-          className="example-item"
-        >
+        <li>
           a 
-          <i
-            className="examples-list__info"
-          >
+          <i>
              
             demure 
              

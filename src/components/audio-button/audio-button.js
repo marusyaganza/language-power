@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './audio-button.css';
+import styles from './audio-button.css';
 import { Icon } from '../icons/icon';
 
 export const AudioButton = ({ src, buttonText, buttonSize }) => {
@@ -10,10 +10,10 @@ export const AudioButton = ({ src, buttonText, buttonSize }) => {
   };
   return (
     <div>
-      <button className="play-button" type="button" onClick={play}>
-        <span className="button-text">{buttonText}</span>
+      <button className={styles.playButton} type="button" onClick={play}>
+        <span className={styles.buttonText}>{buttonText}</span>
         <Icon
-          className="play-button__icon"
+          className={styles.icon}
           id="play"
           height={buttonSize}
           width={buttonSize}

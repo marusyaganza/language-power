@@ -46,7 +46,7 @@
     outline: none;
 }
 
-.examples-list__info {
+.examples-list-info {
     color: var(--purple-base);
     font-weight: bold;
 }
@@ -56,7 +56,7 @@
     color: var(--gray-darkest);
 }
 
-.def-list__item {
+.def-list-item {
     display: flex;
     align-items: baseline;
 }

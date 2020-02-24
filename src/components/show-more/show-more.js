@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import './show-more.css';
+import styles from './show-more.css';
 
 export const ShowMore = ({
   items,
@@ -18,7 +18,7 @@ export const ShowMore = ({
   const content = isopen ? items.join(', ') : displayed;
   const renderButton = () => {
     return items.length > initialNumber ? (
-      <button type="button" onClick={handleSpread} className="show-more__tag">
+      <button type="button" onClick={handleSpread} className={styles.tag}>
         {isopen ? closeTag : openTag}
       </button>
     ) : null;
@@ -26,8 +26,8 @@ export const ShowMore = ({
 
   return (
     <section className={className}>
-      <p className="show-more__items">
-        <h3 className="show-more__title">{title}</h3>
+      <p className={styles.item}>
+        <h3 className={styles.title}>{title}</h3>
         {content}
         {renderButton()}
       </p>

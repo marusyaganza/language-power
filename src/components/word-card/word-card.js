@@ -1,7 +1,7 @@
 import React, { memo } from 'react';
-import './word-card.css';
 import PropTypes from 'prop-types';
 import uuid from 'uuid';
+import styles from './word-card.css';
 import { AudioButton } from '../audio-button/audio-button';
 import { Icon } from '../icons/icon';
 import { DictionaryEntity } from '../dictionary-entity/dictionary-entity';
@@ -16,15 +16,15 @@ export const WordCard = memo(({ word }) => {
   const renderExamples = ex => {
     if (!ex || !ex.length) return null;
     const listItems = ex.map(item => (
-      <li key={uuid()} className="example-item">
-        <DictionaryEntity className="examples-list__info" text={item} />
+      <li key={uuid()} className={styles.examplesItem}>
+        <DictionaryEntity className={styles.examplesListInfo} text={item} />
       </li>
     ));
     return (
-      <section className="examples">
+      <section className={styles.examples}>
         <details>
-          <summary className="examples-title">Examples</summary>
-          <ol className="examples-list">{listItems}</ol>
+          <summary className={styles.examplesTitle}>Examples</summary>
+          <ol className={styles.examplesList}>{listItems}</ol>
         </details>
       </section>
     );
@@ -35,7 +35,7 @@ export const WordCard = memo(({ word }) => {
     return audioUrl ? (
       <AudioButton buttonText={`[${transcription}]`} src={audioUrl} />
     ) : (
-      <section className="audio">
+      <section className={styles.audio}>
         <div>[{transcription}]</div>
       </section>
     );
@@ -45,11 +45,11 @@ export const WordCard = memo(({ word }) => {
     return defsArr.map(def => {
       return defsArr.length ? (
         // TODO create list component for this
-        <li className="def-list__item" key={uuid()}>
-          <i className="text-icon">
+        <li className={styles.defListItem} key={uuid()}>
+          <i className={styles.textIcon}>
             <Icon width={14} height={16} id="book" />
           </i>
-          <p className="def-item">
+          <p className={styles.defItem}>
             <DictionaryEntity text={def} />
           </p>
         </li>
@@ -58,13 +58,13 @@ export const WordCard = memo(({ word }) => {
   };
 
   return (
-    <article className="word">
-      <header className="word-header">
-        <span className="name">{name}</span>
-        <span className="particle">{particle}</span>{' '}
+    <article className={styles.word}>
+      <header className={styles.wordHeader}>
+        <span className={styles.name}>{name}</span>
+        <span className={styles.particle}>{particle}</span>{' '}
         {renderAudio(pronunciation)}
       </header>
-      <ul className="defs-list">{renderDefs(defs)}</ul>
+      <ul className={styles.defList}>{renderDefs(defs)}</ul>
       <ShowMore items={stems} title="word forms: " initialNumber={5} />
       {renderExamples(examples)}
     </article>

@@ -15,6 +15,6 @@
 .play-button:hover {
     color: var(--purple-lighter);
 }
-.play-button__icon {
+.icon {
     vertical-align: bottom;
 }
