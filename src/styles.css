@@ -2,22 +2,22 @@
 
 /* use it for <li > tags */
 ul {
-  list-style: none;
+    list-style: none;
 }
 
 /* use it for <a> tags */
 a {
-  color: inherit;
-  text-decoration: none;
+    color: inherit;
+    text-decoration: none;
 }
 
 * {
-  padding: 0;
-  margin: 0;
+    padding: 0;
+    margin: 0;
 }
 
 .main {
-  box-sizing: border-box;
-  padding: 0 50px;
-  margin: 40px auto;
+    box-sizing: border-box;
+    padding: 0 50px;
+    margin: 40px auto;
 }
