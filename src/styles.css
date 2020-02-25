@@ -11,6 +11,10 @@ a {
     text-decoration: none;
 }
 
+button {
+    outline: none;
+}
+
 * {
     padding: 0;
     margin: 0;

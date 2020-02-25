@@ -1,0 +1,29 @@
+@import '../../../assets/styles/colors.css';
+.button {
+    padding: 3px;
+    border: 0;
+    margin: 0 3px;
+    background: transparent;
+    border-radius: 50%;
+    box-shadow: none;
+    cursor: pointer;
+}
+
+.button:disabled {
+    color: var(--gray-base);
+}
+
+.delete {
+    color: var(--notification-danger-lighter);
+}
+.delete:hover {
+    color: var(--notification-danger);
+}
+
+.add {
+    color: var(--purple-dark);
+}
+
+.add:hover {
+    color: var(--purple-darker);
+}

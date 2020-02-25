@@ -7,6 +7,7 @@ import { Icon } from '../icons/icon';
 import { DictionaryEntity } from '../dictionary-entity/dictionary-entity';
 import { ShowMore } from '../show-more/show-more';
 import '../word-cards/word-cards.css';
+import { IconButton } from '../buttons/icon-button/icon-button';
 
 // TODO handle empty list elem
 export const WordCard = memo(({ word }) => {
@@ -59,11 +60,17 @@ export const WordCard = memo(({ word }) => {
 
   return (
     <article className={styles.word}>
-      <header className={styles.wordHeader}>
-        <span className={styles.name}>{name}</span>
-        <span className={styles.particle}>{particle}</span>{' '}
-        {renderAudio(pronunciation)}
-      </header>
+      <div className={styles.top}>
+        <header className={styles.wordHeader}>
+          <span className={styles.name}>{name}</span>
+          <span className={styles.particle}>{particle}</span>
+          {renderAudio(pronunciation)}
+        </header>
+        <div>
+          <IconButton kind="delete" iconHint="delete card" size="M" />
+          <IconButton kind="add" />
+        </div>
+      </div>
       <ul className={styles.defList}>{renderDefs(defs)}</ul>
       <ShowMore items={stems} title="word forms: " initialNumber={5} />
       {renderExamples(examples)}

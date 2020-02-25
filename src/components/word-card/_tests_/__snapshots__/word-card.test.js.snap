@@ -2,39 +2,91 @@
 
 exports[`SearchResult should match snapshot 1`] = `
 <article>
-  <header>
-    <span>
-      demure
-    </span>
-    <span>
-      adjective
-    </span>
-     
+  <div>
+    <header>
+      <span>
+        demure
+      </span>
+      <span>
+        adjective
+      </span>
+      <div>
+        <button
+          onClick={[Function]}
+          type="button"
+        >
+          <span>
+            [dɪˈmjuɚ]
+          </span>
+          <svg
+            className={null}
+            height={18}
+            width={18}
+          >
+            
+            <use
+              xlinkHref="function SvgSprite(props) {
+  return React.createElement(
+    'svg', 
+    Object.assign({}, props, {'data-file-name': SvgSprite.name})
+  );
+}#play"
+            />
+          </svg>
+        </button>
+      </div>
+    </header>
     <div>
       <button
+        className=""
+        disabled={false}
         onClick={[Function]}
         type="button"
       >
-        <span>
-          [dɪˈmjuɚ]
-        </span>
         <svg
           className={null}
-          height={18}
-          width={18}
+          height={16}
+          width={16}
         >
+          <title>
+            delete card
+          </title>
           <use
             xlinkHref="function SvgSprite(props) {
   return React.createElement(
     'svg', 
     Object.assign({}, props, {'data-file-name': SvgSprite.name})
   );
-}#play"
+}#delete"
+          />
+        </svg>
+      </button>
+      <button
+        className=""
+        disabled={false}
+        onClick={[Function]}
+        type="button"
+      >
+        <svg
+          className={null}
+          height={18}
+          width={18}
+        >
+          <title>
+            add
+          </title>
+          <use
+            xlinkHref="function SvgSprite(props) {
+  return React.createElement(
+    'svg', 
+    Object.assign({}, props, {'data-file-name': SvgSprite.name})
+  );
+}#add"
           />
         </svg>
       </button>
     </div>
-  </header>
+  </div>
   <ul>
     <li>
       <i>
@@ -43,6 +95,7 @@ exports[`SearchResult should match snapshot 1`] = `
           height={16}
           width={14}
         >
+          
           <use
             xlinkHref="function SvgSprite(props) {
   return React.createElement(
@@ -64,6 +117,7 @@ exports[`SearchResult should match snapshot 1`] = `
           height={16}
           width={14}
         >
+          
           <use
             xlinkHref="function SvgSprite(props) {
   return React.createElement(
