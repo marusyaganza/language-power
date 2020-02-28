@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import './pop-up.css';
+import styles from './pop-up.css';
 
 const PopUp = ({ children, open, id, onClose }) => {
   // TODO fix this handler
@@ -12,8 +12,8 @@ const PopUp = ({ children, open, id, onClose }) => {
   };
   return (
     <>
-      <dialog className="pop-up" id={id} open={open}>
-        <span className="close-button">
+      <dialog className={styles.popUp} id={id} open={open}>
+        <span className={styles.closeButton}>
           <button
             onKeyPress={handleKey}
             id="close"
@@ -29,7 +29,7 @@ const PopUp = ({ children, open, id, onClose }) => {
         <div
           onKeyPress={handleKey}
           onClick={onClose}
-          className="backdrop"
+          className={styles.backdrop}
           role="button"
           tabIndex="-1"
           aria-label="backdrop"
