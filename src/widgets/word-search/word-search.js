@@ -1,5 +1,4 @@
-import React from 'react';
-import uuid from 'uuid';
+import React, { useContext } from 'react';
 import { reducer } from './reducer';
 import { initialState } from './initialState';
 import { ShowMore } from '../../components/show-more/show-more';
@@ -9,8 +8,10 @@ import { useThunkReducer } from '../../utils/useThunkReducer';
 import { WordCard } from '../../components/word-card/word-card';
 import { useFetch } from '../../utils/useFetch';
 import { SearchForm } from '../../components/search-form/search-form';
+import { AppContext } from '../../app-context/appContext';
 
 export const WordSearch = () => {
+  const { wordCards, addWord } = useContext(AppContext);
   const [state, dispatch] = useThunkReducer(reducer, initialState);
   const { result, loading, error } = state;
 
@@ -34,13 +35,16 @@ export const WordSearch = () => {
         );
       }
       if (result.length) {
-        resultContent = result.map(item => (
-          <ul>
-            <li key={uuid()} className="list">
-              <WordCard word={item} />
-            </li>
-          </ul>
-        ));
+        resultContent = result.map(item => {
+          const isAdded = wordCards.some(i => i.uuid === item.uuid);
+          return (
+            <ul>
+              <li key={item.uuid} className="list">
+                <WordCard word={item} isAdded={isAdded} addWord={addWord} />
+              </li>
+            </ul>
+          );
+        });
       }
       return <section className="search-result">{resultContent}</section>;
     }

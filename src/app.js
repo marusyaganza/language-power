@@ -5,6 +5,7 @@ import styles from './styles.css';
 import { NotFoundPage } from './pages/not-found-page/not-found-page';
 import { PATHS } from './constants/paths';
 import { PAGES } from './constants/pages';
+import { AppProvider } from './app-context/appContext';
 
 const tags = Object.keys(PATHS);
 const navItems = Object.values(PATHS);
@@ -29,7 +30,7 @@ export const App = () => (
     <Header navItems={navItems} />
     <main className={styles.main}>
       <Switch>
-        {routing}
+        <AppProvider>{routing}</AppProvider>
         <Route path="*" component={NotFoundPage} />
       </Switch>
     </main>

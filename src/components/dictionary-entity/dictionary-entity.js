@@ -1,12 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import uuid from 'uuid';
 import { cleanString, isSuff } from './helpers';
 import { CLOSING, OPENING } from './constants';
 import styles from './dictionary-entity.css';
 
 export const DictionaryEntity = ({ text, className }) => {
   const decorateWord = word => {
-    return <i className={className}> {word} </i>;
+    return (
+      <i key={uuid()} className={className}>
+        {word}
+      </i>
+    );
   };
 
   const counstuctPhrase = string => {

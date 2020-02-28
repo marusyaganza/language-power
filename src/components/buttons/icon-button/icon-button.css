@@ -8,11 +8,6 @@
     box-shadow: none;
     cursor: pointer;
 }
-
-.button:disabled {
-    color: var(--gray-base);
-}
-
 .delete {
     color: var(--notification-danger-lighter);
 }
@@ -26,4 +21,10 @@
 
 .add:hover {
     color: var(--purple-darker);
+}
+
+.button:disabled,
+.add:hover:disabled,
+.delete:hover:disabled {
+    color: var(--gray-base);
 }

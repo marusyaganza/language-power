@@ -27,7 +27,7 @@ export const ShowMore = ({
   return (
     <section className={className}>
       <p className={styles.item}>
-        <h3 className={styles.title}>{title}</h3>
+        <span className={styles.title}>{title}</span>
         {content}
         {renderButton()}
       </p>

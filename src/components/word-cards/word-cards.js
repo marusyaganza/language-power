@@ -1,17 +1,17 @@
 import React, { useContext } from 'react';
 import './word-cards.css';
 import { WordCard } from '../word-card/word-card';
-import { WordContext } from '../../widgets/words/WordContext';
+import { AppContext } from '../../app-context/appContext';
 
 export const WordCards = () => {
-  const { words, onCheck } = useContext(WordContext);
+  const { wordCards, deleteWord } = useContext(AppContext);
   return (
     <section className="word-cards">
       <h2 className="words-heading">
-        Words: <em className="word-count">{words.length}</em>
+        Words: <em className="word-count">{wordCards.length}</em>
       </h2>
-      {words.map(word => (
-        <WordCard key={word.id} word={word} onCheck={onCheck} />
+      {wordCards.map(word => (
+        <WordCard key={word.uuid} word={word} deleteWord={deleteWord} />
       ))}
     </section>
   );

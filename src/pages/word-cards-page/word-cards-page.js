@@ -1,12 +1,12 @@
 import React from 'react';
-import { Words } from '../../widgets/words/words';
-import { wordCardsMock } from '../../../mocks/word-cards.mock';
+import { WordCards } from '../../components/word-cards/word-cards';
+import '../../components/word-cards/word-cards.css';
 
 export const WordCardsPage = () => {
   return (
     <main>
       <h1 className="main-heading">Word cards</h1>
-      <Words initialState={wordCardsMock} />
+      <WordCards />
     </main>
   );
 };

@@ -10,17 +10,20 @@ import '../word-cards/word-cards.css';
 import { IconButton } from '../buttons/icon-button/icon-button';
 
 // TODO handle empty list elem
-export const WordCard = memo(({ word }) => {
+export const WordCard = memo(({ word, addWord, deleteWord, isAdded }) => {
   const { name, defs, particle, pronunciation, fullDef, stems } = word;
   const { examples } = fullDef;
 
   const renderExamples = ex => {
     if (!ex || !ex.length) return null;
-    const listItems = ex.map(item => (
-      <li key={uuid()} className={styles.examplesItem}>
-        <DictionaryEntity className={styles.examplesListInfo} text={item} />
-      </li>
-    ));
+    const listItems = ex.map(item => {
+      const key = uuid();
+      return (
+        <li key={key} className={styles.examplesItem}>
+          <DictionaryEntity className={styles.examplesListInfo} text={item} />
+        </li>
+      );
+    });
     return (
       <section className={styles.examples}>
         <details>
@@ -67,8 +70,21 @@ export const WordCard = memo(({ word }) => {
           {renderAudio(pronunciation)}
         </header>
         <div>
-          <IconButton kind="delete" iconHint="delete card" size="M" />
-          <IconButton kind="add" />
+          {deleteWord && (
+            <IconButton
+              kind="delete"
+              iconHint="delete card"
+              size="M"
+              onClick={() => deleteWord(word.uuid)}
+            />
+          )}
+          {addWord && (
+            <IconButton
+              kind="add"
+              onClick={() => addWord(word)}
+              disabled={isAdded}
+            />
+          )}
         </div>
       </div>
       <ul className={styles.defList}>{renderDefs(defs)}</ul>
@@ -79,5 +95,14 @@ export const WordCard = memo(({ word }) => {
 });
 
 WordCard.propTypes = {
-  word: PropTypes.object.isRequired
+  word: PropTypes.object.isRequired,
+  addWord: PropTypes.func,
+  deleteWord: PropTypes.func,
+  isAdded: PropTypes.bool
+};
+
+WordCard.defaultProps = {
+  addWord: null,
+  deleteWord: null,
+  isAdded: false
 };

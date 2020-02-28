@@ -36,56 +36,7 @@ exports[`SearchResult should match snapshot 1`] = `
         </button>
       </div>
     </header>
-    <div>
-      <button
-        className=""
-        disabled={false}
-        onClick={[Function]}
-        type="button"
-      >
-        <svg
-          className={null}
-          height={16}
-          width={16}
-        >
-          <title>
-            delete card
-          </title>
-          <use
-            xlinkHref="function SvgSprite(props) {
-  return React.createElement(
-    'svg', 
-    Object.assign({}, props, {'data-file-name': SvgSprite.name})
-  );
-}#delete"
-          />
-        </svg>
-      </button>
-      <button
-        className=""
-        disabled={false}
-        onClick={[Function]}
-        type="button"
-      >
-        <svg
-          className={null}
-          height={18}
-          width={18}
-        >
-          <title>
-            add
-          </title>
-          <use
-            xlinkHref="function SvgSprite(props) {
-  return React.createElement(
-    'svg', 
-    Object.assign({}, props, {'data-file-name': SvgSprite.name})
-  );
-}#add"
-          />
-        </svg>
-      </button>
-    </div>
+    <div />
   </div>
   <ul>
     <li>
@@ -137,9 +88,9 @@ exports[`SearchResult should match snapshot 1`] = `
     className="show-more"
   >
     <p>
-      <h3>
+      <span>
         word forms: 
-      </h3>
+      </span>
       demure, demurely, demureness
     </p>
   </section>
@@ -152,36 +103,28 @@ exports[`SearchResult should match snapshot 1`] = `
         <li>
           a 
           <i>
-             
             demure 
-             
           </i>
           young lady 
         </li>
         <li>
           She was wearing a 
           <i>
-             
             demure 
-             
           </i>
           gray suit. 
         </li>
         <li>
           the 
           <i>
-             
             demure 
-             
           </i>
           charm of the cottage 
         </li>
         <li>
           a 
           <i>
-             
             demure 
-             
           </i>
           personality 
         </li>
