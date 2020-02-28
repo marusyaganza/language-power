@@ -3,45 +3,54 @@ import React from 'react';
 import './pop-up.css';
 
 const PopUp = ({ children, open, id, onClose }) => {
-    // TODO fix this handler
-    const handleKey = e => {
-        console.log('e', e);
-        if (e.key === 'Esc') {
-            onClose();
-        }
-    };
-    return (
-        <>
-            <dialog onKeyPress={handleKey} className="pop-up" id={id} open={open}>
+  // TODO fix this handler
+  const handleKey = e => {
+    // console.log('e', e);
+    if (e.key === 'Esc') {
+      onClose();
+    }
+  };
+  return (
+    <>
+      <dialog className="pop-up" id={id} open={open}>
         <span className="close-button">
-          <button id="close" autoFocus={open} type="button" onClick={onClose}>
+          <button
+            onKeyPress={handleKey}
+            id="close"
+            type="button"
+            onClick={onClose}
+          >
             X
           </button>
         </span>
-                {children}
-            </dialog>
-            {open && (
-                <div
-                    onKeyPress={handleKey}
-                    onClick={onClose}
-                    className="backdrop"
-                    role="button"
-                />
-            )}
-        </>
-    );
+        {children}
+      </dialog>
+      {open && (
+        <div
+          onKeyPress={handleKey}
+          onClick={onClose}
+          className="backdrop"
+          role="button"
+          tabIndex="-1"
+          aria-label="backdrop"
+        />
+      )}
+    </>
+  );
 };
 
 PopUp.defaultProps = {
-    id: '',
-    children: null,
-    open: false
+  id: '',
+  children: null,
+  open: false,
+  onClose: PropTypes.func
 };
 
 PopUp.propTypes = {
-    id: PropTypes.string,
-    children: PropTypes.oneOf(PropTypes.elementType, PropTypes.array),
-    open: PropTypes.bool
+  id: PropTypes.string,
+  children: PropTypes.oneOf(PropTypes.elementType, PropTypes.array),
+  open: PropTypes.bool,
+  onClose: () => {}
 };
 
 export { PopUp };
