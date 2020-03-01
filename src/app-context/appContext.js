@@ -5,7 +5,7 @@ import React, {
   useEffect
 } from 'react';
 import PropTypes from 'prop-types';
-import { ADD_CARD, DELETE_CARD } from './actions';
+import { ADD_CARD, DELETE_CARD, LEARN_CARDS } from './actions';
 import { getWordCards, putCards } from './helpers';
 import { reducer } from './reducer';
 
@@ -38,11 +38,24 @@ export const AppProvider = ({ children }) => {
     [dispatch]
   );
 
+  const learnWords = useCallback(
+    ({ learntCards, gameId }) => {
+      dispatch({
+        type: LEARN_CARDS,
+        payload: {
+          learntCards,
+          gameId
+        }
+      });
+    },
+    [dispatch]
+  );
+
   useEffect(() => {
     putCards(wordCards);
   }, [wordCards]);
 
-  const value = { wordCards, addWord, deleteWord };
+  const value = { wordCards, addWord, deleteWord, learnWords };
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
 };
 

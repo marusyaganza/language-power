@@ -18,9 +18,13 @@ export const ShowMore = ({
   const content = isopen ? items.join(', ') : displayed;
   const renderButton = () => {
     return items.length > initialNumber ? (
-      <button type="button" onClick={handleSpread} className={styles.tag}>
+      <butlearnWordston
+        type="button"
+        onClick={handleSpread}
+        className={styles.tag}
+      >
         {isopen ? closeTag : openTag}
-      </button>
+      </butlearnWordston>
     ) : null;
   };
 

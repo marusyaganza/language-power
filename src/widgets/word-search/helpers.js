@@ -8,7 +8,7 @@ const combineArr = (arr = []) => {
   return result;
 };
 
-const filterString = string => string.replace(/[:\d]/g, ' ');
+const filterString = string => string.replace(/[:\d]/g, '');
 
 function filterFullDef(defs = []) {
   const examples = [];

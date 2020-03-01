@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { PopUp } from '../../components/pop-up/pop-up';
+import { WritingGame } from '../../components/games/writing/writing-game';
 
 // TODO add some view to this page. Now it looks ugly(:
 export const WordGamesPage = () => {
@@ -9,20 +10,11 @@ export const WordGamesPage = () => {
     <>
       <h1>Word Games</h1>
       <div>Games will be added here in the future</div>
-      <button onClick={onClick}> Start game </button>
+      <button type="button" onClick={onClick}>
+        Start game
+      </button>
       <PopUp open={isOpen} onClose={onClick}>
-        <div className="content1">
-          <h1>Game heading</h1>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita
-            hic iure quisquam quod ratione rem repudiandae ut voluptatibus!
-            Distinctio, doloribus hic illum iure molestiae molestias
-            necessitatibus neque non pariatur tenetur. Accusantium alias beatae
-            consectetur consequatur cupiditate id illo ipsum laboriosam, libero
-            magnam maxime nisi, quibusdam recusandae rem similique tenetur
-            vitae, voluptatum? Corporis dolore dolores fugit nulla.
-          </p>
-        </div>
+        <WritingGame closeHandler={onClick} />
       </PopUp>
     </>
   );
