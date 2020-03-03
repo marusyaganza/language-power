@@ -1,0 +1,31 @@
+@import '../../../assets/styles/colors.css';
+@import '../../../assets/styles/fonts.css';
+
+.button {
+    padding: 5px 20px;
+    border: 1px solid var(--yellow-darker);
+    background: var(--yellow-base);
+    border-radius: 10%;
+    box-shadow: 0 3px 0 var(--yellow-dark);
+    color: var(--purple-base);
+    cursor: pointer;
+    font-family: var(--font-libreBaskerville);
+}
+
+.button:hover {
+    border: 1px solid var(--yellow-lighter);
+    background: var(--yellow-base);
+    color: var(--purple-lighter);
+}
+.size-s {
+    font-size: 14px;
+}
+.size-m {
+    font-size: 16px;
+}
+.size-l {
+    font-size: 18px;
+}
+.size-xl {
+    font-size: 20px;
+}

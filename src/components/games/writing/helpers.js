@@ -24,10 +24,17 @@ export const prepareGameData = rawData => {
   const mixed = shuffle(selected);
 
   const qa = mixed.map(card => {
-    const { audioUrl } = card.pronunciation[0];
-    const audioElement = new Audio(audioUrl);
-    return { a: card.name, q: card.defs[0], audioElement };
+    const { pronunciation } = card;
+    const audioUrl = pronunciation.length ? pronunciation[0].audioUrl : null;
+    return { a: card.name, q: card.defs[0], audioUrl };
   });
   const learntCards = mixed.map(item => item.uuid);
   return [qa, learntCards];
+};
+
+export const playAudio = audioUrl => {
+  if (audioUrl) {
+    const audioElement = new Audio(audioUrl);
+    audioElement.play();
+  }
 };

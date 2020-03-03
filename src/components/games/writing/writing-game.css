@@ -1,0 +1,86 @@
+@import '../../../assets/styles/colors.css';
+@import '../../../assets/styles/fonts.css';
+
+.game {
+    width: 100%;
+    padding: 5px;
+}
+
+.game-results {
+    font-size: 16px;
+    text-align: center;
+}
+
+.result-details {
+    display: inline-block;
+    padding: 15px;
+    border: 1px dashed var(--gray-base);
+    color: var(--gray-darkest);
+    line-height: 1.3;
+}
+
+.main-result {
+    margin: 20px auto;
+    color: var(--gray-darkest);
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+}
+.main-result-text {
+    margin-right: 5px;
+}
+
+.question {
+    margin: 20px auto;
+    color: var(--purple-darkest);
+    font-family: var(--font-kalam);
+    line-height: 1.1;
+}
+.answer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.answer-input {
+    width: 100%;
+    margin-bottom: 20px;
+}
+.statusbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 3px 10px;
+    border-bottom: 1px solid var(--yellow-base);
+    margin-bottom: 20px;
+    color: var(--purple-darkest);
+    font-family: var(--font-libreBaskerville);
+    font-size: 14px;
+}
+
+.correct-answer {
+    color: var(--gray-darker);
+    font-style: italic;
+}
+
+.success {
+    color: var(--notification-success);
+}
+
+.error {
+    color: var(--notification-danger);
+}
+
+.started {
+    color: var(--yellow-darker);
+}
+
+.button {
+    margin: 0 10px;
+}
+
+.button-set {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}

@@ -1,25 +1,33 @@
 import React, { useContext, useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { AppContext } from '../../../app-context/appContext';
-import { prepareGameData } from './helpers';
+import { prepareGameData, playAudio } from './helpers';
+import { Button } from '../../buttons/button/button';
+import { DictionaryEntity } from '../../dictionary-entity/dictionary-entity';
+import { Input } from '../../input/input';
+import { Icon } from '../../icons/icon';
+import { LinkButton } from '../../buttons/link-button/link-button';
+import { STATUSES, MESSAGES, GAME_ID } from './config';
+import styles from './writing-game.css';
 
 export const WritingGame = ({ closeHandler }) => {
   const { wordCards, learnWords } = useContext(AppContext);
   const [answer, setAnswer] = useState('');
-  const [isError, setIsError] = useState(false);
+  const [errorCount, setErrorCount] = useState(0);
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [isComplete, setIsComplete] = useState(false);
   const [qa, setQa] = useState(null);
   const [learntCards, setLearntCards] = useState(null);
+  const [status, setStatus] = useState(STATUSES.LOADING);
 
   const resetGame = () => {
     const [qaArr, learntCardsArr] = prepareGameData(wordCards);
-    setIsComplete(false);
-    setIsError(false);
+    const currStatus = qaArr.length ? STATUSES.STARTED : STATUSES.LEARNT;
     setQa(qaArr);
     setAnswer('');
     setCurrentIndex(0);
     setLearntCards(learntCardsArr);
+    setStatus(currStatus);
+    setErrorCount(0);
   };
 
   useEffect(() => {
@@ -27,7 +35,7 @@ export const WritingGame = ({ closeHandler }) => {
   }, []);
 
   const completeGame = () => {
-    learnWords({ gameId: 'write', learntCards });
+    learnWords({ gameId: GAME_ID, learntCards });
     resetGame();
   };
 
@@ -38,75 +46,112 @@ export const WritingGame = ({ closeHandler }) => {
 
   const submitHandler = e => {
     e.preventDefault();
-    if (answer === qa[currentIndex].a) {
-      qa[currentIndex].audioElement.play();
-      setIsError(false);
+    const currentWord = qa[currentIndex];
+    if (answer === currentWord.a) {
+      playAudio(currentWord.audioUrl);
+      setStatus(STATUSES.SUCCESS);
       if (currentIndex === qa.length - 1) {
-        setIsComplete(true);
-      } else {
-        setCurrentIndex(currentIndex + 1);
+        setStatus(STATUSES.COMPLETE);
       }
+      setCurrentIndex(currIndex => currIndex + 1);
+      setAnswer('');
     } else {
-      setIsError(true);
+      setStatus(STATUSES.ERROR);
+      setErrorCount(errCount => errCount + 1);
     }
-    setAnswer('');
   };
 
-  const changeHandler = event => {
-    setAnswer(event.target.value);
+  const changeHandler = e => {
+    setAnswer(e.target.value);
   };
 
   const renderStatusBar = () => {
     return (
-      <header>
-        <span>
-          {currentIndex + 1} of {qa.length}
-        </span>
-        {!isError && currentIndex > 0 && <span>Nice:) </span>}
+      <header className={styles.statusbar}>
+        <div>
+          {currentIndex} of {qa.length}
+        </div>
+        {status === STATUSES.SUCCESS && (
+          <div className={styles.correctAnswer}>{qa[currentIndex - 1].a}</div>
+        )}
+        {status && <div className={styles[status]}>{MESSAGES[status]}</div>}
       </header>
     );
   };
 
   const renderGame = () => {
-    if (!qa) {
+    if (status === STATUSES.LOADING) {
       return <div>Game loading...</div>;
     }
-    if (!qa.length) {
-      return <div>All words are learnt, congrats!</div>;
+    if (status === STATUSES.LEARNT) {
+      return (
+        <section className={styles.gameResults}>
+          <div className={styles.mainResult}>
+            All words are learnt, congrats!
+            <div className={styles.buttonSet}>
+              <LinkButton href="/search_words" size="S">
+                Add new words
+              </LinkButton>
+            </div>
+          </div>
+        </section>
+      );
     }
-    if (isComplete) {
+    if (status === STATUSES.COMPLETE) {
       return (
         <>
-          <p>Training complete</p>
-          <button type="button" onClick={completeGame}>
-            continue training
-          </button>
-          <button type="button" onClick={onFinish}>
-            finish
-          </button>
+          <section className={styles.gameResults}>
+            <div className={styles.mainResult}>
+              <span className={styles.mainResultText}>Training complete</span>
+              <Icon id="finish" width={16} height={16} />
+            </div>
+            <div className={styles.resultDetails}>
+              <p>You made {errorCount} mistakes</p>
+              <p>You practiced {qa.length} words</p>
+            </div>
+          </section>
+          <div className={styles.buttonSet}>
+            <Button className={styles.button} onClick={completeGame} size="S">
+              continue training
+            </Button>
+            <Button type="button" onClick={onFinish}>
+              finish
+            </Button>
+          </div>
         </>
       );
     }
     return (
-      <article>
-        <p>{qa[currentIndex].q}</p>
-        <form onSubmit={submitHandler}>
-          <input value={answer} onChange={changeHandler} type="text" />
-          <button type="submit">Submit</button>
+      <>
+        <p className={styles.question}>
+          <DictionaryEntity text={qa[currentIndex].q} />
+        </p>
+        <form className={styles.answer} onSubmit={submitHandler}>
+          <Input
+            isError={status === STATUSES.ERROR}
+            name="answer"
+            className={styles.answerInput}
+            onChange={changeHandler}
+            value={answer}
+            type="text"
+            label="type your answer"
+          />
+          <Button size="L" type="submit">
+            Check
+          </Button>
         </form>
-      </article>
+      </>
     );
   };
 
   return (
     <>
-      {qa && renderStatusBar()}
-      {renderGame()}
-      {isError && <div>Wrong! Please try again</div>}
+      {status !== STATUSES.LOADING && renderStatusBar()}
+      <article className={styles.game}>{renderGame()}</article>
     </>
   );
 };
 
 WritingGame.propTypes = {
-  closeHandler: PropTypes.bool.isRequired
+  closeHandler: PropTypes.func.isRequired
 };

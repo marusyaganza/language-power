@@ -1,0 +1,42 @@
+@import '../../assets/styles/fonts.css';
+@import '../../assets/styles/colors.css';
+
+.label {
+    width: 100%;
+    color: var(--gray-darker);
+    font-size: 0.7em;
+    text-align: center;
+}
+
+.input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px 20px;
+    border: 1px solid rgba(135, 110, 215, 0.32);
+    margin: auto;
+    border-radius: 6px;
+    color: var(--gray-darkest);
+    color: inherit;
+    font-family: inherit;
+    font-size: 16px;
+}
+
+.input-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.input::placeholder {
+    color: var(--yellow-darker);
+    opacity: 0.6;
+}
+.input:focus {
+    border-bottom: 1px solid rgba(57, 20, 175, 0.7);
+    background: transparent;
+    outline: none;
+}
+.error {
+    border: 1px solid var(--notification-danger-lighter);
+    color: var(--notification-danger);
+}

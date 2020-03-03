@@ -5,8 +5,6 @@
     margin: 0 3px;
     background: transparent;
     border-radius: 50%;
-    box-shadow: none;
-    cursor: pointer;
 }
 .delete {
     color: var(--notification-danger-lighter);
@@ -21,6 +19,14 @@
 
 .add:hover {
     color: var(--purple-darker);
+}
+
+.close {
+    color: var(--gray-darkest);
+}
+
+.close:hover {
+    color: var(--purple-darkest);
 }
 
 .button:disabled,

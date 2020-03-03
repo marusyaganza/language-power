@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import styles from './pop-up.css';
+import { IconButton } from '../buttons/icon-button/icon-button';
 
 const PopUp = ({ children, open, id, onClose }) => {
   // TODO fix this handler
@@ -12,18 +13,11 @@ const PopUp = ({ children, open, id, onClose }) => {
   };
   return (
     <>
-      <dialog className={styles.popUp} id={id} open={open}>
+      <dialog className={styles.dialog} id={id} open={open}>
         <span className={styles.closeButton}>
-          <button
-            onKeyPress={handleKey}
-            id="close"
-            type="button"
-            onClick={onClose}
-          >
-            X
-          </button>
+          <IconButton onClick={onClose} kind="close" iconHint="close window" />
         </span>
-        {children}
+        <div className={styles.content}>{children}</div>
       </dialog>
       {open && (
         <div
