@@ -1,0 +1,43 @@
+@import '../../assets/styles/colors.css';
+@import '../../assets/styles/fonts.css';
+
+.banner {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: auto 100%;
+    background-size: cover;
+}
+
+.heading {
+    z-index: 2;
+    display: inline-block;
+    padding: 50px;
+    background-color: var(--purple-darkest);
+    border-radius: 5px;
+    color: var(--gray-lightest);
+    font-family: var(--font-libreBaskerville);
+}
+.banner::after {
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: inherit;
+    background-color: var(--purple-darkest);
+    content: '';
+    opacity: 0.3;
+    pointer-events: none;
+}
+.main-heading {
+    font-size: 2em;
+    font-weight: bold;
+}
+.subheading {
+    color: var(--notification-danger-lighter);
+    text-align: center;
+}

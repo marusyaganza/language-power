@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { PopUp } from '../../components/pop-up/pop-up';
 import { WritingGame } from '../../components/games/writing/writing-game';
+import bannerImg from '../../assets/img/jpg/word-games-banner.jpg';
+import { Banner } from '../../components/banner/banner';
 
 // TODO add some view to this page. Now it looks ugly(:
 export const WordGamesPage = () => {
@@ -8,8 +10,11 @@ export const WordGamesPage = () => {
   const onClick = () => setIsOpen(!isOpen);
   return (
     <>
-      <h1>Word Games</h1>
-      <div>Games will be added here in the future</div>
+      <Banner
+        imgSrc={bannerImg}
+        mainHeading="Word games"
+        subHeading="Practice makes perfect"
+      />
       <button type="button" onClick={onClick}>
         Start game
       </button>
