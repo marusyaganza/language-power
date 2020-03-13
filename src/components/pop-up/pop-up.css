@@ -1,7 +1,9 @@
 @import '../../assets/styles/colors.css';
 
 .dialog {
+    position: absolute;
     z-index: 1041;
+    top: 50%;
     width: 60%;
     border: 0;
     margin: auto;

@@ -1,6 +1,3 @@
-export const MAX_INDEX = 5;
-export const MAX_GAMES = 5;
-export const GAME_ID = 'write';
 export const STATUSES = {
   COMPLETE: 'complete',
   STARTED: 'started',

@@ -1,0 +1,17 @@
+.option-box {
+    display: flex;
+    flex-wrap: wrap;
+}
+.option-input {
+    /* position: absolute; */
+
+    /* top: -100%; */
+}
+
+.option {
+    padding: 5px;
+
+    /* margin: 2%; */
+
+    /* border: 1px solid black; */
+}
