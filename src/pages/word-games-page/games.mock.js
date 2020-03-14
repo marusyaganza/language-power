@@ -1,6 +1,5 @@
 import writing from '../../assets/img/jpg/writing-game-logo.jpg';
-import audio from '../../assets/img/jpg/mind-544404_1920.png';
-import option from '../../assets/img/jpg/letters-3704026_1920.jpg';
+import option from '../../assets/img/jpg/letters-game-logo.jpg';
 
 export const games = [
     {

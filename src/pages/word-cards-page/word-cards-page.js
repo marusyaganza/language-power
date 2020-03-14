@@ -1,11 +1,11 @@
 import React from 'react';
 import { WordCards } from '../../components/word-cards/word-cards';
-import '../../components/word-cards/word-cards.css';
+import styles from './word-cards-page.css';
 
 export const WordCardsPage = () => {
   return (
-    <main>
-      <h1 className="main-heading">Word cards</h1>
+    <main className={styles.container}>
+      <h1 className={styles.mainHeading}>Word cards</h1>
       <WordCards />
     </main>
   );

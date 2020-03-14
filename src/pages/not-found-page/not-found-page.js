@@ -1,12 +1,17 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { LinkButton } from '../../components/buttons/link-button/link-button';
+import styles from './not-found-page.css';
 
-// TODO add some view to this page. Now it looks ugly(:
 export const NotFoundPage = () => {
   return (
-    <>
-      <h1>Page is not found</h1>
-      <Link to="/"> Go to Home page </Link>
-    </>
+    <div className={styles.infoContainer}>
+      <article className={styles.info}>
+        <h1 className={styles.mainHeading}>404</h1>
+        <h2 className={styles.subheading}>Page is not found</h2>
+        <div className={styles.buttonContainer}>
+          <LinkButton href="/"> Go to Home page </LinkButton>
+        </div>
+      </article>
+    </div>
   );
 };

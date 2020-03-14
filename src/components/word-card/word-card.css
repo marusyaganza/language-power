@@ -1,16 +1,15 @@
 @import '../../assets/styles/colors.css';
 @import '../../assets/styles/fonts.css';
 
+/* @import '../../assets//img/jpg/hand-spock-solid.svg'; */
+
 .word {
     padding: 15px;
-    border: 1px solid var(--purple-lighter);
+    border: 1px solid rgba(32, 7, 114, 0.2);
     margin: 10px 20px;
+    border-radius: 3px;
     box-shadow: 0 3px 0 var(--gray-lightest);
     font-family: var(--font-libreBaskerville);
-}
-
-.defs-list {
-    list-style: none;
 }
 
 .word-header {
@@ -35,15 +34,12 @@
     font-family: var(--font-kalam);
 }
 .examples-title {
-    cursor: pointer;
     font-size: 18px;
-    outline: none;
 }
 
 .examples-list {
     padding: 0 10px;
     margin: 0 50px;
-    outline: none;
 }
 
 .examples-list-info {
@@ -68,4 +64,9 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+}
+.audio {
+    color: var(--gray-darkest);
+    font-size: 16px;
+    font-style: italic;
 }

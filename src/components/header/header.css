@@ -51,7 +51,7 @@
 }
 
 .active-link {
-    padding: 12px;
+    padding: 9px;
     background: var(--purple-dark);
-    color: (--yellow-lightest);
+    color: var(--yellow-lightest);
 }

@@ -29,10 +29,12 @@ export const App = () => (
   <div className="page">
     <Header navItems={navItems} />
     <main className={styles.main}>
-      <Switch>
-        <AppProvider>{routing}</AppProvider>
-        <Route path="*" component={NotFoundPage} />
-      </Switch>
+      <AppProvider>
+        <Switch>
+          {routing}
+          <Route path="*" component={NotFoundPage} />
+        </Switch>
+      </AppProvider>
     </main>
   </div>
 );

@@ -9,6 +9,7 @@ import { WordCard } from '../../components/word-card/word-card';
 import { useFetch } from '../../utils/useFetch';
 import { SearchForm } from '../../components/search-form/search-form';
 import { AppContext } from '../../app-context/appContext';
+import styles from './word-search.css';
 
 export const WordSearch = () => {
   const { wordCards, addWord } = useContext(AppContext);
@@ -51,7 +52,7 @@ export const WordSearch = () => {
     return null;
   };
   return (
-    <section className="word-search">
+    <section className={styles.wordSearch}>
       <SearchForm onFormSubmit={handleSearchSubmit} />
       {renderResult()}
     </section>

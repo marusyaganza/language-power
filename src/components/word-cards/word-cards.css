@@ -2,7 +2,9 @@
 @import '../../assets/styles/fonts.css';
 
 .words-heading {
-    color: var(--purple-darker);
-    font-family: var(--font-roboto);
+    padding: 15px;
+    color: var(--gray-darkest);
+    font-family: var(--font-libreBaskerville);
+    font-size: 20px;
     text-align: center;
 }

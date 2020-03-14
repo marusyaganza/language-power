@@ -11,7 +11,8 @@ a {
     text-decoration: none;
 }
 
-button {
+button,
+summary {
     cursor: pointer;
     outline: none;
 }

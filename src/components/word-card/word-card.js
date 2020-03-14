@@ -9,7 +9,6 @@ import { ShowMore } from '../show-more/show-more';
 import '../word-cards/word-cards.css';
 import { IconButton } from '../buttons/icon-button/icon-button';
 
-// TODO handle empty list elem
 export const WordCard = memo(({ word, addWord, deleteWord, isAdded }) => {
   const { name, defs, particle, pronunciation, fullDef, stems } = word;
   const { examples } = fullDef;
@@ -48,7 +47,6 @@ export const WordCard = memo(({ word, addWord, deleteWord, isAdded }) => {
     if (!defsArr) return null;
     return defsArr.map(def => {
       return defsArr.length ? (
-        // TODO create list component for this
         <li className={styles.defListItem} key={uuid()}>
           <i className={styles.textIcon}>
             <Icon width={14} height={16} id="book" />
@@ -87,7 +85,7 @@ export const WordCard = memo(({ word, addWord, deleteWord, isAdded }) => {
           )}
         </div>
       </div>
-      <ul className={styles.defList}>{renderDefs(defs)}</ul>
+      <ul className={styles.defsList}>{renderDefs(defs)}</ul>
       <ShowMore items={stems} title="word forms: " initialNumber={5} />
       {renderExamples(examples)}
     </article>
