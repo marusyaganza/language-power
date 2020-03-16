@@ -5,6 +5,7 @@
     margin: 0 3px;
     background: transparent;
     border-radius: 50%;
+    color: inherit;
 }
 .delete {
     color: var(--notification-danger-lighter);
