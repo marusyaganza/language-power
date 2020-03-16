@@ -4,11 +4,14 @@ import { GameEngine } from '../../game-engine/game-engine';
 import { prepareGameData } from './helpers';
 import { Input } from '../../../input/input';
 import { AudioButton } from '../../../audio-button/audio-button';
+import styles from './audio.css';
 
 export const AudioGame = ({ closeHandler }) => {
   // eslint-disable-next-line react/prop-types
   const Question = ({ text }) => (
-    <AudioButton buttonSize={50} autoplay src={text} />
+    <div className={styles.audio}>
+      <AudioButton buttonSize={50} autoplay src={text} />
+    </div>
   );
   return (
     <GameEngine
