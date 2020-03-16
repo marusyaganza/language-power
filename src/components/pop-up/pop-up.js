@@ -42,7 +42,7 @@ PopUp.defaultProps = {
 
 PopUp.propTypes = {
   id: PropTypes.string,
-  children: PropTypes.oneOf(PropTypes.elementType, PropTypes.array),
+  children: PropTypes.node,
   open: PropTypes.bool,
   onClose: () => {}
 };

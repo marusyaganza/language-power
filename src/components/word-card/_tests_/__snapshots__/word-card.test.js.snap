@@ -10,31 +10,29 @@ exports[`SearchResult should match snapshot 1`] = `
       <span>
         adjective
       </span>
-      <div>
-        <button
-          onClick={[Function]}
-          type="button"
+      <button
+        onClick={[Function]}
+        type="button"
+      >
+        <span>
+          [dɪˈmjuɚ]
+        </span>
+        <svg
+          className={null}
+          height={18}
+          width={18}
         >
-          <span>
-            [dɪˈmjuɚ]
-          </span>
-          <svg
-            className={null}
-            height={18}
-            width={18}
-          >
-            
-            <use
-              xlinkHref="function SvgSprite(props) {
+          
+          <use
+            xlinkHref="function SvgSprite(props) {
   return React.createElement(
     'svg', 
     Object.assign({}, props, {'data-file-name': SvgSprite.name})
   );
 }#play"
-            />
-          </svg>
-        </button>
-      </div>
+          />
+        </svg>
+      </button>
     </header>
     <div />
   </div>

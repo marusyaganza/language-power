@@ -14,17 +14,15 @@ export const AudioButton = ({ src, buttonText, buttonSize, autoplay }) => {
     }
   }, [src]);
   return (
-    <div>
-      <button className={styles.playButton} type="button" onClick={play}>
-        <span className={styles.buttonText}>{buttonText}</span>
-        <Icon
-          className={styles.icon}
-          id="play"
-          height={buttonSize}
-          width={buttonSize}
-        />
-      </button>
-    </div>
+    <button className={styles.playButton} type="button" onClick={play}>
+      <span className={styles.buttonText}>{buttonText}</span>
+      <Icon
+        className={styles.icon}
+        id="play"
+        height={buttonSize}
+        width={buttonSize}
+      />
+    </button>
   );
 };
 

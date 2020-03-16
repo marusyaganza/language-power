@@ -23,7 +23,7 @@ export const Banner = ({
 };
 
 Banner.propTypes = {
-  imgHeight: PropTypes.oneOf([PropTypes.string, PropTypes.number]),
+  imgHeight: PropTypes.number,
   mainHeading: PropTypes.string.isRequired,
   subHeading: PropTypes.string,
   imgSrc: PropTypes.string,

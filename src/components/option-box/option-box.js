@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import cn from 'classnames';
+import uuid from 'uuid';
 import styles from './option-box.css';
 
 export const OptionBox = ({ options, value, onChange, className, isError }) => {
@@ -8,8 +9,9 @@ export const OptionBox = ({ options, value, onChange, className, isError }) => {
     <ul className={cn(styles.optionBox, className)}>
       {options.map(option => {
         const checked = value === option;
+        const hash = uuid();
         return (
-          <li className={styles.box}>
+          <li key={hash} className={styles.box}>
             <input
               className={styles.optionInput}
               onChange={onChange}
@@ -48,6 +50,6 @@ OptionBox.propTypes = {
   options: PropTypes.arrayOf(PropTypes.string),
   value: PropTypes.string,
   onChange: PropTypes.func,
-  className: PropTypes.objectOf(PropTypes.string),
+  className: PropTypes.string,
   isError: PropTypes.bool
 };

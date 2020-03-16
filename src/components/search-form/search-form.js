@@ -22,6 +22,7 @@ export const SearchForm = ({ onFormSubmit }) => {
     <form onSubmit={handleSearchSubmit} className={styles.searchForm}>
       <Input
         className={styles.searchInput}
+        name="searchInput"
         onChange={handleChange}
         placeholder="word"
         value={query}

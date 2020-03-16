@@ -36,16 +36,18 @@ export const WordSearch = () => {
         );
       }
       if (result.length) {
-        resultContent = result.map(item => {
-          const isAdded = wordCards.some(i => i.uuid === item.uuid);
-          return (
-            <ul>
-              <li key={item.uuid} className="list">
-                <WordCard word={item} isAdded={isAdded} addWord={addWord} />
-              </li>
-            </ul>
-          );
-        });
+        resultContent = (
+          <ul>
+            {result.map(item => {
+              const isAdded = wordCards.some(i => i.uuid === item.uuid);
+              return (
+                <li key={item.uuid}>
+                  <WordCard word={item} isAdded={isAdded} addWord={addWord} />
+                </li>
+              );
+            })}
+          </ul>
+        );
       }
       return <section className="search-result">{resultContent}</section>;
     }
