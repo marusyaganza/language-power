@@ -1,55 +1,55 @@
 @import '../../assets/styles/colors.css';
 @import '../../assets/styles/fonts.css';
 
-@media screen and (max-width: 760px) {
-    .header {
+.header {
+    display: flex;
+    height: 40px;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--purple-darker);
+    color: var(--yellow-base);
+    font-family: var(--font-kalam);
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+.nav-items {
+    display: none;
+}
+
+.burger-button {
+    padding-left: 10px;
+}
+
+@media (min-width: 760px) {
+    .burger-button {
         display: none;
     }
-    .header-mobile {
+    .nav-items {
         display: flex;
-        padding: 10px;
-        justify-content: space-between;
-        background: var(--purple-darker);
-        color: var(--yellow-base);
-        font-family: var(--font-kalam);
+        width: 100%;
+        height: 100%;
+        flex-direction: row;
+        align-content: center;
+        justify-content: space-around;
     }
-}
-@media screen and (min-width: 761px) {
-    .header {
-        display: flex;
-        height: 40px;
-        justify-content: space-between;
-        background: var(--purple-darker);
-        color: var(--yellow-base);
-        font-family: var(--font-kalam);
-        font-size: 14px;
-        text-transform: uppercase;
+
+    .nav-item {
+        align-self: center;
+        padding: 4px;
+        margin: 0 15px;
+        border-radius: 4%;
+    }
+
+    .nav-item:hover {
+        background: var(--purple-dark);
+        color: var(--yellow-lightest);
     }
 }
 
 .items {
     padding: 9px;
     margin-right: 30px;
-}
-.nav-items {
-    display: flex;
-    width: 100%;
-    height: 100%;
-    flex-direction: row;
-    align-content: center;
-    justify-content: space-around;
-}
-
-.nav-item {
-    align-self: center;
-    padding: 4px;
-    margin: 0 15px;
-    border-radius: 4%;
-}
-
-.nav-item:hover {
-    background: var(--purple-dark);
-    color: var(--yellow-lightest);
 }
 
 .logo {
@@ -68,4 +68,16 @@
     padding: 9px;
     background: var(--purple-dark);
     color: var(--yellow-lightest);
+}
+.side-drawer-nav {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    justify-content: space-around;
+    color: var(--purple-darker);
+    font-family: var(--font-kalam);
+    font-size: 18px;
+    text-transform: uppercase;
 }

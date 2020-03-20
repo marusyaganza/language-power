@@ -1,3 +1,5 @@
-.word-search {
-    margin: 20px 40px;
+@media (min-width: 760px) {
+    .word-search {
+        margin: 20px 40px;
+    }
 }

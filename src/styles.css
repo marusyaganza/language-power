@@ -27,3 +27,9 @@ summary {
     box-sizing: border-box;
     margin: 40px auto;
 }
+
+@media (min-width: 760px) {
+    .main {
+        margin: 20px 40px;
+    }
+}
