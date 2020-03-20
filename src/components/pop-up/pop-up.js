@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import styles from './pop-up.css';
 import { IconButton } from '../buttons/icon-button/icon-button';
+import { Backdrop } from '../../elements/backdrop/backdrop';
 
 const PopUp = ({ children, open, id, onClose }) => {
   // TODO fix this handler
@@ -19,16 +20,7 @@ const PopUp = ({ children, open, id, onClose }) => {
         </span>
         <div className={styles.content}>{children}</div>
       </dialog>
-      {open && (
-        <div
-          onKeyPress={handleKey}
-          onClick={onClose}
-          className={styles.backdrop}
-          role="button"
-          tabIndex="-1"
-          aria-label="backdrop"
-        />
-      )}
+      {open && <Backdrop onKeyPress={handleKey} onClick={onClose} />}
     </>
   );
 };

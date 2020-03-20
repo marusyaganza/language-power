@@ -4,7 +4,7 @@ import styles from './word-cards-page.css';
 
 export const WordCardsPage = () => {
   return (
-    <main className={styles.container}>
+    <main>
       <h1 className={styles.mainHeading}>Word cards</h1>
       <WordCards />
     </main>
