@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import styles from './games-catalog.css';
 import { Button } from '../buttons/button/button';
-import defaultLogo from '../../assets/img/jpg/default-logo.png';
+import defaultLogo from '../../assets/img/jpg/default.png';
 
 export const GamesCatalog = ({ games, onClick }) => {
   const renderGames = () => {

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { PopUp } from '../../components/pop-up/pop-up';
-import bannerImg from '../../assets/img/jpg/word-games-banner.jpg';
+import bannerImg from '../../assets/img/jpg/games_banner.jpg';
 import { Banner } from '../../components/banner/banner';
 import { GamesCatalog } from '../../components/games-catalog/games-catalog';
 import { games } from './games.mock';

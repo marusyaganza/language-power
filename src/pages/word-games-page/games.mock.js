@@ -1,6 +1,6 @@
-import writing from '../../assets/img/jpg/writing-game-logo.jpg';
-import option from '../../assets/img/jpg/letters-game-logo.jpg';
-
+import writing from '../../assets/img/jpg/writing.jpg';
+import option from '../../assets/img/jpg/option.jpg';
+import audio from '../../assets/img/jpg/audio.jpg';
 export const games = [
     {
         name: 'writing',
@@ -12,7 +12,7 @@ export const games = [
         name: 'audio',
         id: 'audio',
         desc: 'Type the word that you\'ve heard',
-        logo: writing
+        logo: audio
     },
     {
         name: 'option',
