@@ -30,3 +30,10 @@
     padding: 7px 20px;
     font-size: 20px;
 }
+.button:disabled,
+.button:hover:disabled {
+    border: 0;
+    background: var(--gray-lighter);
+    color: var(--purple-darkest);
+    cursor: not-allowed;
+}

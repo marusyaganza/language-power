@@ -31,7 +31,7 @@ module.exports = {
     'no-plusplus': 'off',
     'space-before-function-paren': 0,
 
-    'max-len': ['error', 80, 2, { ignoreUrls: true }],
+    'max-len': ['warn', 80, 2, { ignoreUrls: true }],
     'no-console': 'error',
     'no-alert': 'error',
 

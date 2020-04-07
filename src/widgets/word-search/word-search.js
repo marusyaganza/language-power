@@ -3,10 +3,10 @@ import { reducer } from './reducer';
 import { initialState } from './initialState';
 import { ShowMore } from '../../components/show-more/show-more';
 import { getSearchUrl } from './helpers';
-import { useThunkReducer } from '../../utils/useThunkReducer';
+import { useThunkReducer } from '../../utils/hooks/useThunkReducer';
 
 import { WordCard } from '../../components/word-card/word-card';
-import { useFetch } from '../../utils/useFetch';
+import { useFetch } from '../../utils/hooks/useFetch';
 import { SearchForm } from '../../components/search-form/search-form';
 import { AppContext } from '../../app-context/appContext';
 import styles from './word-search.css';

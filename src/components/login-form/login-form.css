@@ -1,0 +1,16 @@
+.form {
+    padding: 20px;
+    border-bottom: 1px solid var(--gray-base);
+    margin-bottom: 20px;
+}
+.mode-set {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--gray-darker);
+    font-size: 16px;
+}
+
+.mode-set-text {
+    margin-right: 10px;
+}

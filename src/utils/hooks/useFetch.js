@@ -2,7 +2,7 @@ import {
   FETCHING,
   RESPONSE_COMPLETE,
   RESPONSE_ERROR
-} from '../widgets/word-search/actions';
+} from '../../widgets/word-search/actions';
 
 export const useFetch = ({ url, query, dispatch }) => {
   dispatch({
