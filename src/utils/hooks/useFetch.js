@@ -4,7 +4,7 @@ import {
   RESPONSE_ERROR
 } from '../../widgets/word-search/actions';
 
-export const useFetch = ({ url, query, dispatch }) => {
+export const useFetch = ({ url, query, dispatch, formatData }) => {
   dispatch({
     type: FETCHING
   });
@@ -14,7 +14,7 @@ export const useFetch = ({ url, query, dispatch }) => {
       dispatch({
         type: RESPONSE_COMPLETE,
         payload: {
-          res,
+          res: formatData(res),
           query
         }
       });

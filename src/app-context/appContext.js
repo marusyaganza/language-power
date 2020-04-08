@@ -2,7 +2,8 @@ import React, {
   useCallback,
   useReducer,
   createContext,
-  useEffect
+  useEffect,
+  useState
 } from 'react';
 import PropTypes from 'prop-types';
 import { ADD_CARD, DELETE_CARD, LEARN_CARDS } from './actions';
@@ -14,6 +15,7 @@ export const AppContext = createContext();
 export const AppProvider = ({ children }) => {
   const initialState = getWordCards() || [];
   const [wordCards, dispatch] = useReducer(reducer, initialState);
+  const [userId, setUserId] = useState(null);
   const addWord = useCallback(
     card => {
       dispatch({
@@ -51,11 +53,27 @@ export const AppProvider = ({ children }) => {
     [dispatch]
   );
 
+  const login = useCallback(id => {
+    setUserId(id);
+  }, []);
+
+  const logout = useCallback(() => {
+    setUserId(null);
+  }, []);
+
   useEffect(() => {
     putCards(wordCards);
   }, [wordCards]);
 
-  const value = { wordCards, addWord, deleteWord, learnWords };
+  const value = {
+    wordCards,
+    addWord,
+    deleteWord,
+    learnWords,
+    login,
+    logout,
+    userId
+  };
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
 };
 

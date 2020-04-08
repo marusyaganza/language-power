@@ -3,9 +3,9 @@ import {
   SEARCH_INIT,
   RESPONSE_ERROR,
   RESPONSE_COMPLETE
-} from './actions';
+} from './fetch-actions';
 
-export const reducer = (state, action) => {
+export const fetchReducer = (state, action) => {
   const { type, payload } = action;
 
   if (type === FETCHING) {

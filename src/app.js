@@ -26,15 +26,15 @@ const routing = tags.map(tag => {
 });
 // TODO create component for main
 export const App = () => (
-  <div className="page">
-    <Header navItems={navItems} />
-    <main className={styles.main}>
-      <AppProvider>
+  <AppProvider>
+    <div className="page">
+      <Header navItems={navItems} />
+      <main className={styles.main}>
         <Switch>
           {routing}
           <Route path="*" component={NotFoundPage} />
         </Switch>
-      </AppProvider>
-    </main>
-  </div>
+      </main>
+    </div>
+  </AppProvider>
 );

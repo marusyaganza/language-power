@@ -14,3 +14,8 @@
 .mode-set-text {
     margin-right: 10px;
 }
+.error {
+    padding-top: 20px;
+    color: var(--notification-danger);
+    text-align: center;
+}

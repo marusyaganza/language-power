@@ -67,7 +67,11 @@ const getFullDef = def => {
   return filterFullDef(rawDefs);
 };
 
+// TODO separate related words
 export const formatData = initialData => {
+  if (initialData.some(i => typeof i === 'string') && initialData.length) {
+    return { suggestions: initialData };
+  }
   const formatted = initialData.map(({ meta, hwi, def }) => {
     const metaData = getMetaData(meta);
     if (!metaData) return null;

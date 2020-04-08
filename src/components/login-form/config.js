@@ -64,12 +64,25 @@ const signUpFields = [
   }
 ];
 
-export const loginConfig = {
-  fields: loginFields,
-  initialState: loginInitialState
-};
-
-export const signUpConfig = {
-  fields: signUpFields,
-  initialState: signUpInitialState
+export const config = {
+  signUpConfig: {
+    formConfig: {
+      fields: signUpFields,
+      initialState: signUpInitialState
+    },
+    texts: {
+      changeModeButtonText: 'login',
+      changeModeText: 'Already have an account?'
+    }
+  },
+  loginConfig: {
+    formConfig: {
+      fields: loginFields,
+      initialState: loginInitialState
+    },
+    texts: {
+      changeModeButtonText: 'sign up',
+      changeModeText: 'Do not have an account? Sign upt, it is free!'
+    }
+  }
 };

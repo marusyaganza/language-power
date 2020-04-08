@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 import styles from './form.css';
@@ -7,14 +7,17 @@ import { Button } from '../buttons/button/button';
 import { useForm } from '../../utils/hooks/useForm';
 
 export const Form = ({ onSubmit, initialState, fields }) => {
+  const [state, changeHandler, setFormData] = useForm(initialState);
+  const { isValid, inputs } = state;
+
+  useEffect(() => {
+    setFormData(fields, initialState);
+  }, [fields]);
+
   const submitHandler = e => {
     e.preventDefault();
-    onSubmit();
+    onSubmit(inputs);
   };
-
-  const [state, changeHandler] = useForm(initialState);
-
-  const { isValid } = state;
 
   const renderFields = () => {
     return fields.map(field => {
@@ -29,7 +32,6 @@ export const Form = ({ onSubmit, initialState, fields }) => {
       );
     });
   };
-
   return (
     <form onSubmit={submitHandler}>
       {renderFields()}
