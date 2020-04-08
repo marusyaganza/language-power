@@ -3,19 +3,9 @@
 
 .button {
     padding: 5px 20px;
-    border: 1px solid var(--yellow-darker);
-    background: var(--yellow-base);
     border-radius: 10%;
-    box-shadow: 0 3px 0 var(--yellow-dark);
-    color: var(--purple-base);
     font-family: var(--font-libreBaskerville);
     transition: all 0.2s ease;
-}
-
-.button:hover {
-    border: 1px solid var(--yellow-lighter);
-    background: var(--yellow-base);
-    color: var(--purple-lighter);
 }
 .size-s {
     font-size: 14px;
@@ -30,6 +20,31 @@
     padding: 7px 20px;
     font-size: 20px;
 }
+.red {
+    border: 1px solid var(--notification-danger);
+    background: var(--notification-danger-lighter);
+    box-shadow: 0 3px 0 var(--gray-base);
+    color: var(--yellow-lightest);
+}
+
+.red:hover {
+    background: var(--yellow-lightest);
+    color: var(--notification-danger);
+}
+
+.yellow {
+    border: 1px solid var(--yellow-darker);
+    background: var(--yellow-base);
+    box-shadow: 0 3px 0 var(--yellow-dark);
+    color: var(--purple-base);
+}
+
+.yellow:hover {
+    border: 1px solid var(--yellow-lighter);
+    background: var(--yellow-base);
+    color: var(--purple-lighter);
+}
+
 .button:disabled,
 .button:hover:disabled {
     border: 0;

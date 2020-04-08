@@ -11,11 +11,17 @@ export const Button = ({
   disabled,
   type,
   size,
-  className
+  className,
+  kind
 }) => {
   return (
     <button
-      className={cn(styles.button, styles[`size${size}`], className)}
+      className={cn(
+        styles.button,
+        styles[`size${size}`],
+        className,
+        styles[kind]
+      )}
       type={type}
       onClick={onClick}
       disabled={disabled}
@@ -31,7 +37,8 @@ Button.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
   disabled: PropTypes.bool,
-  onClick: PropTypes.func
+  onClick: PropTypes.func,
+  kind: PropTypes.string
 };
 
 Button.defaultProps = {
@@ -40,5 +47,6 @@ Button.defaultProps = {
   children: null,
   className: null,
   disabled: false,
-  onClick: () => {}
+  onClick: () => {},
+  kind: 'yellow'
 };

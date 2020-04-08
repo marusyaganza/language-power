@@ -6,6 +6,7 @@ import { Icon } from '../../icons/icon';
 import { LinkButton } from '../../buttons/link-button/link-button';
 import { STATUSES, MESSAGES } from './config';
 import styles from './game-engine.css';
+import { Spinner } from '../../../elements/spinner/spinner';
 
 export const GameEngine = ({
   closeHandler,
@@ -84,7 +85,7 @@ export const GameEngine = ({
 
   const renderGame = () => {
     if (status === STATUSES.LOADING) {
-      return <div>Game loading...</div>;
+      return <Spinner />;
     }
     if (status === STATUSES.LEARNT) {
       return (

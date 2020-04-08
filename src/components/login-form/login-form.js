@@ -7,6 +7,7 @@ import { config } from './config';
 import { Form } from '../form/form';
 import { useFetch } from '../../utils/hooks/fetch/useFetch';
 import { AppContext } from '../../app-context/appContext';
+import { Spinner } from '../../elements/spinner/spinner';
 
 export const LoginForm = ({ onSubmit }) => {
   const { login } = useContext(AppContext);
@@ -44,7 +45,7 @@ export const LoginForm = ({ onSubmit }) => {
 
   const renderForm = () => {
     if (loading) {
-      return <div>Loading...</div>;
+      return <Spinner />;
     }
     const { loginConfig, signUpConfig } = config;
     const { formConfig, texts } = isLogin ? loginConfig : signUpConfig;

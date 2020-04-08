@@ -1,21 +1,17 @@
 import React, { useContext } from 'react';
-// import { reducer } from './reducer';
-// import { initialState } from './initialState';
 import { ShowMore } from '../../components/show-more/show-more';
 import { getSearchUrl, formatData } from './helpers';
-// import { useThunkReducer } from '../../utils/hooks/useThunkReducer';
 
 import { WordCard } from '../../components/word-card/word-card';
-// import { useFetch } from '../../utils/hooks/useFetch';
 import { useFetch } from '../../utils/hooks/fetch/useFetch';
 import { SearchForm } from '../../components/search-form/search-form';
 import { AppContext } from '../../app-context/appContext';
 import styles from './word-search.css';
+import { Spinner } from '../../elements/spinner/spinner';
 
 export const WordSearch = () => {
   const { wordCards, addWord } = useContext(AppContext);
   const [state, fetchFunc] = useFetch();
-  // const [state, dispatch] = useThunkReducer(reducer, initialState);
   const { result, loading, error } = state;
 
   const handleSearchSubmit = query => {
@@ -25,7 +21,7 @@ export const WordSearch = () => {
 
   const renderResult = () => {
     if (loading) {
-      return <div> Loading... </div>;
+      return <Spinner />;
     }
     if (error) {
       return <div> {error.message} </div>;
