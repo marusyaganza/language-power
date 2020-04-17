@@ -1,7 +1,7 @@
 .modal {
     margin: 20px auto;
-    text-align: center;
     font-family: var(--font-libreBaskerville);
+    text-align: center;
 }
 
 .button-set {
