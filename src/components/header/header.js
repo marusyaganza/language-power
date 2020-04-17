@@ -17,7 +17,8 @@ import { AppContext } from '../../app-context/appContext';
 export const Header = ({ navItems }) => {
   const [showSidedrawer, setShowSidedrawer] = useState(false);
   const [showLoginForm, setShowLoginform] = useState(false);
-  const { userId, logout } = useContext(AppContext);
+  const context = useContext(AppContext);
+  const { userId, logout } = context;
 
   const sideDrawerHandler = () => {
     setShowSidedrawer(!showSidedrawer);

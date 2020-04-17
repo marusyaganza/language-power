@@ -20,7 +20,7 @@ export const WordCard = memo(({ word, addWord, deleteWord, isAdded }) => {
     setModalIsOpen(curr => !curr);
   };
   const deleteHandler = () => {
-    deleteWord(word.uuid);
+    deleteWord(word.id);
     closeHandler();
   };
 

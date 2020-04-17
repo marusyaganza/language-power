@@ -68,7 +68,7 @@ export const LoginForm = ({ onSubmit }) => {
     <>
       {error && (
         <section className={styles.error}>
-          <p>Error occured{error}</p>
+          <p>Error occured: {error}</p>
         </section>
       )}
       {renderForm()}

@@ -13,6 +13,6 @@ export const prepareGameData = rawData => {
     const audioUrl = pronunciation.length ? pronunciation[0].audioUrl : null;
     return { a: card.name, q: audioUrl };
   });
-  const learntCards = selected.map(item => item.uuid);
+  const learntCards = selected.map(item => item.id);
   return [qa, learntCards, config.GAME_ID];
 };

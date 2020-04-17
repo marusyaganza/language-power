@@ -7,6 +7,7 @@ import { LinkButton } from '../../buttons/link-button/link-button';
 import { STATUSES, MESSAGES } from './config';
 import styles from './game-engine.css';
 import { Spinner } from '../../../elements/spinner/spinner';
+import { useFetch } from '../../../utils/hooks/fetch/useFetch';
 
 export const GameEngine = ({
   closeHandler,
@@ -15,13 +16,14 @@ export const GameEngine = ({
   prepareGameData,
   onSuccess
 }) => {
-  const { wordCards, learnWords } = useContext(AppContext);
+  const { wordCards, userId } = useContext(AppContext);
   const [answer, setAnswer] = useState('');
   const [errorCount, setErrorCount] = useState(0);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [qa, setQa] = useState(null);
   const [gameData, setGameData] = useState(null);
   const [status, setStatus] = useState(STATUSES.LOADING);
+  const [state, sendRequest] = useFetch();
 
   const resetGame = () => {
     const [qaArr, learntCards, gameId] = prepareGameData(wordCards);
@@ -39,7 +41,12 @@ export const GameEngine = ({
   }, []);
 
   const completeGame = () => {
-    learnWords(gameData);
+    const url = `http://localhost:5000/api/words/${userId}`;
+    const body = JSON.stringify({ gameData });
+    const method = 'PATCH';
+    const headers = { 'Content-Type': 'application/json' };
+    sendRequest({ url, requestOptions: { body, method, headers } });
+    // learnWords(gameData);
     resetGame();
   };
 
@@ -84,7 +91,7 @@ export const GameEngine = ({
   };
 
   const renderGame = () => {
-    if (status === STATUSES.LOADING) {
+    if (status === STATUSES.LOADING || state.loading) {
       return <Spinner />;
     }
     if (status === STATUSES.LEARNT) {

@@ -1,8 +1,8 @@
 import {
   FETCHING,
-  SEARCH_INIT,
   RESPONSE_ERROR,
-  RESPONSE_COMPLETE
+  RESPONSE_COMPLETE,
+  RESET
 } from './fetch-actions';
 
 export const fetchReducer = (state, action) => {
@@ -30,11 +30,8 @@ export const fetchReducer = (state, action) => {
       result: null
     };
   }
-  if (type === SEARCH_INIT) {
-    return {
-      ...state,
-      searchQuery: payload.searchQuery
-    };
+  if (type === RESET) {
+    return { loading: false, error: null, result: payload.res };
   }
   return state;
 };

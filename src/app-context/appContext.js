@@ -1,57 +1,18 @@
-import React, {
-  useCallback,
-  useReducer,
-  createContext,
-  useEffect,
-  useState
-} from 'react';
+import React, { useCallback, createContext, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import { ADD_CARD, DELETE_CARD, LEARN_CARDS } from './actions';
-import { getWordCards, putCards } from './helpers';
-import { reducer } from './reducer';
+import { useFetch } from '../utils/hooks/fetch/useFetch';
 
 export const AppContext = createContext();
 
 export const AppProvider = ({ children }) => {
-  const initialState = getWordCards() || [];
-  const [wordCards, dispatch] = useReducer(reducer, initialState);
   const [userId, setUserId] = useState(null);
-  const addWord = useCallback(
-    card => {
-      dispatch({
-        type: ADD_CARD,
-        payload: {
-          ...card
-        }
-      });
-    },
-    [dispatch]
-  );
+  const [wordCards, sendRequest, reset] = useFetch({ result: [] });
 
-  const deleteWord = useCallback(
-    uuid => {
-      dispatch({
-        type: DELETE_CARD,
-        payload: {
-          uuid
-        }
-      });
-    },
-    [dispatch]
-  );
-
-  const learnWords = useCallback(
-    ({ learntCards, gameId }) => {
-      dispatch({
-        type: LEARN_CARDS,
-        payload: {
-          learntCards,
-          gameId
-        }
-      });
-    },
-    [dispatch]
-  );
+  const updateCards = () => {
+    if (userId) {
+      sendRequest({ url: `http://localhost:5000/api/words/${userId}` });
+    }
+  };
 
   const login = useCallback(id => {
     setUserId(id);
@@ -59,17 +20,16 @@ export const AppProvider = ({ children }) => {
 
   const logout = useCallback(() => {
     setUserId(null);
+    reset([]);
   }, []);
 
   useEffect(() => {
-    putCards(wordCards);
-  }, [wordCards]);
+    updateCards();
+  }, [userId]);
 
   const value = {
     wordCards,
-    addWord,
-    deleteWord,
-    learnWords,
+    updateCards,
     login,
     logout,
     userId
