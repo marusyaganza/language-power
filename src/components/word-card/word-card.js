@@ -74,7 +74,7 @@ export const WordCard = memo(({ word, addWord, deleteWord, isAdded }) => {
     if (!data.length) return null;
     const { transcription, audioUrl } = data[0];
     return audioUrl ? (
-      <AudioButton buttonText={`[${transcription}]`} src={audioUrl} />
+      <AudioButton buttonText={`[${transcription}]`} src={audioUrl} size={18} />
     ) : (
       <section className={styles.audio}>
         <div>[{transcription}]</div>

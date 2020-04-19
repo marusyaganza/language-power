@@ -12,6 +12,6 @@ export const MESSAGES = {
   error: 'incorrect, try again 😕',
   success: 'nice job! 👏',
   started: 'good luck! 🍀',
-  loading: 'game is loading',
+  loading: 'game is loading 🚜',
   learnt: '👏'
 };

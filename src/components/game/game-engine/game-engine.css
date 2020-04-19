@@ -31,6 +31,10 @@
 }
 
 .question {
+    display: flex;
+    justify-content: center;
+
+    /* color: var(--purple-base); */
     margin: 20px auto;
     color: var(--purple-darkest);
     font-family: var(--font-kalam);

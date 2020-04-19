@@ -13,6 +13,9 @@ export const Input = ({
   isError,
   autoComplete
 }) => {
+  const changeHandler = e => {
+    onChange(e.target.value);
+  };
   return (
     <div className={cn(className, styles.inputContainer)}>
       <input
@@ -22,7 +25,7 @@ export const Input = ({
         id={name}
         disabled={disabled}
         value={value}
-        onChange={onChange}
+        onChange={changeHandler}
       />
       {label && (
         <label className={styles.label} htmlFor={name}>

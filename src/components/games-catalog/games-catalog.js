@@ -6,28 +6,34 @@ import defaultLogo from '../../assets/img/jpg/default.png';
 
 export const GamesCatalog = ({ games, onClick }) => {
   const renderGames = () => {
-    return games.map(game => (
-      <li className={styles.catalogItem} key={game.id}>
-        <img
-          className={styles.logo}
-          src={game.logo || defaultLogo}
-          alt={`${game.name} logo.`}
-        />
-        <article className={styles.gameCard}>
-          <header className={styles.header}>
-            <h3>{game.name}</h3>
-          </header>
-          <main>
-            <p className={styles.description}>{game.desc}</p>
-          </main>
-          <footer>
-            <Button onClick={() => onClick(game.id)} size="L">
-              Start game
-            </Button>
-          </footer>
-        </article>
-      </li>
-    ));
+    return games.map(game => {
+      const clickHandler = () => {
+        const data = { config: game.config, gameId: game.name };
+        onClick(data);
+      };
+      return (
+        <li className={styles.catalogItem} key={game.id}>
+          <img
+            className={styles.logo}
+            src={game.logo || defaultLogo}
+            alt={`${game.name} logo.`}
+          />
+          <article className={styles.gameCard}>
+            <header className={styles.header}>
+              <h3>{game.title}</h3>
+            </header>
+            <main>
+              <p className={styles.description}>{game.description}</p>
+            </main>
+            <footer>
+              <Button onClick={clickHandler} size="L">
+                Start game
+              </Button>
+            </footer>
+          </article>
+        </li>
+      );
+    });
   };
 
   return <ul className={styles.catalog}>{renderGames()}</ul>;

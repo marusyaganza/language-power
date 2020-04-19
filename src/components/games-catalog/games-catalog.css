@@ -1,23 +1,26 @@
 .catalog {
     display: flex;
-    flex: auto;
-    flex-wrap: wrap;
-    margin: 40px;
-    font-family: var(--font-libreBaskerville);
 
-    /* flex-wrap: wrap; */
+    /* flex: auto; */
+    flex-wrap: wrap;
+
+    /* margin: 40px; */
+    justify-content: center;
+    padding: 0;
+    font-family: var(--font-libreBaskerville);
 
     /* background: var(--gray-lightest); */
 }
 
 .catalog-item {
-    margin-bottom: 10px;
-    margin-left: 3%;
+    margin: 2% 1%;
+
+    /* /* margin-bottom: 10px; */
     background: var(--gray-lightest);
 }
 
 .logo {
-    width: 92%;
+    width: 100%;
     margin-bottom: 4%;
 }
 
@@ -25,18 +28,25 @@
     margin: 3% auto;
 }
 .game-card {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
     padding: 3%;
 }
 
 .description {
+    display: block;
+    min-height: 80px;
     margin: 3% 0;
     color: var(--gray-darkest);
     font-size: 18px;
+    text-align: center;
 }
 
 @media (min-width: 760px) {
-    .catalog {
-        flex: 0 0 20%;
+    .catalog-item {
+        flex: 0 0 30%;
         flex-wrap: nowrap;
     }
 }

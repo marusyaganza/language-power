@@ -1,0 +1,7 @@
+export const ACTIONS = {
+  LOADED: 'LOADED',
+  COMPLETED: 'COMPLETED',
+  ERROR: 'ERROR',
+  SUCCESS: 'SUCCESS',
+  EMPTY: 'EMPTY'
+};

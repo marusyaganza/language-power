@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from 'react';
+import React, { useContext, useState, useEffect, useReducer } from 'react';
 import PropTypes from 'prop-types';
 import { AppContext } from '../../../app-context/appContext';
 import { Button } from '../../buttons/button/button';
@@ -8,82 +8,88 @@ import { STATUSES, MESSAGES } from './config';
 import styles from './game-engine.css';
 import { Spinner } from '../../../elements/spinner/spinner';
 import { useFetch } from '../../../utils/hooks/fetch/useFetch';
+import { gameReducer } from './game-reducer';
+import { initialState } from './initialState';
+import { ACTIONS } from './actions';
 
 export const GameEngine = ({
   closeHandler,
-  AnsweInput,
+  AnswerInput,
   Question,
-  prepareGameData,
+  gameId,
   onSuccess
 }) => {
-  const { wordCards, userId } = useContext(AppContext);
+  const { userId } = useContext(AppContext);
   const [answer, setAnswer] = useState('');
-  const [errorCount, setErrorCount] = useState(0);
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [qa, setQa] = useState(null);
-  const [gameData, setGameData] = useState(null);
-  const [status, setStatus] = useState(STATUSES.LOADING);
-  const [state, sendRequest] = useFetch();
-
-  const resetGame = () => {
-    const [qaArr, learntCards, gameId] = prepareGameData(wordCards);
-    const currStatus = qaArr.length ? STATUSES.STARTED : STATUSES.LEARNT;
-    setQa(qaArr);
-    setAnswer('');
-    setCurrentIndex(0);
-    setGameData({ learntCards, gameId });
-    setStatus(currStatus);
-    setErrorCount(0);
-  };
+  const [reqState, sendRequest] = useFetch();
+  const { error, loading, result } = reqState;
+  const [state, dispatch] = useReducer(gameReducer, initialState);
+  const { learntCards, qa, status, errorCount, currentIndex } = state;
+  useEffect(() => {
+    const url = `http://localhost:5000/api/games/${gameId}/?userid=${userId}`;
+    sendRequest({ url });
+  }, [userId]);
 
   useEffect(() => {
-    resetGame();
-  }, []);
+    if (result && result.qa) {
+      dispatch({
+        type: ACTIONS.LOADED,
+
+        payload: {
+          qa: result.qa,
+          learntCards: result.learntCards
+        }
+      });
+    }
+    if (result && result.message) {
+      const { message } = result;
+      dispatch({
+        type: ACTIONS.COMPLETED,
+
+        payload: {
+          message
+        }
+      });
+    }
+  }, [result]);
 
   const completeGame = () => {
-    const url = `http://localhost:5000/api/words/${userId}`;
-    const body = JSON.stringify({ gameData });
+    const url = 'http://localhost:5000/api/games/score';
+    const body = JSON.stringify({ userId, gameId, gameResults: learntCards });
     const method = 'PATCH';
     const headers = { 'Content-Type': 'application/json' };
     sendRequest({ url, requestOptions: { body, method, headers } });
-    // learnWords(gameData);
-    resetGame();
-  };
-
-  const onFinish = () => {
-    completeGame();
-    closeHandler();
   };
 
   const submitHandler = e => {
     e.preventDefault();
     const currentWord = qa[currentIndex];
     if (answer === currentWord.a) {
-      onSuccess(currentWord);
-      setStatus(STATUSES.SUCCESS);
-      if (currentIndex === qa.length - 1) {
-        setStatus(STATUSES.COMPLETE);
+      if (onSuccess) {
+        onSuccess(currentWord);
       }
-      setCurrentIndex(currIndex => currIndex + 1);
+      dispatch({ type: ACTIONS.SUCCESS });
       setAnswer('');
     } else {
-      setStatus(STATUSES.ERROR);
-      setErrorCount(errCount => errCount + 1);
+      dispatch({ type: ACTIONS.ERROR });
     }
   };
 
-  const changeHandler = e => {
-    setAnswer(e.target.value);
+  const changeHandler = val => {
+    setAnswer(val);
   };
 
   const renderStatusBar = () => {
+    if (loading || status === STATUSES.LOADING) {
+      return null;
+    }
     return (
       <header className={styles.statusbar}>
         <div>
-          {currentIndex} of {qa.length}
+          {currentIndex + 1} of {qa.length}
         </div>
         {status === STATUSES.SUCCESS && (
-          <div className={styles.correctAnswer}>{qa[currentIndex - 1].a}</div>
+          <div className={styles.correctAnswer}>{state.text}</div>
         )}
         {status && <div className={styles[status]}>{MESSAGES[status]}</div>}
       </header>
@@ -91,7 +97,7 @@ export const GameEngine = ({
   };
 
   const renderGame = () => {
-    if (status === STATUSES.LOADING || state.loading) {
+    if (loading || status === STATUSES.LOADING) {
       return <Spinner />;
     }
     if (status === STATUSES.LEARNT) {
@@ -122,14 +128,25 @@ export const GameEngine = ({
             </div>
           </section>
           <div className={styles.buttonSet}>
-            <Button className={styles.button} onClick={completeGame} size="S">
-              continue training
-            </Button>
-            <Button type="button" onClick={onFinish}>
-              finish
+            <Button type="button" onClick={completeGame}>
+              Finish game
             </Button>
           </div>
         </>
+      );
+    }
+    if (status === STATUSES.SAVED) {
+      return (
+        <section className={styles.gameResults}>
+          <div className={styles.resultDetails}>
+            {state.message || 'See you later'}
+          </div>
+          <div className={styles.buttonSet}>
+            <Button type="button" onClick={closeHandler}>
+              Finish game
+            </Button>
+          </div>
+        </section>
       );
     }
     return (
@@ -138,7 +155,7 @@ export const GameEngine = ({
           <Question text={qa[currentIndex].q} />
         </p>
         <form className={styles.answer} onSubmit={submitHandler}>
-          <AnsweInput
+          <AnswerInput
             isError={status === STATUSES.ERROR}
             name="answer"
             className={styles.answerInput}
@@ -155,7 +172,8 @@ export const GameEngine = ({
   };
   return (
     <>
-      {status !== STATUSES.LOADING && renderStatusBar()}
+      {renderStatusBar()}
+      {error && <div className={styles.error}>{error}</div>}
       <article className={styles.game}>{renderGame()}</article>
     </>
   );
@@ -163,12 +181,12 @@ export const GameEngine = ({
 
 GameEngine.propTypes = {
   closeHandler: PropTypes.func.isRequired,
-  onSuccess: PropTypes.func,
-  AnsweInput: PropTypes.elementType.isRequired,
+  AnswerInput: PropTypes.elementType.isRequired,
   Question: PropTypes.elementType.isRequired,
-  prepareGameData: PropTypes.func.isRequired
+  gameId: PropTypes.string.isRequired,
+  onSuccess: PropTypes.func
 };
 
 GameEngine.defaultProps = {
-  onSuccess: () => {}
+  onSuccess: null
 };

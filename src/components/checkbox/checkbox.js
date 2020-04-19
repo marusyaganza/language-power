@@ -2,28 +2,36 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import cn from 'classnames';
 import uuid from 'uuid';
-import styles from './option-box.css';
+import styles from './checkbox.css';
 import { DictionaryEntity } from '../dictionary-entity/dictionary-entity';
 
-export const OptionBox = ({ options, value, onChange, className, isError }) => {
-  const changeHandler = e => {
-    onChange(e.target.value);
+export const Checkbox = ({ options, value, onChange, className, isError }) => {
+  const chengeHandler = e => {
+    const currValue = e.target.value;
+    const newValues = [...value];
+    if (!value.includes(currValue)) {
+      newValues.push(currValue);
+    } else {
+      newValues.pop(currValue);
+    }
+    const result = newValues.sort((a, b) => a - b).join('');
+    onChange(result);
   };
   return (
     <ul className={cn(styles.optionBox, className)}>
-      {options.map(option => {
-        const checked = value === option;
+      {options.map((option, i) => {
+        const checked = value.includes(i);
         const hash = uuid();
         return (
           <li key={hash} className={styles.box}>
             <input
               className={styles.optionInput}
-              onChange={changeHandler}
-              type="radio"
-              checked={changeHandler}
+              onChange={chengeHandler}
+              type="checkbox"
+              checked={checked}
               id={option}
               name="optionBox"
-              value={option}
+              value={i}
             />
             <label
               className={cn(
@@ -33,6 +41,7 @@ export const OptionBox = ({ options, value, onChange, className, isError }) => {
               )}
               htmlFor={option}
             >
+              {/* {option} */}
               <DictionaryEntity text={option} />
             </label>
           </li>
@@ -42,7 +51,7 @@ export const OptionBox = ({ options, value, onChange, className, isError }) => {
   );
 };
 
-OptionBox.defaultProps = {
+Checkbox.defaultProps = {
   options: [],
   value: '',
   onChange: () => {},
@@ -50,7 +59,7 @@ OptionBox.defaultProps = {
   isError: false
 };
 
-OptionBox.propTypes = {
+Checkbox.propTypes = {
   options: PropTypes.arrayOf(PropTypes.string),
   value: PropTypes.string,
   onChange: PropTypes.func,
