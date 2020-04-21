@@ -5,39 +5,36 @@ import { Input } from '../input/input';
 import { AudioButton } from '../audio-button/audio-button';
 import styles from './game.css';
 import { OptionBox } from '../option-box/option-box';
-import { Checkbox } from '../checkbox/checkbox';
 import { DictionaryEntity } from '../dictionary-entity/dictionary-entity';
 import { playAudio } from './helpers';
 
 export const Game = ({ closeHandler, config, gameId }) => {
-  // eslint-disable-next-line react/prop-types
-  const Audio = ({ text }) => (
-    <div className={styles.audio}>
-      <AudioButton autoplay src={text} />
-    </div>
-  );
-  const getQuestionComponent = () => {
+  const renderQuestion = text => {
     if (config.AUDIO_IS_REQUIRED) {
-      return Audio;
+      return (
+        <div className={styles.audio}>
+          <AudioButton autoplay src={text} buttonSize={80} />
+        </div>
+      );
     }
-    return DictionaryEntity;
+    return <DictionaryEntity text={text} />;
   };
-  const getAnswerComponent = () => {
+  const renderAnswer = rest => {
     if (config.MULTIPLE_CORRECT_ANSWERS) {
-      return Checkbox;
+      return <OptionBox type="checkbox" {...rest} />;
     }
     if (config.OPTIONS_NUM) {
-      return OptionBox;
+      return <OptionBox type="radio" {...rest} />;
     }
-    return Input;
+    return <Input {...rest} />;
   };
   const onSuccess = config.AUDIO_IS_REQUIRED
     ? null
     : currWord => playAudio(currWord.audioUrl);
   return (
     <GameEngine
-      AnswerInput={getAnswerComponent()}
-      Question={getQuestionComponent()}
+      renderAnswer={renderAnswer}
+      renderQuestion={renderQuestion}
       closeHandler={closeHandler}
       gameId={gameId}
       onSuccess={onSuccess}
@@ -47,10 +44,6 @@ export const Game = ({ closeHandler, config, gameId }) => {
 
 Game.propTypes = {
   closeHandler: PropTypes.func.isRequired,
-  config: PropTypes.objectOf({
-    AUDIO_IS_REQUIRED: PropTypes.bool,
-    MULTIPLE_CORRECT_ANSWERS: PropTypes.bool,
-    OPTIONS_NUM: PropTypes.number
-  }).isRequired,
+  config: PropTypes.object.isRequired,
   gameId: PropTypes.string.isRequired
 };

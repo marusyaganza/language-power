@@ -5,25 +5,44 @@ import uuid from 'uuid';
 import styles from './option-box.css';
 import { DictionaryEntity } from '../dictionary-entity/dictionary-entity';
 
-export const OptionBox = ({ options, value, onChange, className, isError }) => {
+export const OptionBox = ({
+  options,
+  value,
+  onChange,
+  className,
+  isError,
+  type
+}) => {
   const changeHandler = e => {
-    onChange(e.target.value);
+    const currValue = e.target.value;
+    if (type === 'checkbox') {
+      let newValues = [...value];
+      if (!value.includes(currValue)) {
+        newValues.push(currValue);
+      } else {
+        newValues = newValues.filter(item => item !== currValue);
+      }
+      const result = newValues.sort((a, b) => a - b).join('');
+      onChange(result);
+    } else {
+      onChange(currValue);
+    }
   };
   return (
     <ul className={cn(styles.optionBox, className)}>
-      {options.map(option => {
-        const checked = value === option;
+      {options.map((option, i) => {
+        const checked = value.includes(i);
         const hash = uuid();
         return (
           <li key={hash} className={styles.box}>
             <input
               className={styles.optionInput}
               onChange={changeHandler}
-              type="radio"
-              checked={changeHandler}
+              type={type}
+              checked={checked}
               id={option}
               name="optionBox"
-              value={option}
+              value={i}
             />
             <label
               className={cn(
@@ -47,7 +66,8 @@ OptionBox.defaultProps = {
   value: '',
   onChange: () => {},
   className: null,
-  isError: false
+  isError: false,
+  type: 'radio'
 };
 
 OptionBox.propTypes = {
@@ -55,5 +75,6 @@ OptionBox.propTypes = {
   value: PropTypes.string,
   onChange: PropTypes.func,
   className: PropTypes.string,
-  isError: PropTypes.bool
+  isError: PropTypes.bool,
+  type: PropTypes.string
 };

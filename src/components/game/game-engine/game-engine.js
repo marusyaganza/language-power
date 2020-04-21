@@ -14,8 +14,8 @@ import { ACTIONS } from './actions';
 
 export const GameEngine = ({
   closeHandler,
-  AnswerInput,
-  Question,
+  renderQuestion,
+  renderAnswer,
   gameId,
   onSuccess
 }) => {
@@ -151,18 +151,16 @@ export const GameEngine = ({
     }
     return (
       <>
-        <p className={styles.question}>
-          <Question text={qa[currentIndex].q} />
-        </p>
+        <p className={styles.question}>{renderQuestion(qa[currentIndex].q)}</p>
         <form className={styles.answer} onSubmit={submitHandler}>
-          <AnswerInput
-            isError={status === STATUSES.ERROR}
-            name="answer"
-            className={styles.answerInput}
-            onChange={changeHandler}
-            value={answer}
-            options={qa[currentIndex].options}
-          />
+          {renderAnswer({
+            isError: status === STATUSES.ERROR,
+            name: 'answer',
+            className: styles.answerInput,
+            onChange: changeHandler,
+            value: answer,
+            options: qa[currentIndex].options
+          })}
           <Button size="L" type="submit">
             Check
           </Button>
@@ -181,8 +179,8 @@ export const GameEngine = ({
 
 GameEngine.propTypes = {
   closeHandler: PropTypes.func.isRequired,
-  AnswerInput: PropTypes.elementType.isRequired,
-  Question: PropTypes.elementType.isRequired,
+  renderQuestion: PropTypes.func.isRequired,
+  renderAnswer: PropTypes.func.isRequired,
   gameId: PropTypes.string.isRequired,
   onSuccess: PropTypes.func
 };

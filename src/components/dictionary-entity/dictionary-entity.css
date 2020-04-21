@@ -1,5 +1,6 @@
 .info {
     display: inline;
+    margin-right: 5px;
     color: var(--purple-lightest);
     font-style: italic;
 }

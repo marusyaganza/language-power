@@ -7,9 +7,8 @@ import { Button } from '../buttons/button/button';
 export const SearchForm = ({ onFormSubmit }) => {
   const [query, setQuery] = useState('');
 
-  const handleChange = event => {
-    event.preventDefault();
-    setQuery(event.target.value);
+  const handleChange = val => {
+    setQuery(val);
   };
 
   const handleSearchSubmit = e => {
