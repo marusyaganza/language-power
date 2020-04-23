@@ -8,6 +8,7 @@ import { Form } from '../form/form';
 import { useFetch } from '../../utils/hooks/fetch/useFetch';
 import { AppContext } from '../../app-context/appContext';
 import { Spinner } from '../../elements/spinner/spinner';
+import { userUrl } from '../../constants/urls';
 
 export const LoginForm = ({ onSubmit }) => {
   const { login } = useContext(AppContext);
@@ -16,9 +17,7 @@ export const LoginForm = ({ onSubmit }) => {
   const { result, loading, error } = state;
 
   const submitHandler = inputs => {
-    const url = `http://localhost:5000/api/user/${
-      isLogin ? 'login' : 'signup'
-    }`;
+    const url = `${userUrl}${isLogin ? 'login' : 'signup'}`;
     const method = 'POST';
     const headers = { 'Content-Type': 'application/json' };
     const body = { email: inputs.email.value, password: inputs.password.value };
@@ -36,9 +35,9 @@ export const LoginForm = ({ onSubmit }) => {
   };
 
   useEffect(() => {
-    if (result && result.id) {
-      const { id } = result;
-      login(id);
+    if (result && result.userId) {
+      const { userId, token } = result;
+      login(userId, token);
       onSubmit();
     }
   }, [result]);

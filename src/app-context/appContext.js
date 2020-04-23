@@ -1,30 +1,31 @@
-import React, { useCallback, createContext, useEffect, useState } from 'react';
+import React, { createContext, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useFetch } from '../utils/hooks/fetch/useFetch';
+import { wordsUrl } from '../constants/urls';
+import { useAuth } from '../utils/hooks/auth-hook';
 
 export const AppContext = createContext();
 
 export const AppProvider = ({ children }) => {
-  const [userId, setUserId] = useState(null);
+  const { userId, token, login, logout } = useAuth();
   const [wordCards, sendRequest, reset] = useFetch({ result: [] });
 
   const updateCards = () => {
-    if (userId) {
-      sendRequest({ url: `http://localhost:5000/api/words/${userId}` });
+    if (userId && token) {
+      const headers = { Authorization: `Bearer ${token}` };
+      sendRequest({
+        url: wordsUrl,
+        requestOptions: { headers }
+      });
     }
   };
 
-  const login = useCallback(id => {
-    setUserId(id);
-  }, []);
-
-  const logout = useCallback(() => {
-    setUserId(null);
-    reset([]);
-  }, []);
-
   useEffect(() => {
-    updateCards();
+    if (!userId) {
+      reset([]);
+    } else {
+      updateCards();
+    }
   }, [userId]);
 
   const value = {
@@ -32,7 +33,8 @@ export const AppProvider = ({ children }) => {
     updateCards,
     login,
     logout,
-    userId
+    userId,
+    token
   };
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
 };

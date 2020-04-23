@@ -11,6 +11,7 @@ import { useFetch } from '../../../utils/hooks/fetch/useFetch';
 import { gameReducer } from './game-reducer';
 import { initialState } from './initialState';
 import { ACTIONS } from './actions';
+import { gameUrl } from '../../../constants/urls';
 
 export const GameEngine = ({
   closeHandler,
@@ -19,15 +20,16 @@ export const GameEngine = ({
   gameId,
   onSuccess
 }) => {
-  const { userId } = useContext(AppContext);
+  const { userId, token } = useContext(AppContext);
   const [answer, setAnswer] = useState('');
   const [reqState, sendRequest] = useFetch();
   const { error, loading, result } = reqState;
   const [state, dispatch] = useReducer(gameReducer, initialState);
   const { learntCards, qa, status, errorCount, currentIndex } = state;
   useEffect(() => {
-    const url = `http://localhost:5000/api/games/${gameId}/?userid=${userId}`;
-    sendRequest({ url });
+    const headers = { Authorization: `Bearer ${token}` };
+    const url = `${gameUrl}${gameId}`;
+    sendRequest({ url, requestOptions: { headers } });
   }, [userId]);
 
   useEffect(() => {
@@ -45,7 +47,6 @@ export const GameEngine = ({
       const { message } = result;
       dispatch({
         type: ACTIONS.COMPLETED,
-
         payload: {
           message
         }
@@ -54,10 +55,13 @@ export const GameEngine = ({
   }, [result]);
 
   const completeGame = () => {
-    const url = 'http://localhost:5000/api/games/score';
+    const url = `${gameUrl}/score`;
     const body = JSON.stringify({ userId, gameId, gameResults: learntCards });
     const method = 'PATCH';
-    const headers = { 'Content-Type': 'application/json' };
+    const headers = {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${token}`
+    };
     sendRequest({ url, requestOptions: { body, method, headers } });
   };
 

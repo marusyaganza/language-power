@@ -3,7 +3,7 @@ import { PopUp } from '../../components/pop-up/pop-up';
 import bannerImg from '../../assets/img/jpg/games_banner.jpg';
 import { Banner } from '../../components/banner/banner';
 import { GamesCatalog } from '../../components/games-catalog/games-catalog';
-import { gamesCatalog } from '../../constants/urls';
+import { gamesCatalogUrl } from '../../constants/urls';
 import { useFetch } from '../../utils/hooks/fetch/useFetch';
 import { Spinner } from '../../elements/spinner/spinner';
 import { Game } from '../../components/game/game';
@@ -36,7 +36,7 @@ export const WordGamesPage = () => {
   };
 
   useEffect(() => {
-    sendRequest({ url: gamesCatalog });
+    sendRequest({ url: gamesCatalogUrl });
   }, []);
 
   const renderGame = () => {

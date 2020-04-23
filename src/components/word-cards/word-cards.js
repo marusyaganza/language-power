@@ -7,9 +7,10 @@ import { Button } from '../buttons/button/button';
 import { useFetch } from '../../utils/hooks/fetch/useFetch';
 import { Spinner } from '../../elements/spinner/spinner';
 import { Warning } from '../warning/warning';
+import { wordsUrl } from '../../constants/urls';
 
 export const WordCards = () => {
-  const { wordCards, updateCards } = useContext(AppContext);
+  const { wordCards, updateCards, token } = useContext(AppContext);
   const [isModalOpen, setModalIsOpen] = useState(false);
   const [state, sendRequest] = useFetch();
   const { result, loading, error } = state;
@@ -18,9 +19,12 @@ export const WordCards = () => {
     setModalIsOpen(curr => !curr);
   };
   const deleteHandler = id => {
-    const url = `http://localhost:5000/api/words/${id}`;
+    const url = `${wordsUrl}${id}`;
     const method = 'DELETE';
-    const headers = { 'Content-Type': 'application/json' };
+    const headers = {
+      'Content-Type': 'application/json',
+      Authorization: `bearer ${token}`
+    };
     sendRequest({ url, requestOptions: { method, headers } });
   };
 

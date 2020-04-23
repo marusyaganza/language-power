@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import styles from './games-catalog.css';
 import { Button } from '../buttons/button/button';
+import { hostUrl } from '../../constants/urls';
 import defaultLogo from '../../assets/img/jpg/default.png';
 
 export const GamesCatalog = ({ games, onClick }) => {
@@ -15,7 +16,7 @@ export const GamesCatalog = ({ games, onClick }) => {
         <li className={styles.catalogItem} key={game.id}>
           <img
             className={styles.logo}
-            src={game.logo ? `http://localhost:5000/${game.logo}` : defaultLogo}
+            src={game.logo ? `${hostUrl}${game.logo}` : defaultLogo}
             alt={`${game.name} logo.`}
           />
           <article className={styles.gameCard}>

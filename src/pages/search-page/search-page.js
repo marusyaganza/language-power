@@ -5,23 +5,27 @@ import { useFetch } from '../../utils/hooks/fetch/useFetch';
 import { AppContext } from '../../app-context/appContext';
 import { Spinner } from '../../elements/spinner/spinner';
 import { Warning } from '../../components/warning/warning';
+import { wordsUrl } from '../../constants/urls';
 
 export const SearchPage = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [warning, setWarning] = useState('');
-  const { updateCards, userId } = useContext(AppContext);
+  const { updateCards, token } = useContext(AppContext);
   const [state, sendRequest] = useFetch();
   const { result, loading, error } = state;
 
   const addCard = card => {
-    if (!userId) {
+    if (!token) {
       setWarning('You should login before adding card');
       setIsModalOpen(true);
     } else {
-      const url = `http://localhost:5000/api/words/${userId}`;
+      const url = `${wordsUrl}addCard`;
       const body = JSON.stringify(card);
       const method = 'POST';
-      const headers = { 'Content-Type': 'application/json' };
+      const headers = {
+        'Content-Type': 'application/json',
+        Authorization: `bearer ${token}`
+      };
       sendRequest({ url, requestOptions: { body, method, headers } });
     }
   };

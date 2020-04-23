@@ -7,6 +7,7 @@ import { useFetch } from '../../utils/hooks/fetch/useFetch';
 import { SearchForm } from '../search-form/search-form';
 import { AppContext } from '../../app-context/appContext';
 import { Spinner } from '../../elements/spinner/spinner';
+import { searchUrl } from '../../constants/urls';
 import styles from './word-search.css';
 
 export const WordSearch = ({ addWord }) => {
@@ -21,7 +22,7 @@ export const WordSearch = ({ addWord }) => {
 
   useEffect(() => {
     if (query) {
-      const url = `http://localhost:5000/api/words/search/${query}`;
+      const url = searchUrl + query;
       sendRequest({ url });
     }
   }, [query]);
