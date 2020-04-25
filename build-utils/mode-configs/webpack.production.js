@@ -1,4 +1,7 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+// eslint-disable-next-line import/no-extraneous-dependencies
+const CopyPlugin = require('copy-webpack-plugin');
+
 const path = require('path');
 
 module.exports = () => {
@@ -11,7 +14,8 @@ module.exports = () => {
       new MiniCssExtractPlugin({
         filename: '[name].[contenthash].css',
         chunkFilename: '[name].[contenthash].css'
-      })
+      }),
+      new CopyPlugin([{ from: 'robots.txt' }])
     ],
     module: {
       rules: [

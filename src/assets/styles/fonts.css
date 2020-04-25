@@ -1,54 +1,64 @@
 @font-face {
     font-family: 'Roboto';
     src: url('../fonts/RobotoCondensed-Regular.woff') format('woff');
+    font-display: swap;
 }
 @font-face {
     font-family: 'Gayathri';
     font-weight: bold;
     src: url('../fonts/Gayathri-Bold.woff') format('woff');
+    font-display: swap;
 }
 @font-face {
     font-family: 'Gayathri';
     font-style: normal;
     font-weight: 400;
     src: url('../fonts/Gayathri-Regular.woff') format('woff');
+    font-display: swap;
 }
 @font-face {
     font-family: 'Gayathri';
     font-style: italic;
     src: url('../fonts/Gayathri-Thin.woff') format('woff');
+    font-display: swap;
 }
 @font-face {
     font-family: 'Kalam';
     font-weight: bold;
     src: url('../fonts/Kalam-Bold.woff') format('woff');
+    font-display: swap;
 }
 @font-face {
     font-family: 'Kalam';
     font-style: normal;
     font-weight: 400;
     src: url('../fonts/Kalam-Regular.woff') format('woff');
+    font-display: swap;
 }
 @font-face {
     font-family: 'Kalam';
     font-style: italic;
     src: url('../fonts/Kalam-Light.woff') format('woff');
+    font-display: swap;
 }
 @font-face {
     font-family: 'LibreBaskerville';
     font-weight: bold;
     src: url('../fonts/LibreBaskerville-Bold.woff') format('woff');
+    font-display: swap;
 }
 @font-face {
     font-family: 'LibreBaskerville';
     font-style: normal;
     font-weight: 400;
     src: url('../fonts/LibreBaskerville-Regular.woff') format('woff');
+    font-display: swap;
 }
 @font-face {
     font-family: 'LibreBaskerville';
     font-style: italic;
     src: url('../fonts/LibreBaskerville-Italic.woff') format('woff');
+    font-display: swap;
 }
 
 :root {

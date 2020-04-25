@@ -1,4 +1,5 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const webpack = require('webpack');
 
 const modeConfig = env =>
@@ -36,7 +37,8 @@ module.exports = ({ mode, presets, ...rest } = { mode: 'production', presets: []
       },
 
       plugins: [
-        new HtmlWebpackPlugin({ template: 'src/index.html' }),
+        new HtmlWebpackPlugin({ template: 'src/index.html', favicon: './favicon.ico', }),
+        new CleanWebpackPlugin(),
         new webpack.ProgressPlugin(),
         new webpack.DefinePlugin(envKeys)
       ]
