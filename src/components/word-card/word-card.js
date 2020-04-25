@@ -6,7 +6,6 @@ import { AudioButton } from '../audio-button/audio-button';
 import { Icon } from '../icons/icon';
 import { DictionaryEntity } from '../dictionary-entity/dictionary-entity';
 import { ShowMore } from '../show-more/show-more';
-import '../word-cards/word-cards.css';
 import { IconButton } from '../buttons/icon-button/icon-button';
 import { PopUp } from '../pop-up/pop-up';
 import { Button } from '../buttons/button/button';
@@ -117,7 +116,13 @@ export const WordCard = memo(({ word, addWord, deleteWord, isAdded }) => {
               />
             )}
             {addWord && (
-              <IconButton kind="add" onClick={addHandler} disabled={isAdded} />
+              <IconButton
+                kind="add"
+                iconHint="add card"
+                size="M"
+                onClick={addHandler}
+                disabled={isAdded}
+              />
             )}
           </div>
         </div>

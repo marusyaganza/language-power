@@ -4,8 +4,8 @@
   "description": "",
   "main": "src/index.js",
   "scripts": {
-    "start": "yarn dev --env.presets react",
-    "build": "yarn prod --env.presets react",
+    "start": "yarn dev --env.API_URL=http://localhost:5000 --env.presets react",
+    "build": "yarn prod --env.API_URL=https://language-power.herokuapp.com --env.presets react",
     "dev": "yarn webpack-dev-server --env.mode development",
     "prod": "yarn webpack -- --env.mode production",
     "react": "yarn dev -- --env.presets react",

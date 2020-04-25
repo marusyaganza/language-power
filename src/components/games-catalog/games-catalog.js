@@ -16,7 +16,7 @@ export const GamesCatalog = ({ games, onClick }) => {
         <li className={styles.catalogItem} key={game.id}>
           <img
             className={styles.logo}
-            src={game.logo ? `${hostUrl}${game.logo}` : defaultLogo}
+            src={game.logo ? `${hostUrl}/${game.logo}` : defaultLogo}
             alt={`${game.name} logo.`}
           />
           <article className={styles.gameCard}>
