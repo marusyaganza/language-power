@@ -1,8 +1,10 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const path = require('path');
 
 module.exports = () => {
   return {
     output: {
+      path: path.resolve(__dirname, '../../', 'public'),
       filename: '[chunkhash].js'
     },
     plugins: [
