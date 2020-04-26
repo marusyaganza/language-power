@@ -52,7 +52,7 @@ export const WordSearch = ({ addWord }) => {
     if (result) {
       const { suggestions, match, related } = result;
       return (
-        <article className="search-result">
+        <article>
           {suggestions.length ? (
             <ShowMore title="suggestions" items={suggestions} />
           ) : null}
