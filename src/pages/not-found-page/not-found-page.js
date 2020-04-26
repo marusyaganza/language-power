@@ -1,17 +1,13 @@
 import React from 'react';
-import { LinkButton } from '../../ui-elements/buttons/link-button/link-button';
-import styles from './not-found-page.css';
+import { ErrorDisplay } from '../../components/error-display/error-display';
 
 export const NotFoundPage = () => {
   return (
-    <div className={styles.infoContainer}>
-      <article className={styles.info}>
-        <h1 className={styles.mainHeading}>404</h1>
-        <h2 className={styles.subheading}>Page is not found</h2>
-        <div className={styles.buttonContainer}>
-          <LinkButton href="/"> Go to Home page </LinkButton>
-        </div>
-      </article>
-    </div>
+    <ErrorDisplay
+      heading="404"
+      subHeading="Page is not found"
+      buttonText="Go to Home page"
+      link="/"
+    />
   );
 };

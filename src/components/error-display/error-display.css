@@ -12,13 +12,13 @@
     margin: 100px auto;
 }
 .main-heading {
-    color: var(--purple-darker);
+    margin: 25px auto;
     font-size: 100px;
     text-align: center;
 }
 
 .subheading {
-    padding: 20px;
+    padding: 30px;
     border-bottom: 1px solid var(--gray-lighter);
     color: var(--purple-darkest);
     text-align: center;
@@ -26,5 +26,13 @@
 .button-container {
     display: flex;
     justify-content: center;
-    margin: 20px;
+    margin: 35px;
+}
+
+.red {
+    color: var(--notification-danger);
+}
+
+.base {
+    color: var(--purple-darker);
 }

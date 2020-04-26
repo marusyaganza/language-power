@@ -1,9 +1,4 @@
 @font-face {
-    font-family: 'Roboto';
-    src: url('../fonts/RobotoCondensed-Regular.woff') format('woff');
-    font-display: swap;
-}
-@font-face {
     font-family: 'Gayathri';
     font-weight: bold;
     src: url('../fonts/Gayathri-Bold.woff') format('woff');
@@ -62,7 +57,6 @@
 }
 
 :root {
-    --font-roboto: 'Roboto', serif;
     --font-gayathry: 'Gayathri', serif;
     --font-libreBaskerville: 'LibreBaskerville', serif;
     --font-kalam: 'Kalam', serif;
