@@ -17,6 +17,7 @@ export const GamesCatalog = ({ games, onClick }) => {
           <img
             className={styles.logo}
             src={game.logo ? `${hostUrl}/${game.logo}` : defaultLogo}
+            loading="lazy"
             alt={`${game.name} logo.`}
           />
           <article className={styles.gameCard}>

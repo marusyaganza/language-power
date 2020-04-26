@@ -20,6 +20,7 @@
     border-radius: 5px;
     color: var(--gray-lightest);
     font-family: var(--font-libreBaskerville);
+    text-align: center;
 }
 
 .main-heading {
@@ -27,6 +28,10 @@
     font-weight: bold;
 }
 .subheading {
-    color: var(--notification-danger-lighter);
-    text-align: center;
+    color: var(--yellow-base);
+}
+@media (max-width: 760px) {
+    .heading {
+        width: 100%;
+    }
 }

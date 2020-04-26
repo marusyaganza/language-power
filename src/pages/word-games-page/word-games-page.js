@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { PopUp } from '../../components/pop-up/pop-up';
 import bannerImg from '../../assets/img/jpg/games_banner.jpg';
+import bannerImgMobile from '../../assets/img/jpg/games_banner.mobile.jpg';
 import { Banner } from '../../components/banner/banner';
 import { GamesCatalog } from '../../components/games-catalog/games-catalog';
 import { gamesCatalogUrl } from '../../constants/urls';
@@ -78,6 +79,7 @@ export const WordGamesPage = () => {
     <>
       <Banner
         imgSrc={bannerImg}
+        mobileImg={bannerImgMobile}
         mainHeading="Word games"
         subHeading="Practice makes perfect"
       />
