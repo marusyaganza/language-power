@@ -3,16 +3,18 @@ import { PopUp } from '../../ui-elements/pop-up/pop-up';
 import bannerImg from '../../assets/img/jpg/games_banner.jpg';
 import bannerImgMobile from '../../assets/img/jpg/games_banner.mobile.jpg';
 import { Banner } from '../../ui-elements/banner/banner';
-// import { GamesCatalog } from '../../components/games-catalog/games-catalog';
 import { gamesCatalogUrl } from '../../constants/urls';
 import { useFetch } from '../../utils/hooks/fetch/useFetch';
 import { Spinner } from '../../ui-elements/spinner/spinner';
-// import { Game } from '../../components/game/game';
 import { AppContext } from '../../app-context/appContext';
 import { Warning } from '../../components/warning/warning';
 
-const GamesCatalog = React.lazy(() => import('../../components/games-catalog'));
-const Game = React.lazy(() => import('../../components/game'));
+const GamesCatalog = React.lazy(() =>
+  import(/* webpackPreload: true */ '../../components/games-catalog')
+);
+const Game = React.lazy(() =>
+  import(/* webpackPreload: true */ '../../components/game')
+);
 
 export const WordGamesPage = () => {
   const { userId } = useContext(AppContext);

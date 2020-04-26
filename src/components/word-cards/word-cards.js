@@ -8,7 +8,9 @@ import { Spinner } from '../../ui-elements/spinner/spinner';
 import { Warning } from '../warning/warning';
 import { wordsUrl } from '../../constants/urls';
 
-const WordCard = React.lazy(() => import('../word-card'));
+const WordCard = React.lazy(() =>
+  import(/* webpackPreload: true */ '../word-card')
+);
 
 export const WordCards = () => {
   const { wordCards, updateCards, token } = useContext(AppContext);

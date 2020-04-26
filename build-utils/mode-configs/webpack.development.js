@@ -29,8 +29,7 @@ module.exports = () => {
       ]
     },
     devServer: {
-      historyApiFallback: true,
-      contentBase: './dist'
+      historyApiFallback: true
     },
     devtool: 'inline-source-map'
   };

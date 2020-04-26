@@ -7,7 +7,7 @@ export const PATHS = {
     exact: true
   },
   SEARCH_WORDS: {
-    link: '/search_words/',
+    link: '/search_words',
     label: 'search words'
   },
   WORD_CARDS: {

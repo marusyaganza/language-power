@@ -8,14 +8,14 @@ import { IconButton } from '../../ui-elements/buttons/icon-button/icon-button';
 import { Backdrop } from '../../ui-elements/backdrop/backdrop';
 import { SideDrawer } from '../../ui-elements/side-drawer/side-drawer';
 import { Button } from '../../ui-elements/buttons/button/button';
-
 import styles from './header.css';
 import { LoginForm } from '../login-form/login-form';
-// import { PopUp } from '../../ui-elements/pop-up/pop-up';
 import { AppContext } from '../../app-context/appContext';
 import { Spinner } from '../../ui-elements/spinner/spinner';
 
-const PopUp = React.lazy(() => import('../../ui-elements/pop-up'));
+const PopUp = React.lazy(() =>
+  import(/* webpackPreload: true */ '../../ui-elements/pop-up')
+);
 export const Header = ({ navItems }) => {
   const [showSidedrawer, setShowSidedrawer] = useState(false);
   const [showLoginForm, setShowLoginform] = useState(false);

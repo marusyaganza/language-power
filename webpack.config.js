@@ -21,7 +21,7 @@ module.exports = ({ mode, presets, ...rest } = { mode: 'production', presets: []
       module: {
         rules: [
           {
-            test: /\.(jpg|jpeg|png|svg|gif)$/,
+            test: /\.(jpg|jpeg|png|svg|gif|webp)$/,
             use: {
               loader: 'url-loader',
               options: {
