@@ -1,39 +1,33 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { Header } from './components/header/header';
 import styles from './styles.css';
-import { NotFoundPage } from './pages/not-found-page/not-found-page';
 import { PATHS } from './constants/paths';
-import { PAGES } from './constants/pages';
 import { AppProvider } from './app-context/appContext';
+import { Spinner } from './ui-elements/spinner/spinner';
 
-const tags = Object.keys(PATHS);
+const Home = lazy(() => import('./pages/home-page'));
+const NotFoundPage = lazy(() => import('./pages/not-found-page'));
+const GamesPage = lazy(() => import('./pages/games-page'));
+const CardPage = lazy(() => import('./pages/word-cards-page'));
+const SearchPage = lazy(() => import('./pages/search-page'));
+
 const navItems = Object.values(PATHS);
-const routing = tags.map(tag => {
-  const path = PATHS[tag];
-  const component = PAGES[tag];
-  if (component) {
-    return (
-      <Route
-        key={tag}
-        exact={path.exact}
-        path={path.link}
-        component={PAGES[tag]}
-      />
-    );
-  }
-  return null;
-});
-// TODO create component for main
+
 export const App = () => (
   <AppProvider>
-    <div className="page">
+    <div className={styles.page}>
       <Header navItems={navItems} />
       <main className={styles.main}>
-        <Switch>
-          {routing}
-          <Route path="*" component={NotFoundPage} />
-        </Switch>
+        <Suspense fallback={<Spinner />}>
+          <Switch>
+            <Route path="/" exact component={Home} />
+            <Route path="/word_games" component={GamesPage} />
+            <Route path="/word_cards" component={CardPage} />
+            <Route path="/search_words" component={SearchPage} />
+            <Route path="*" component={NotFoundPage} />
+          </Switch>
+        </Suspense>
       </main>
     </div>
   </AppProvider>

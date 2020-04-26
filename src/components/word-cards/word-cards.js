@@ -1,13 +1,14 @@
-import React, { useContext, useState, useEffect } from 'react';
+import React, { useContext, useState, useEffect, Suspense } from 'react';
 import styles from './word-cards.css';
-import { WordCard } from '../word-card/word-card';
 import { AppContext } from '../../app-context/appContext';
-import { PopUp } from '../pop-up/pop-up';
-import { Button } from '../buttons/button/button';
+import { PopUp } from '../../ui-elements/pop-up/pop-up';
+import { Button } from '../../ui-elements/buttons/button/button';
 import { useFetch } from '../../utils/hooks/fetch/useFetch';
-import { Spinner } from '../../elements/spinner/spinner';
+import { Spinner } from '../../ui-elements/spinner/spinner';
 import { Warning } from '../warning/warning';
 import { wordsUrl } from '../../constants/urls';
+
+const WordCard = React.lazy(() => import('../word-card'));
 
 export const WordCards = () => {
   const { wordCards, updateCards, token } = useContext(AppContext);
@@ -75,11 +76,13 @@ export const WordCards = () => {
               You have added {wordCards.result.length} cards
             </h2>
             {wordCards.result.map(word => (
-              <WordCard
-                key={word.uuid}
-                word={word}
-                deleteWord={deleteHandler}
-              />
+              <Suspense fallback={<Spinner />}>
+                <WordCard
+                  key={word.uuid}
+                  word={word}
+                  deleteWord={deleteHandler}
+                />
+              </Suspense>
             ))}
           </section>
         </>

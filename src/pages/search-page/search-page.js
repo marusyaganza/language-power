@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { WordSearch } from '../../components/word-search/word-search';
-import { PopUp } from '../../components/pop-up/pop-up';
+import { PopUp } from '../../ui-elements/pop-up/pop-up';
 import { useFetch } from '../../utils/hooks/fetch/useFetch';
 import { AppContext } from '../../app-context/appContext';
-import { Spinner } from '../../elements/spinner/spinner';
+import { Spinner } from '../../ui-elements/spinner/spinner';
 import { Warning } from '../../components/warning/warning';
 import { wordsUrl } from '../../constants/urls';
 

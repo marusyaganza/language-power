@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import styles from './search-form.css';
-import { Input } from '../input/input';
-import { Button } from '../buttons/button/button';
+import { Input } from '../../ui-elements/input/input';
+import { Button } from '../../ui-elements/buttons/button/button';
 
 export const SearchForm = ({ onFormSubmit }) => {
   const [query, setQuery] = useState('');

@@ -1,5 +1,5 @@
 import React from 'react';
-import { LinkButton } from '../../components/buttons/link-button/link-button';
+import { LinkButton } from '../../ui-elements/buttons/link-button/link-button';
 import styles from './not-found-page.css';
 
 export const NotFoundPage = () => {

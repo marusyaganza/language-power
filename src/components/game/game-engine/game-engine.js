@@ -1,12 +1,12 @@
 import React, { useContext, useState, useEffect, useReducer } from 'react';
 import PropTypes from 'prop-types';
 import { AppContext } from '../../../app-context/appContext';
-import { Button } from '../../buttons/button/button';
-import { Icon } from '../../icons/icon';
-import { LinkButton } from '../../buttons/link-button/link-button';
+import { Button } from '../../../ui-elements/buttons/button/button';
+import { Icon } from '../../../ui-elements/icons/icon';
+import { LinkButton } from '../../../ui-elements/buttons/link-button/link-button';
 import { STATUSES, MESSAGES } from './config';
 import styles from './game-engine.css';
-import { Spinner } from '../../../elements/spinner/spinner';
+import { Spinner } from '../../../ui-elements/spinner/spinner';
 import { useFetch } from '../../../utils/hooks/fetch/useFetch';
 import { gameReducer } from './game-reducer';
 import { initialState } from './initialState';

@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import styles from './audio-button.css';
-import { Icon } from '../icons/icon';
+import { Icon } from '../../icons/icon';
 
 export const AudioButton = ({ src, buttonText, buttonSize, autoplay }) => {
   const audioElement = new Audio(src);

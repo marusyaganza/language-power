@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import styles from './pop-up.css';
 import { IconButton } from '../buttons/icon-button/icon-button';
-import { Backdrop } from '../../elements/backdrop/backdrop';
+import { Backdrop } from '../backdrop/backdrop';
 
 const PopUp = ({ children, open, id, onClose }) => {
   // TODO fix this handler

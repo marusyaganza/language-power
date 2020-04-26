@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { GameEngine } from './game-engine/game-engine';
-import { Input } from '../input/input';
-import { AudioButton } from '../audio-button/audio-button';
+import { Input } from '../../ui-elements/input/input';
+import { AudioButton } from '../../ui-elements/buttons/audio-button/audio-button';
 import styles from './game.css';
 import { OptionBox } from '../option-box/option-box';
 import { DictionaryEntity } from '../dictionary-entity/dictionary-entity';

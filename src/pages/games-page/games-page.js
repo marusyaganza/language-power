@@ -1,15 +1,18 @@
-import React, { useState, useEffect, useContext } from 'react';
-import { PopUp } from '../../components/pop-up/pop-up';
+import React, { useState, useEffect, useContext, Suspense } from 'react';
+import { PopUp } from '../../ui-elements/pop-up/pop-up';
 import bannerImg from '../../assets/img/jpg/games_banner.jpg';
 import bannerImgMobile from '../../assets/img/jpg/games_banner.mobile.jpg';
-import { Banner } from '../../components/banner/banner';
-import { GamesCatalog } from '../../components/games-catalog/games-catalog';
+import { Banner } from '../../ui-elements/banner/banner';
+// import { GamesCatalog } from '../../components/games-catalog/games-catalog';
 import { gamesCatalogUrl } from '../../constants/urls';
 import { useFetch } from '../../utils/hooks/fetch/useFetch';
-import { Spinner } from '../../elements/spinner/spinner';
-import { Game } from '../../components/game/game';
+import { Spinner } from '../../ui-elements/spinner/spinner';
+// import { Game } from '../../components/game/game';
 import { AppContext } from '../../app-context/appContext';
 import { Warning } from '../../components/warning/warning';
+
+const GamesCatalog = React.lazy(() => import('../../components/games-catalog'));
+const Game = React.lazy(() => import('../../components/game'));
 
 export const WordGamesPage = () => {
   const { userId } = useContext(AppContext);
@@ -52,7 +55,9 @@ export const WordGamesPage = () => {
       return (
         <>
           <PopUp open={isOpen} onClose={gameHandler}>
-            <Game closeHandler={gameHandler} {...currentGame} />
+            <Suspense fallback={<Spinner />}>
+              <Game closeHandler={gameHandler} {...currentGame} />
+            </Suspense>
           </PopUp>
         </>
       );
@@ -68,7 +73,9 @@ export const WordGamesPage = () => {
       return (
         <>
           {renderGame()}
-          <GamesCatalog games={result} onClick={catalogHandler} />
+          <Suspense fallback={<Spinner />}>
+            <GamesCatalog games={result} onClick={catalogHandler} />
+          </Suspense>
         </>
       );
     }

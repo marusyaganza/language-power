@@ -1,14 +1,15 @@
-import React, { useContext, useState, useEffect } from 'react';
+import React, { useContext, useState, useEffect, Suspense } from 'react';
 import PropTypes from 'prop-types';
 
 import { ShowMore } from '../show-more/show-more';
-import { WordCard } from '../word-card/word-card';
 import { useFetch } from '../../utils/hooks/fetch/useFetch';
 import { SearchForm } from '../search-form/search-form';
 import { AppContext } from '../../app-context/appContext';
-import { Spinner } from '../../elements/spinner/spinner';
+import { Spinner } from '../../ui-elements/spinner/spinner';
 import { searchUrl } from '../../constants/urls';
 import styles from './word-search.css';
+
+const WordCard = React.lazy(() => import('../word-card'));
 
 export const WordSearch = ({ addWord }) => {
   const { wordCards } = useContext(AppContext);
@@ -77,7 +78,7 @@ export const WordSearch = ({ addWord }) => {
   return (
     <section className={styles.wordSearch}>
       <SearchForm onFormSubmit={handleSearchSubmit} />
-      {renderResult()}
+      <Suspense fallback={<Spinner />}>{renderResult()}</Suspense>
     </section>
   );
 };
