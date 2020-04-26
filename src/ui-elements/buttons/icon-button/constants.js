@@ -1,8 +1,3 @@
-export const SIZES = {
-  S: 14,
-  M: 16,
-  L: 18,
-  XL: 20
-};
+export const SIZES = ['S', 'M', 'L', 'XL'];
 
 export const KINDS = ['delete', 'add', 'close', 'bars'];
