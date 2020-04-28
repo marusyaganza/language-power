@@ -9,9 +9,7 @@ import { Spinner } from '../../ui-elements/spinner/spinner';
 import { searchUrl } from '../../constants/urls';
 import styles from './word-search.css';
 
-const WordCard = React.lazy(() =>
-  import(/* webpackPreload: true */ '../word-card')
-);
+const WordCard = React.lazy(() => import('../word-card'));
 
 export const WordSearch = ({ addWord }) => {
   const { wordCards } = useContext(AppContext);

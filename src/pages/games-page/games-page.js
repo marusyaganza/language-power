@@ -9,12 +9,8 @@ import { Spinner } from '../../ui-elements/spinner/spinner';
 import { AppContext } from '../../app-context/appContext';
 import { Warning } from '../../components/warning/warning';
 
-const GamesCatalog = React.lazy(() =>
-  import(/* webpackPreload: true */ '../../components/games-catalog')
-);
-const Game = React.lazy(() =>
-  import(/* webpackPreload: true */ '../../components/game')
-);
+const GamesCatalog = React.lazy(() => import('../../components/games-catalog'));
+const Game = React.lazy(() => import('../../components/game'));
 
 export const WordGamesPage = () => {
   const { userId } = useContext(AppContext);

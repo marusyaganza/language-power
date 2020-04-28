@@ -1,6 +1,8 @@
+/* eslint-disable import/no-extraneous-dependencies */
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-// eslint-disable-next-line import/no-extraneous-dependencies
+const PreloadWebpackPlugin = require('preload-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
+const CompressionPlugin = require('compression-webpack-plugin');
 
 const path = require('path');
 
@@ -15,7 +17,12 @@ module.exports = () => {
         filename: '[name].[contenthash].css',
         chunkFilename: '[name].[contenthash].css'
       }),
-      new CopyPlugin([{ from: 'robots.txt' }])
+      new CopyPlugin([{ from: 'robots.txt' }]),
+      new PreloadWebpackPlugin({
+        rel: 'preload',
+        include: 'allChunks'
+      }),
+      new CompressionPlugin({ cache: true })
     ],
     module: {
       rules: [

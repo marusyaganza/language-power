@@ -40,7 +40,8 @@ module.exports = ({ mode, presets, ...rest } = { mode: 'production', presets: []
         new HtmlWebpackPlugin({ template: 'src/index.html', favicon: './favicon.ico', }),
         new CleanWebpackPlugin(),
         new webpack.ProgressPlugin(),
-        new webpack.DefinePlugin(envKeys)
+        new webpack.DefinePlugin(envKeys),
+        new webpack.ProgressPlugin()
       ]
     },
     modeConfig(mode),

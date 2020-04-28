@@ -13,9 +13,7 @@ import { LoginForm } from '../login-form/login-form';
 import { AppContext } from '../../app-context/appContext';
 import { Spinner } from '../../ui-elements/spinner/spinner';
 
-const PopUp = React.lazy(() =>
-  import(/* webpackPreload: true */ '../../ui-elements/pop-up')
-);
+const PopUp = React.lazy(() => import('../../ui-elements/pop-up'));
 export const Header = ({ navItems }) => {
   const [showSidedrawer, setShowSidedrawer] = useState(false);
   const [showLoginForm, setShowLoginform] = useState(false);
