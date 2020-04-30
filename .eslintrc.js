@@ -47,7 +47,7 @@ module.exports = {
     'react/jsx-one-expression-per-line': 'off',
     'react/button-has-type': 'warn',
     'jsx-a11y/label-has-associated-control': 'off',
-
+    'jsx-a11y/no-autofocus': 'off',
     'jsx-a11y/anchor-is-valid': [
       'error',
       { components: ['Link'], specialLink: ['to'] }

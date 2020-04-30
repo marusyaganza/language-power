@@ -1,0 +1,6 @@
+.inert {
+    position: absolute;
+    overflow: hidden;
+    height: 100vh;
+    pointer-events: none;
+}

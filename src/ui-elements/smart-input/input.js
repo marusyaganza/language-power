@@ -18,7 +18,8 @@ export const Input = ({
   valid,
   onInput,
   initialValue,
-  type
+  type,
+  autoFocus
 }) => {
   const [state, dispatch] = useReducer(inputReducer, {
     value: initialValue,
@@ -47,6 +48,7 @@ export const Input = ({
       {isError && errorText && <p className={styles.errorText}>{errorText}</p>}
       <input
         autoComplete={autoComplete}
+        autoFocus={autoFocus}
         className={cn(styles.input, { [`${styles.error}`]: isError })}
         type={type}
         id={name}
@@ -76,7 +78,8 @@ Input.propTypes = {
   validators: PropTypes.arrayOf(PropTypes.object),
   initialValue: PropTypes.string,
   valid: PropTypes.bool,
-  onInput: PropTypes.func.isRequired
+  onInput: PropTypes.func.isRequired,
+  autoFocus: PropTypes.bool
 };
 
 Input.defaultProps = {
@@ -89,5 +92,6 @@ Input.defaultProps = {
   type: 'text',
   validators: [],
   initialValue: '',
-  valid: false
+  valid: false,
+  autoFocus: false
 };

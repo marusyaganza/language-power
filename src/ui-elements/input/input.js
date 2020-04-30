@@ -19,6 +19,7 @@ export const Input = ({
   return (
     <div className={cn(className, styles.inputContainer)}>
       <input
+        autoFocus
         autoComplete={autoComplete}
         className={cn(styles.input, { [`${styles.error}`]: isError })}
         type="text"

@@ -4,6 +4,7 @@ import { Header } from './components/header/header';
 import { PATHS } from './constants/paths';
 import { AppProvider } from './app-context/appContext';
 import { Spinner } from './ui-elements/spinner/spinner';
+import { PageContainer } from './components/page-container/page-container';
 import ErrorBuondary from './components/error-boundary/error-boundary';
 import styles from './styles.css';
 
@@ -18,7 +19,7 @@ const navItems = Object.values(PATHS);
 export const App = () => (
   <ErrorBuondary>
     <AppProvider>
-      <div className={styles.page}>
+      <PageContainer>
         <Header navItems={navItems} />
         <main className={styles.main}>
           <Suspense fallback={<Spinner />}>
@@ -31,7 +32,7 @@ export const App = () => (
             </Switch>
           </Suspense>
         </main>
-      </div>
+      </PageContainer>
     </AppProvider>
   </ErrorBuondary>
 );

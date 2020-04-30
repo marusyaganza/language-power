@@ -20,6 +20,7 @@ export const SearchForm = ({ onFormSubmit }) => {
   return (
     <form onSubmit={handleSearchSubmit} className={styles.searchForm}>
       <Input
+        autoFocus
         className={styles.searchInput}
         name="searchInput"
         onChange={handleChange}

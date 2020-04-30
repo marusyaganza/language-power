@@ -3,14 +3,14 @@ import ReactDOM from 'react-dom';
 
 import styles from './backdrop.css';
 
-export const Backdrop = ({ onClick, onKeyDown }) => {
+export const Backdrop = ({ onClick, onKeyUp }) => {
   return ReactDOM.createPortal(
     <div
       className={styles.backdrop}
-      onKeyDown={onKeyDown}
+      onKeyUp={onKeyUp}
       onClick={onClick}
       role="button"
-      tabIndex="-1"
+      tabIndex="0"
       aria-label="backdrop"
     />,
     document.getElementById('backdrop')

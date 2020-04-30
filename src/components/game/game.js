@@ -13,7 +13,7 @@ export const Game = ({ closeHandler, config, gameId }) => {
     if (config.AUDIO_IS_REQUIRED) {
       return (
         <div className={styles.audio}>
-          <AudioButton autoplay src={text} buttonSize={80} />
+          <AudioButton autoplay src={text} buttonSize={60} />
         </div>
       );
     }

@@ -20,9 +20,10 @@ export const Form = ({ onSubmit, initialState, fields }) => {
   };
 
   const renderFields = () => {
-    return fields.map(field => {
+    return fields.map((field, i) => {
       return (
         <Input
+          autoFocus={i === 0}
           {...field}
           key={field.id}
           className={styles.input}

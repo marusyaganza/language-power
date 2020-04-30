@@ -5,9 +5,10 @@ import styles from './icon-button.css';
 import { Icon } from '../../icons/icon';
 import { SIZES, KINDS } from './constants';
 
-export const IconButton = ({ kind, onClick, size, iconHint, disabled }) => {
+export const IconButton = ({ kind, onClick, size, iconHint, disabled, id }) => {
   return (
     <button
+      id={id}
       className={cn(styles.button, styles[kind])}
       type="button"
       onClick={onClick}
@@ -28,12 +29,14 @@ IconButton.propTypes = {
   onClick: PropTypes.func,
   kind: PropTypes.oneOf(KINDS).isRequired,
   size: PropTypes.oneOf(SIZES),
-  disabled: PropTypes.bool
+  disabled: PropTypes.bool,
+  id: PropTypes.string
 };
 
 IconButton.defaultProps = {
   iconHint: '',
   onClick: () => {},
   size: SIZES.M,
-  disabled: false
+  disabled: false,
+  id: null
 };
