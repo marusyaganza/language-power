@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import styles from './games-catalog.css';
 import { Button } from '../../ui-elements/buttons/button/button';
+import { FancyHeading } from '../../ui-elements/fancy-heading/fancy-heading';
 import { hostUrl } from '../../constants/urls';
 import defaultLogo from '../../assets/img/jpg/default.png';
 import defaultLogoW from '../../assets/img/jpg/default.webp';
@@ -49,7 +50,12 @@ export const GamesCatalog = ({ games, onClick }) => {
     });
   };
 
-  return <ul className={styles.catalog}>{renderGames()}</ul>;
+  return (
+    <>
+      <FancyHeading>Games</FancyHeading>
+      <ul className={styles.catalog}>{renderGames()}</ul>
+    </>
+  );
 };
 
 GamesCatalog.propTypes = {

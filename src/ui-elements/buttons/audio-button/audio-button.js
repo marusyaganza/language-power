@@ -14,13 +14,19 @@ export const AudioButton = ({ src, buttonText, buttonSize, autoplay }) => {
     }
   }, [src]);
   return (
-    <button className={styles.playButton} type="button" onClick={play}>
+    <button
+      className={styles.playButton}
+      type="button"
+      onClick={play}
+      aria-label="play audio"
+    >
       <span className={styles.buttonText}>{buttonText}</span>
       <Icon
         className={styles.icon}
         id="play"
         height={buttonSize}
         width={buttonSize}
+        title="Play audio."
       />
     </button>
   );

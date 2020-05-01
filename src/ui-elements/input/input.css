@@ -2,7 +2,7 @@
 
 .label {
     width: 100%;
-    color: var(--gray-darker);
+    color: var(--gray-darkest);
     font-size: 0.7em;
     text-align: center;
 }

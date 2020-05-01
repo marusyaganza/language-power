@@ -5,10 +5,12 @@ import { Banner } from '../../ui-elements/banner/banner';
 
 export const HomePage = () => {
   return (
-    <Banner
-      imgSrc={img}
-      mainHeading="Welcome to Language Power"
-      mobileImg={mobileImg}
-    />
+    <main>
+      <Banner
+        imgSrc={img}
+        mainHeading="Welcome to Language Power"
+        mobileImg={mobileImg}
+      />
+    </main>
   );
 };

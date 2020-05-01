@@ -68,7 +68,7 @@ export const GameEngine = ({
   const submitHandler = e => {
     e.preventDefault();
     const currentWord = qa[currentIndex];
-    if (answer === currentWord.a) {
+    if (answer.trim().toLowerCase() === currentWord.a) {
       if (onSuccess) {
         onSuccess(currentWord);
       }

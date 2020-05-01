@@ -1,11 +1,7 @@
 /* general styles */
-
-/* use it for <li > tags */
 ul {
     list-style: none;
 }
-
-/* use it for <a> tags */
 a {
     color: inherit;
     text-decoration: none;
@@ -21,15 +17,4 @@ body {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
-}
-
-.main {
-    box-sizing: border-box;
-    margin: 40px auto;
-}
-
-@media (min-width: 760px) {
-    .main {
-        margin: 20px 40px;
-    }
 }

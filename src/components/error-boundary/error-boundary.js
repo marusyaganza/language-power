@@ -31,6 +31,7 @@ class ErrorBoundary extends React.Component {
         <ErrorDisplay
           subHeading="Sometning went wrong"
           heading="error"
+          headingIcon="error"
           buttonText="Reload"
           buttonHandler={clickHandler}
           theme="red"

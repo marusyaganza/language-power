@@ -7,7 +7,9 @@ import { SearchForm } from '../search-form/search-form';
 import { AppContext } from '../../app-context/appContext';
 import { Spinner } from '../../ui-elements/spinner/spinner';
 import { searchUrl } from '../../constants/urls';
+import { Icon } from '../../ui-elements/icons/icon';
 import styles from './word-search.css';
+import commonStyles from '../../assets/styles/common-styles.css';
 
 const WordCard = React.lazy(() => import('../word-card'));
 
@@ -47,26 +49,43 @@ export const WordSearch = ({ addWord }) => {
       return <Spinner />;
     }
     if (error) {
-      return <div> {error.message} </div>;
+      return <div className={commonStyles.error}> {error.message} </div>;
     }
     if (result) {
       const { suggestions, match, related } = result;
       return (
         <article>
-          {suggestions.length ? (
-            <ShowMore title="suggestions" items={suggestions} />
-          ) : null}
           <section>
-            <h2>Results</h2>
+            <h2 className={commonStyles.subheading}>
+              <Icon className={styles.red} id="meteor" /> Results for{' '}
+              <i>{query}</i>
+            </h2>
             {match.length ? (
               renderResultArray(match)
             ) : (
-              <div>No words found</div>
+              <div className={styles.noResults}>
+                <Icon
+                  id="lost-in-space"
+                  width={50}
+                  height={50}
+                  className={styles.purple}
+                />
+                <p className={styles.text}>No words found</p>
+              </div>
             )}
           </section>
+          {suggestions.length ? (
+            <ShowMore
+              className={styles.text}
+              title="May be you meant "
+              items={suggestions}
+            />
+          ) : null}
           {related.length ? (
             <section>
-              <h2>Related words</h2>
+              <h2 className={commonStyles.subheading}>
+                <Icon id="astronaut" className={styles.purple} /> Related words
+              </h2>
               {renderResultArray(related)}
             </section>
           ) : null}

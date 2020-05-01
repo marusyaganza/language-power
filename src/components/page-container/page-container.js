@@ -7,7 +7,7 @@ export const PageContainer = ({ children }) => {
   const { isModalOpen } = useContext(AppContext);
   if (isModalOpen) {
     return (
-      <div className={styles.inert} tabIndex="-1" aria-hidden>
+      <div className={styles.inert} tabIndex="-1">
         {children}
       </div>
     );

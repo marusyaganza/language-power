@@ -25,7 +25,7 @@ export const ShowMore = ({
   };
 
   return (
-    <section className={className}>
+    <section className={className || styles.showMore}>
       <p className={styles.item}>
         <span className={styles.title}>{title}</span>
         {content}
@@ -49,5 +49,5 @@ ShowMore.defaultProps = {
   title: '',
   openTag: '...show more',
   closeTag: 'show less',
-  className: 'show-more'
+  className: null
 };

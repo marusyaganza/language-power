@@ -5,6 +5,7 @@
   --gray-darkest: #555454;
   --gray-lighter: #d6d6d6;
   --gray-lightest: #e1e1e1;
+  --gray-super-light: #f7f7f7;
   --yellow-base: #ffd300;
   --yellow-dark: #bfa730;
   --yellow-darker: #a68900;
@@ -19,4 +20,5 @@
   --notification-danger: #bf3030;
   --notification-danger-lighter: #cc6666;
   --notification-success: #3e7c3e;
+  --white: #fff;
 }

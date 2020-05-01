@@ -6,6 +6,7 @@ import { AppContext } from '../../app-context/appContext';
 import { Spinner } from '../../ui-elements/spinner/spinner';
 import { Warning } from '../../components/warning/warning';
 import { wordsUrl } from '../../constants/urls';
+import commonStyles from '../../assets/styles/common-styles.css';
 
 export const SearchPage = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -43,9 +44,8 @@ export const SearchPage = () => {
   };
 
   return (
-    <>
-      <div>{error}</div>
-
+    <main>
+      <div className={commonStyles.error}>{error}</div>
       <PopUp open={isModalOpen} onClose={closeHandler}>
         {loading ? (
           <Spinner />
@@ -55,6 +55,6 @@ export const SearchPage = () => {
       </PopUp>
 
       <WordSearch addWord={addCard} />
-    </>
+    </main>
   );
 };

@@ -75,15 +75,15 @@ export const WordCards = () => {
             <h2 className={styles.wordsHeading}>
               You have added {wordCards.result.length} cards
             </h2>
-            {wordCards.result.map(word => (
-              <Suspense fallback={<Spinner />}>
-                <WordCard
-                  key={word.uuid}
-                  word={word}
-                  deleteWord={deleteHandler}
-                />
-              </Suspense>
-            ))}
+            <ul>
+              {wordCards.result.map(word => (
+                <li key={word.uuid}>
+                  <Suspense fallback={<Spinner />}>
+                    <WordCard word={word} deleteWord={deleteHandler} />
+                  </Suspense>
+                </li>
+              ))}
+            </ul>
           </section>
         </>
       )}

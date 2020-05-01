@@ -26,7 +26,7 @@ export const Game = ({ closeHandler, config, gameId }) => {
     if (config.OPTIONS_NUM) {
       return <OptionBox type="radio" {...rest} />;
     }
-    return <Input {...rest} />;
+    return <Input label="Type your answer" {...rest} />;
   };
   const onSuccess = config.AUDIO_IS_REQUIRED
     ? null

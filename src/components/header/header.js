@@ -39,8 +39,9 @@ export const Header = ({ navItems }) => {
   const renderNav = (items, handler) => {
     return items.map(element => {
       return (
-        <li key={uuid()} className={styles.navItem}>
+        <li key={uuid()}>
           <NavLink
+            className={styles.navItem}
             exact
             activeClassName={styles.activeLink}
             to={element.link}

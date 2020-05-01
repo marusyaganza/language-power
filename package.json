@@ -44,12 +44,9 @@
   },
   "dependencies": {
     "classnames": "^2.2.6",
-    "clean-webpack-plugin": "^3.0.0",
-    "mini-css-extract-plugin": "^0.9.0",
     "prop-types": "^15.7.2",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
-    "react-router": "^5.1.2",
     "react-router-dom": "^5.1.2",
     "uuid": "^3.4.0",
     "webpack": "^4.41.6"
@@ -64,6 +61,7 @@
     "babel-eslint": "^10.0.3",
     "babel-jest": "^25.1.0",
     "babel-loader": "^8.0.6",
+    "clean-webpack-plugin": "^3.0.0",
     "commitizen": "^4.0.3",
     "compression-webpack-plugin": "^3.1.0",
     "copy-webpack-plugin": "^5.1.1",
@@ -87,6 +85,7 @@
     "jest": "^25.1.0",
     "jest-svg-transformer": "^1.0.0",
     "jest-transform-css": "^2.0.0",
+    "mini-css-extract-plugin": "^0.9.0",
     "preload-webpack-plugin": "^3.0.0-beta.4",
     "prettier": "^1.19.1",
     "react-test-renderer": "^16.12.0",
