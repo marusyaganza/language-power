@@ -3,7 +3,7 @@
 
 .game {
     width: 100%;
-    padding: 5px;
+    padding-bottom: 15px;
 }
 
 .game-results {
@@ -33,8 +33,6 @@
 .question {
     display: flex;
     justify-content: center;
-
-    /* color: var(--purple-base); */
     margin: 20px auto;
     color: var(--purple-darkest);
     font-family: var(--font-kalam);
@@ -87,4 +85,10 @@
     display: flex;
     justify-content: center;
     margin-top: 20px;
+}
+
+@media (min-width: 760px) {
+    .game {
+        padding: 5px;
+    }
 }

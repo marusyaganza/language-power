@@ -12,7 +12,9 @@ export const Button = ({
   type,
   size,
   className,
-  kind
+  kind,
+  autoFocus,
+  id
 }) => {
   return (
     <button
@@ -23,8 +25,10 @@ export const Button = ({
         styles[kind]
       )}
       type={type}
+      autoFocus={autoFocus}
       onClick={onClick}
       disabled={disabled}
+      id={id}
     >
       {children}
     </button>
@@ -38,7 +42,9 @@ Button.propTypes = {
   className: PropTypes.string,
   disabled: PropTypes.bool,
   onClick: PropTypes.func,
-  kind: PropTypes.string
+  kind: PropTypes.string,
+  id: PropTypes.string,
+  autoFocus: PropTypes.bool
 };
 
 Button.defaultProps = {
@@ -48,5 +54,7 @@ Button.defaultProps = {
   className: null,
   disabled: false,
   onClick: () => {},
-  kind: 'yellow'
+  kind: 'yellow',
+  id: null,
+  autoFocus: false
 };

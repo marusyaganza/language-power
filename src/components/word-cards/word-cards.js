@@ -1,5 +1,4 @@
 import React, { useContext, useState, useEffect, Suspense } from 'react';
-import styles from './word-cards.css';
 import { AppContext } from '../../app-context/appContext';
 import { PopUp } from '../../ui-elements/pop-up/pop-up';
 import { Button } from '../../ui-elements/buttons/button/button';
@@ -7,6 +6,7 @@ import { useFetch } from '../../utils/hooks/fetch/useFetch';
 import { Spinner } from '../../ui-elements/spinner/spinner';
 import { Warning } from '../warning/warning';
 import { wordsUrl } from '../../constants/urls';
+import commonStyles from '../../assets/styles/common-styles.css';
 
 const WordCard = React.lazy(() => import('../word-card'));
 
@@ -50,11 +50,9 @@ export const WordCards = () => {
       <>
         <h2>Are you sure?</h2>
         <p>Deleting card is irreversible</p>
-        <div className={styles.buttonSet}>
-          <Button className={styles.button} onClick={closeHandler}>
-            Cancel
-          </Button>
-          <Button className={styles.button} onClick={deleteHandler} kind="red">
+        <div>
+          <Button onClick={closeHandler}>Cancel</Button>
+          <Button onClick={deleteHandler} kind="red">
             Delete
           </Button>
         </div>
@@ -69,10 +67,10 @@ export const WordCards = () => {
       ) : (
         <>
           <PopUp open={isModalOpen} onClose={closeHandler}>
-            <div className={styles.modal}>{renderModal()}</div>
+            <div>{renderModal()}</div>
           </PopUp>
           <section>
-            <h2 className={styles.wordsHeading}>
+            <h2 className={commonStyles.subheading}>
               You have added {wordCards.result.length} cards
             </h2>
             <ul>

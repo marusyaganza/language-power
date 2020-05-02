@@ -132,7 +132,7 @@ export const GameEngine = ({
             </div>
           </section>
           <div className={styles.buttonSet}>
-            <Button type="button" onClick={completeGame}>
+            <Button type="button" onClick={completeGame} autoFocus>
               Finish game
             </Button>
           </div>
@@ -146,7 +146,7 @@ export const GameEngine = ({
             {state.message || 'See you later'}
           </div>
           <div className={styles.buttonSet}>
-            <Button type="button" onClick={closeHandler}>
+            <Button type="button" onClick={closeHandler} autoFocus>
               Finish game
             </Button>
           </div>
@@ -155,7 +155,9 @@ export const GameEngine = ({
     }
     return (
       <>
-        <p className={styles.question}>{renderQuestion(qa[currentIndex].q)}</p>
+        <div className={styles.question}>
+          {renderQuestion(qa[currentIndex].q)}
+        </div>
         <form className={styles.answer} onSubmit={submitHandler}>
           {renderAnswer({
             isError: status === STATUSES.ERROR,

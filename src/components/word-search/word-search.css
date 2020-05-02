@@ -1,10 +1,6 @@
 @import '../../assets/styles/colors.css';
 @import '../../assets/styles/fonts.css';
 
-.word-search {
-    margin: 20px 5px;
-}
-
 .red {
     color: var(--notification-danger);
 }
@@ -26,10 +22,4 @@
     color: var(--purple-dark);
     font-family: var(--font-kalam);
     font-size: 25px;
-}
-
-@media (min-width: 760px) {
-    .word-search {
-        margin: 20px 40px;
-    }
 }

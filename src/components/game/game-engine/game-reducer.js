@@ -5,10 +5,11 @@ export const gameReducer = (state, action) => {
   const { type, payload } = action;
   if (type === ACTIONS.LOADED) {
     const { qa, learntCards } = payload;
-    return { ...state, qa, learntCards, status: STATUSES.STARTED };
-  }
-  if (type === ACTIONS.EMPTY) {
-    return { ...state, status: STATUSES.LEARNT };
+    let status = STATUSES.STARTED;
+    if (qa.length === 0) {
+      status = STATUSES.LEARNT;
+    }
+    return { ...state, qa, learntCards, status };
   }
   if (type === ACTIONS.SUCCESS) {
     const { currentIndex, qa } = state;

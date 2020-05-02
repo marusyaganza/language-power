@@ -95,7 +95,7 @@ export const WordSearch = ({ addWord }) => {
     return null;
   };
   return (
-    <section className={styles.wordSearch}>
+    <section className={commonStyles.container}>
       <SearchForm onFormSubmit={handleSearchSubmit} />
       <Suspense fallback={<Spinner />}>{renderResult()}</Suspense>
     </section>
