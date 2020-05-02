@@ -5,61 +5,58 @@ import uuid from 'uuid';
 import styles from './option-box.css';
 import { DictionaryEntity } from '../dictionary-entity/dictionary-entity';
 
-export const OptionBox = ({
-  options,
-  value,
-  onChange,
-  className,
-  isError,
-  type
-}) => {
-  const changeHandler = e => {
-    const currValue = e.target.value;
-    if (type === 'checkbox') {
-      let newValues = [...value];
-      if (!value.includes(currValue)) {
-        newValues.push(currValue);
+export const OptionBox = React.memo(
+  ({ options, value, onChange, className, isError, type }) => {
+    const changeHandler = e => {
+      const currValue = e.target.value;
+      if (type === 'checkbox') {
+        let newValues = [...value];
+        if (!value.includes(currValue)) {
+          newValues.push(currValue);
+        } else {
+          newValues = newValues.filter(item => item !== currValue);
+        }
+        const result = newValues.sort((a, b) => a - b).join('');
+        onChange(result);
       } else {
-        newValues = newValues.filter(item => item !== currValue);
+        onChange(currValue);
       }
-      const result = newValues.sort((a, b) => a - b).join('');
-      onChange(result);
-    } else {
-      onChange(currValue);
-    }
-  };
-  return (
-    <ul className={cn(styles.optionBox, className)}>
-      {options.map((option, i) => {
-        const checked = value.includes(i);
-        const hash = uuid();
-        return (
-          <li key={hash} className={styles.box}>
-            <input
-              className={styles.optionInput}
-              onChange={changeHandler}
-              type={type}
-              checked={checked}
-              id={option}
-              name="optionBox"
-              value={i}
-            />
-            <label
-              className={cn(
-                styles.option,
-                { [`${styles.checked}`]: checked },
-                { [`${styles.error}`]: isError }
-              )}
-              htmlFor={option}
-            >
-              <DictionaryEntity text={option} />
-            </label>
-          </li>
-        );
-      })}
-    </ul>
-  );
-};
+    };
+
+    return (
+      <ul className={cn(styles.optionBox, className)}>
+        {options.map((option, i) => {
+          const checked = value.includes(i);
+          const hash = uuid();
+          return (
+            <li key={hash} className={styles.box}>
+              <input
+                autoFocus
+                className={styles.optionInput}
+                onChange={changeHandler}
+                type={type}
+                checked={checked}
+                id={option}
+                name="optionBox"
+                value={i}
+              />
+              <label
+                className={cn(
+                  styles.option,
+                  { [`${styles.checked}`]: checked },
+                  { [`${styles.error}`]: isError }
+                )}
+                htmlFor={option}
+              >
+                <DictionaryEntity text={option} />
+              </label>
+            </li>
+          );
+        })}
+      </ul>
+    );
+  }
+);
 
 OptionBox.defaultProps = {
   options: [],

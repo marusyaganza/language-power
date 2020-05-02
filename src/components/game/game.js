@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { GameEngine } from './game-engine/game-engine';
-import { Input } from '../input/input';
-import { AudioButton } from '../audio-button/audio-button';
+import { Input } from '../../ui-elements/input/input';
+import { AudioButton } from '../../ui-elements/buttons/audio-button/audio-button';
 import styles from './game.css';
 import { OptionBox } from '../option-box/option-box';
 import { DictionaryEntity } from '../dictionary-entity/dictionary-entity';
@@ -13,7 +13,7 @@ export const Game = ({ closeHandler, config, gameId }) => {
     if (config.AUDIO_IS_REQUIRED) {
       return (
         <div className={styles.audio}>
-          <AudioButton autoplay src={text} buttonSize={80} />
+          <AudioButton autoplay src={text} buttonSize={60} />
         </div>
       );
     }
@@ -26,7 +26,7 @@ export const Game = ({ closeHandler, config, gameId }) => {
     if (config.OPTIONS_NUM) {
       return <OptionBox type="radio" {...rest} />;
     }
-    return <Input {...rest} />;
+    return <Input label="Type your answer" {...rest} />;
   };
   const onSuccess = config.AUDIO_IS_REQUIRED
     ? null

@@ -2,12 +2,12 @@ import React, { useState, useEffect, useContext } from 'react';
 import PropTypes from 'prop-types';
 
 import styles from './login-form.css';
-import { Button } from '../buttons/button/button';
+import { Button } from '../../ui-elements/buttons/button/button';
 import { config } from './config';
-import { Form } from '../form/form';
+import { Form } from '../../ui-elements/form/form';
 import { useFetch } from '../../utils/hooks/fetch/useFetch';
 import { AppContext } from '../../app-context/appContext';
-import { Spinner } from '../../elements/spinner/spinner';
+import { Spinner } from '../../ui-elements/spinner/spinner';
 import { userUrl } from '../../constants/urls';
 
 export const LoginForm = ({ onSubmit }) => {

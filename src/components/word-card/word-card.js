@@ -2,13 +2,13 @@ import React, { memo, useState } from 'react';
 import PropTypes from 'prop-types';
 import uuid from 'uuid';
 import styles from './word-card.css';
-import { AudioButton } from '../audio-button/audio-button';
-import { Icon } from '../icons/icon';
+import { AudioButton } from '../../ui-elements/buttons/audio-button/audio-button';
+import { Icon } from '../../ui-elements/icons/icon';
 import { DictionaryEntity } from '../dictionary-entity/dictionary-entity';
 import { ShowMore } from '../show-more/show-more';
-import { IconButton } from '../buttons/icon-button/icon-button';
-import { PopUp } from '../pop-up/pop-up';
-import { Button } from '../buttons/button/button';
+import { IconButton } from '../../ui-elements/buttons/icon-button/icon-button';
+import { PopUp } from '../../ui-elements/pop-up/pop-up';
+import { Button } from '../../ui-elements/buttons/button/button';
 
 export const WordCard = memo(({ word, addWord, deleteWord, isAdded }) => {
   const { name, defs, particle, pronunciation, fullDef, stems } = word;

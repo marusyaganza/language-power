@@ -7,7 +7,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--gray-darker);
+    color: var(--gray-darkest);
     font-size: 16px;
 }
 

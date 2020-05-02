@@ -19,6 +19,7 @@ module.exports = {
     }
   },
   rules: {
+    'implicit-arrow-linebreak': 'off',
     'linebreak-style': 'off',
     'import/prefer-default-export': 'off',
     '0-tabs': 'off',
@@ -31,12 +32,12 @@ module.exports = {
     'no-plusplus': 'off',
     'space-before-function-paren': 0,
 
-    'max-len': ['warn', 80, 2, { ignoreUrls: true }],
+    'max-len': ['warn', 100, 2, { ignoreUrls: true, ignoreStrings: true , ignoreComments: true}],
     'no-console': 'error',
     'no-alert': 'error',
 
     'no-param-reassign': 'off',
-    radix: 'off',
+    'radix': 'off',
     'no-tabs': 'off',
     'comma-dangle': 'off',
 
@@ -46,7 +47,7 @@ module.exports = {
     'react/jsx-one-expression-per-line': 'off',
     'react/button-has-type': 'warn',
     'jsx-a11y/label-has-associated-control': 'off',
-
+    'jsx-a11y/no-autofocus': 'off',
     'jsx-a11y/anchor-is-valid': [
       'error',
       { components: ['Link'], specialLink: ['to'] }

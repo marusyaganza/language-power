@@ -3,13 +3,11 @@
 .title {
     display: inline;
     margin-right: 5px;
-    font-size: 14px;
     font-weight: bold;
 }
 
 .item {
     display: inline;
-    font-size: 14px;
 }
 
 .tag {
@@ -17,7 +15,7 @@
     margin: 0 4px;
     background: transparent;
     color: var(--purple-lighter);
-    font-size: 14px;
+    font-size: inherit;
     outline: none;
 }
 

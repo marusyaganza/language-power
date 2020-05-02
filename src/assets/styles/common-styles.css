@@ -1,0 +1,27 @@
+@import './colors.css';
+@import './fonts.css';
+
+.error {
+    padding-top: 20px;
+    color: var(--notification-danger);
+    text-align: center;
+    font-size: 20px;
+}
+
+.subheading {
+    padding: 15px;
+    color: var(--gray-darkest);
+    font-family: var(--font-libreBaskerville);
+    font-size: 20px;
+    text-align: center;
+}
+
+.container {
+    margin: 20px 5px;
+}
+
+@media (min-width: 760px) {
+    .container {
+        margin: 20px 40px;
+    }
+}

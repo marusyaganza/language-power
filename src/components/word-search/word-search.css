@@ -1,5 +1,25 @@
-@media (min-width: 760px) {
-    .word-search {
-        margin: 20px 40px;
-    }
+@import '../../assets/styles/colors.css';
+@import '../../assets/styles/fonts.css';
+
+.red {
+    color: var(--notification-danger);
+}
+
+.purple {
+    color: var(--purple-base);
+}
+
+.text {
+    padding: 0 20px;
+}
+
+.no-results {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    color: var(--purple-dark);
+    font-family: var(--font-kalam);
+    font-size: 25px;
 }

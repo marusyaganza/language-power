@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './warning.css';
-import { Button } from '../buttons/button/button';
+import { Button } from '../../ui-elements/buttons/button/button';
 
 export const Warning = ({ text, buttonHandler }) => {
   return (

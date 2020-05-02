@@ -1,0 +1,15 @@
+.heading-container {
+    border-top: 1px solid var(--gray-base);
+    margin-top: 80px;
+    text-align: center;
+}
+
+.heading {
+    position: relative;
+    top: -0.95rem;
+    display: inline-block;
+    padding: 0 20px;
+    margin: 0;
+    background: var(--white);
+    font-family: var(--font-libreBaskerville);
+}

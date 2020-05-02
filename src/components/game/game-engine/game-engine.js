@@ -1,12 +1,12 @@
 import React, { useContext, useState, useEffect, useReducer } from 'react';
 import PropTypes from 'prop-types';
 import { AppContext } from '../../../app-context/appContext';
-import { Button } from '../../buttons/button/button';
-import { Icon } from '../../icons/icon';
-import { LinkButton } from '../../buttons/link-button/link-button';
+import { Button } from '../../../ui-elements/buttons/button/button';
+import { Icon } from '../../../ui-elements/icons/icon';
+import { LinkButton } from '../../../ui-elements/buttons/link-button/link-button';
 import { STATUSES, MESSAGES } from './config';
 import styles from './game-engine.css';
-import { Spinner } from '../../../elements/spinner/spinner';
+import { Spinner } from '../../../ui-elements/spinner/spinner';
 import { useFetch } from '../../../utils/hooks/fetch/useFetch';
 import { gameReducer } from './game-reducer';
 import { initialState } from './initialState';
@@ -68,7 +68,7 @@ export const GameEngine = ({
   const submitHandler = e => {
     e.preventDefault();
     const currentWord = qa[currentIndex];
-    if (answer === currentWord.a) {
+    if (answer.trim().toLowerCase() === currentWord.a) {
       if (onSuccess) {
         onSuccess(currentWord);
       }
@@ -132,7 +132,7 @@ export const GameEngine = ({
             </div>
           </section>
           <div className={styles.buttonSet}>
-            <Button type="button" onClick={completeGame}>
+            <Button type="button" onClick={completeGame} autoFocus>
               Finish game
             </Button>
           </div>
@@ -146,7 +146,7 @@ export const GameEngine = ({
             {state.message || 'See you later'}
           </div>
           <div className={styles.buttonSet}>
-            <Button type="button" onClick={closeHandler}>
+            <Button type="button" onClick={closeHandler} autoFocus>
               Finish game
             </Button>
           </div>
@@ -155,7 +155,9 @@ export const GameEngine = ({
     }
     return (
       <>
-        <p className={styles.question}>{renderQuestion(qa[currentIndex].q)}</p>
+        <div className={styles.question}>
+          {renderQuestion(qa[currentIndex].q)}
+        </div>
         <form className={styles.answer} onSubmit={submitHandler}>
           {renderAnswer({
             isError: status === STATUSES.ERROR,

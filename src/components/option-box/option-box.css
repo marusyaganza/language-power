@@ -4,10 +4,16 @@
 .option-box {
     display: flex;
     flex-wrap: wrap;
+    padding: 0;
     font-family: var(--font-libreBaskerville);
 }
 .option-input {
-    display: none;
+    position: absolute;
+    top: -100vh;
+}
+
+.option-input:focus {
+    border: 2px dotted var(--yellow-base);
 }
 
 .option {
