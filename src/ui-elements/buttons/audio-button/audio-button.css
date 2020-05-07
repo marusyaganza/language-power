@@ -1,15 +1,18 @@
-/* @import '../../../assets/styles/colors.css'; */
+@import '../../../assets/styles/colors.css';
+@import '../../../assets/styles/fonts.css';
+
 .play-button {
     display: flex;
+    align-items: center;
     padding: 0;
     border: 0;
     background: transparent;
     color: inherit;
     cursor: pointer;
-    outline: none;
 }
 .button-text {
     margin-right: 2px;
+    font-family: var(--font-libreBaskerville);
     font-size: 16px;
     font-style: italic;
 }
