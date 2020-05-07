@@ -32,7 +32,7 @@ module.exports = () => {
           use: {
             loader: 'babel-loader',
             options: {
-              presets: ['@babel/preset-react', { development: true }],
+              presets: ['@babel/preset-react'],
               plugins: [['@babel/transform-runtime']]
             }
           }
