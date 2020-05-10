@@ -3,6 +3,7 @@
 import PropTypes from 'prop-types';
 import { createPortal } from 'react-dom';
 import React, { useEffect, useRef, useContext } from 'react';
+import cn from 'classnames';
 import styles from './pop-up.css';
 import { IconButton } from '../buttons/icon-button/icon-button';
 import { Backdrop } from '../backdrop/backdrop';
@@ -25,6 +26,7 @@ const PopUp = ({ children, open, id, onClose }) => {
   };
 
   useEffect(() => {
+    // dialogRef.current.showModal();
     if (open) {
       const focusable = dialogRef.current.querySelector('input')
       || dialogRef.current.querySelector('button[type=button]:not(#close)');
@@ -34,6 +36,7 @@ const PopUp = ({ children, open, id, onClose }) => {
       setIsModalOpen(open);
       document.addEventListener('focusin', focusOutsideHandler);
     } else {
+      // dialogRef.current.close();
       setIsModalOpen(open);
       document.removeEventListener('focusin', focusOutsideHandler);
     }
@@ -44,14 +47,15 @@ const PopUp = ({ children, open, id, onClose }) => {
     };
   }, [open]);
 
-  const component = open ? (
-    <>
-      <dialog
+  const component = (
+    <div className={styles.container}>
+      <div
         onKeyUp={keyHandler}
-        className={styles.dialog}
+        className={cn({ [`${styles.open}`]: open }, styles.dialog)}
         id={id}
         open={open}
         ref={dialogRef}
+        role="dialog"
       >
         <span className={styles.closeButton}>
           <IconButton
@@ -62,11 +66,11 @@ const PopUp = ({ children, open, id, onClose }) => {
             tabIndex="0"
           />
         </span>
-        <div className={styles.content}>{children}</div>
-      </dialog>
+        {open && <div className={styles.content}>{children}</div>}
+      </div>
       {open && <Backdrop onClick={onClose} />}
-    </>
-  ) : null;
+    </div>
+  );
   return createPortal(component, document.getElementById('modal'));
 };
 
