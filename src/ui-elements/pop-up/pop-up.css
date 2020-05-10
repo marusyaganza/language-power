@@ -3,7 +3,7 @@
 .dialog {
     position: absolute;
     z-index: 1041;
-    top: -100%;
+    top: 0;
     width: 98%;
     padding: 5px;
     border: 0;
@@ -12,11 +12,17 @@
     border-radius: 2%;
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
     color: var(--purple-darker);
-    transition: top 2s ease;
+
+    /* transform: translateZ(0); */
+    transform: translateY(-150%);
+    transition: transform 0.5s ease;
 }
 
 .open {
     top: 5%;
+
+    /* transform: translateZ(0); */
+    transform: translateY(5%);
 }
 .close-button {
     display: flex;
@@ -29,7 +35,9 @@
         width: 60%;
     }
     .open {
-        top: 10%;
+        transform: translateY(10%);
+
+        /* top: 10%; */
     }
     .content {
         padding: 0 40px 40px;

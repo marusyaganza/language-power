@@ -26,7 +26,6 @@ const PopUp = ({ children, open, id, onClose }) => {
   };
 
   useEffect(() => {
-    // dialogRef.current.showModal();
     if (open) {
       const focusable = dialogRef.current.querySelector('input')
       || dialogRef.current.querySelector('button[type=button]:not(#close)');
@@ -36,7 +35,6 @@ const PopUp = ({ children, open, id, onClose }) => {
       setIsModalOpen(open);
       document.addEventListener('focusin', focusOutsideHandler);
     } else {
-      // dialogRef.current.close();
       setIsModalOpen(open);
       document.removeEventListener('focusin', focusOutsideHandler);
     }
@@ -66,7 +64,7 @@ const PopUp = ({ children, open, id, onClose }) => {
             tabIndex="0"
           />
         </span>
-        {open && <div className={styles.content}>{children}</div>}
+        <div className={styles.content}>{children}</div>
       </div>
       {open && <Backdrop onClick={onClose} />}
     </div>

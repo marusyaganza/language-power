@@ -19,7 +19,8 @@ export const Input = ({
   onInput,
   initialValue,
   type,
-  autoFocus
+  autoFocus,
+  ...rest
 }) => {
   const [state, dispatch] = useReducer(inputReducer, {
     value: initialValue,
@@ -41,21 +42,32 @@ export const Input = ({
     onInput({ name, value: state.value, isValid: state.isValid });
   }, [value, isValid, name, onInput]);
 
-  const isError = state.isTouched && !state.isValid;
-
+  const isError = state.isTouched && !state.isValid && state.value;
   return (
     <div className={className || styles.inputContainer}>
-      {isError && errorText && <p className={styles.errorText}>{errorText}</p>}
+      <p
+        className={cn(
+          { [`${styles.errorTextActive}`]: isError },
+          styles.errorText
+        )}
+      >
+        {errorText}
+      </p>
       <input
         autoComplete={autoComplete}
         autoFocus={autoFocus}
-        className={cn(styles.input, { [`${styles.error}`]: isError })}
+        className={cn(
+          styles.input,
+          { [`${styles.error}`]: isError },
+          { [`${styles.valid}`]: state.isValid }
+        )}
         type={type}
         id={name}
         disabled={disabled}
         value={state.value}
         onChange={changeHandler}
         onBlur={blurHandler}
+        {...rest}
       />
       {label && (
         <label className={labelStyle || styles.label} htmlFor={name}>

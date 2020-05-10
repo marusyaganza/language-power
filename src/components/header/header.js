@@ -58,12 +58,11 @@ export const Header = ({ navItems }) => {
       <Suspense fallback={<Spinner />}>
         <PopUp open={showLoginForm} onClose={formCloseHandler} id="login">
           <h2 className={styles.formHeading}>Sign up</h2>
-          <LoginForm onSubmit={formCloseHandler} />
+          {showLoginForm && <LoginForm onSubmit={formCloseHandler} />}
         </PopUp>
       </Suspense>
     );
   };
-  // console.log(showSidedrawer);
   return (
     <>
       {showSidedrawer && <Backdrop onClick={sideDrawerHandler} />}
