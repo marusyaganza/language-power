@@ -56,9 +56,9 @@ export const Header = ({ navItems }) => {
   const renderLoginForm = () => {
     return (
       <Suspense fallback={<Spinner />}>
-        <PopUp open={showLoginForm} onClose={formCloseHandler}>
+        <PopUp open={showLoginForm} onClose={formCloseHandler} id="login">
           <h2 className={styles.formHeading}>Sign up</h2>
-          <LoginForm onSubmit={formCloseHandler} />
+          {showLoginForm && <LoginForm onSubmit={formCloseHandler} />}
         </PopUp>
       </Suspense>
     );
@@ -67,9 +67,11 @@ export const Header = ({ navItems }) => {
     <>
       {showSidedrawer && <Backdrop onClick={sideDrawerHandler} />}
       <SideDrawer open={showSidedrawer}>
-        <ul className={styles.sideDrawerNav}>
-          {renderNav(navItems, sideDrawerHandler)}
-        </ul>
+        <nav className={styles.drawerNav}>
+          <ul className={styles.sideDrawerNav}>
+            {renderNav(navItems, sideDrawerHandler)}
+          </ul>
+        </nav>
       </SideDrawer>
       <header className={styles.header}>
         <div className={styles.burgerButton}>
@@ -84,7 +86,20 @@ export const Header = ({ navItems }) => {
         <nav className={styles.headerNav}>
           <ul className={styles.navItems}>{renderNav(navItems)}</ul>
         </nav>
-        <Button onClick={loginHandler}>{userId ? 'Logout' : 'Login'}</Button>
+        {userId ? (
+          <Button onClick={loginHandler} size="S">
+            Logout
+          </Button>
+        ) : (
+          <Button
+            size="S"
+            onClick={loginHandler}
+            aria-haspopup
+            aria-controls="login"
+          >
+            Login
+          </Button>
+        )}
       </header>
       {renderLoginForm()}
     </>

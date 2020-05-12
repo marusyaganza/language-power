@@ -33,18 +33,19 @@ const loginFields = [
   {
     name: 'email',
     type: 'email',
+    placeholder: 'test@test.com',
     id: 'email',
     label: 'Email',
     autoComplete: 'on',
     validators: [VALIDATOR_EMAIL()],
-    errorText: 'please enter your emeil'
+    errorText: 'please enter your email'
   },
   {
     name: 'password',
     id: 'passowrd',
     type: 'password',
     label: 'Password',
-    autocomplete: 'on',
+    autoComplete: 'on',
     validators: [VALIDATOR_PASSWORD()],
     errorText:
       'password should contain 6 to 16 valid characters, at least 1 special character and one number'
@@ -52,16 +53,17 @@ const loginFields = [
 ];
 
 const signUpFields = [
-  ...loginFields,
   {
     name: 'name',
+    placeholder: 'John Doe',
     type: 'text',
     id: 'name',
     label: 'Name',
     autoComplete: 'on',
     validators: [VALIDATOR_MINLENGTH(2)],
-    errorText: 'please enter your name'
-  }
+    errorText: 'name should have at least 2 symbols'
+  },
+  ...loginFields
 ];
 
 export const config = {

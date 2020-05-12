@@ -29,6 +29,7 @@ export const Form = ({ onSubmit, initialState, fields }) => {
           className={styles.input}
           onInput={changeHandler}
           labelStyle={styles.label}
+          required
         />
       );
     });

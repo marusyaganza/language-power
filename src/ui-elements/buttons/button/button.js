@@ -14,7 +14,8 @@ export const Button = ({
   className,
   kind,
   autoFocus,
-  id
+  id,
+  ...rest
 }) => {
   return (
     <button
@@ -29,6 +30,7 @@ export const Button = ({
       onClick={onClick}
       disabled={disabled}
       id={id}
+      {...rest}
     >
       {children}
     </button>

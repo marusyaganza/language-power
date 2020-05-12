@@ -7,6 +7,7 @@
     font-family: var(--font-libreBaskerville);
     transition: all 0.2s ease;
 }
+
 .size-s {
     font-size: 14px;
 }

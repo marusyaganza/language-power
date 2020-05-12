@@ -10,7 +10,7 @@
 .input {
     width: 100%;
     box-sizing: border-box;
-    padding: 10px 20px;
+    padding: 10px 40px;
     border: 1px solid rgba(135, 110, 215, 0.32);
     margin: auto;
     border-radius: 6px;
@@ -38,10 +38,22 @@
 .error {
     border: 1px solid var(--notification-danger-lighter);
     color: var(--notification-danger);
+    visibility: visible;
 }
 .error-text {
     width: 100%;
     color: var(--notification-danger);
-    font-size: 0.8em;
+    opacity: 0;
     text-align: center;
+    transition: opacity 1s ease;
+}
+.error-text-active {
+    opacity: 1;
+}
+
+.valid {
+    background: url(../../assets/img/svg/check.svg);
+    background-position: 12px;
+    background-repeat: no-repeat;
+    background-size: 20px;
 }

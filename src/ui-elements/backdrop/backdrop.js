@@ -1,10 +1,10 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { createPortal } from 'react-dom';
 
 import styles from './backdrop.css';
 
 export const Backdrop = ({ onClick, onKeyUp }) => {
-  return ReactDOM.createPortal(
+  return createPortal(
     <div
       className={styles.backdrop}
       onKeyUp={onKeyUp}

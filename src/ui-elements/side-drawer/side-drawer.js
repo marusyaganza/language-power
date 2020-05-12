@@ -1,13 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import ReactDom from 'react-dom';
+import { createPortal } from 'react-dom';
+import cn from 'classnames';
 import styles from './side-drawer.css';
 
 export const SideDrawer = ({ open, children }) => {
-  const content = open ? (
-    <aside className={styles.sideDrawer}>{children}</aside>
-  ) : null;
-  return ReactDom.createPortal(content, document.getElementById('drawer'));
+  const content = (
+    <aside className={cn(styles.sideDrawer, { [`${styles.open}`]: open })}>
+      {children}
+    </aside>
+  );
+  return createPortal(content, document.getElementById('drawer'));
 };
 
 SideDrawer.propTypes = {

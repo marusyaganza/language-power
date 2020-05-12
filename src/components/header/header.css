@@ -15,15 +15,18 @@
     text-transform: uppercase;
 }
 
-.nav-items {
+.header-nav {
     display: none;
 }
 
-.burger-button {
-    padding-left: 10px;
+.drawer-nav {
+    height: 100%;
 }
 
 @media (min-width: 760px) {
+    .header {
+        padding: 0 40px;
+    }
     .burger-button {
         display: none;
     }
@@ -47,6 +50,9 @@
         background: var(--purple-dark);
         color: var(--yellow-lightest);
     }
+    .header-nav {
+        display: block;
+    }
 }
 
 .items {
@@ -58,7 +64,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 9px 30px;
+    padding: 9px 0;
 }
 
 .logo-icon {

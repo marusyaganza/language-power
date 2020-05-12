@@ -30,7 +30,7 @@ module.exports = ({ mode, presets, ...rest } = { mode: 'production', presets: []
             }
           },
           {
-            test: /\.woff$/,
+            test: /\.(woff|woff2|ttf)$/,
             use: 'file-loader'
           }
         ]

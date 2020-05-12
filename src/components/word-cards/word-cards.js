@@ -7,6 +7,7 @@ import { Spinner } from '../../ui-elements/spinner/spinner';
 import { Warning } from '../warning/warning';
 import { wordsUrl } from '../../constants/urls';
 import commonStyles from '../../assets/styles/common-styles.css';
+import styles from './word-cards.css';
 
 const WordCard = React.lazy(() => import('../word-card'));
 
@@ -73,7 +74,7 @@ export const WordCards = () => {
             <h2 className={commonStyles.subheading}>
               You have added {wordCards.result.length} cards
             </h2>
-            <ul>
+            <ul className={styles.cardsList}>
               {wordCards.result.map(word => (
                 <li key={word.uuid}>
                   <Suspense fallback={<Spinner />}>

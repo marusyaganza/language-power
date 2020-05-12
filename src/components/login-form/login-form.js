@@ -12,7 +12,7 @@ import { userUrl } from '../../constants/urls';
 
 export const LoginForm = ({ onSubmit }) => {
   const { login } = useContext(AppContext);
-  const [state, fetchFunc] = useFetch();
+  const [state, fetchFunc, resetData] = useFetch();
   const [isLogin, setIsLogin] = useState(true);
   const { result, loading, error } = state;
 
@@ -32,6 +32,7 @@ export const LoginForm = ({ onSubmit }) => {
 
   const changeModeHandler = () => {
     setIsLogin(curr => !curr);
+    resetData({ error: null });
   };
 
   useEffect(() => {

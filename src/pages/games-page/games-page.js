@@ -43,20 +43,14 @@ export const WordGamesPage = () => {
 
   const renderGame = () => {
     if (warning) {
-      return (
-        <PopUp open={isOpen} onClose={closeHandler}>
-          <Warning text={warning} buttonHandler={closeHandler} />
-        </PopUp>
-      );
+      return <Warning text={warning} buttonHandler={closeHandler} />;
     }
     if (currentGame) {
       return (
         <>
-          <PopUp open={isOpen} onClose={gameHandler}>
-            <Suspense fallback={<Spinner />}>
-              <Game closeHandler={gameHandler} {...currentGame} />
-            </Suspense>
-          </PopUp>
+          <Suspense fallback={<Spinner />}>
+            <Game closeHandler={gameHandler} {...currentGame} />
+          </Suspense>
         </>
       );
     }
@@ -70,7 +64,9 @@ export const WordGamesPage = () => {
     if (result) {
       return (
         <>
-          {renderGame()}
+          <PopUp open={isOpen} onClose={gameHandler}>
+            {renderGame()}
+          </PopUp>
           <Suspense fallback={<Spinner />}>
             <GamesCatalog games={result} onClick={catalogHandler} />
           </Suspense>

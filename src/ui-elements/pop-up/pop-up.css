@@ -3,16 +3,27 @@
 .dialog {
     position: absolute;
     z-index: 1041;
-    top: 5%;
+    top: 0;
     width: 98%;
     padding: 5px;
     border: 0;
     margin: auto;
+    background: white;
     border-radius: 2%;
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
     color: var(--purple-darker);
+
+    /* transform: translateZ(0); */
+    transform: translateY(-150%);
+    transition: transform 0.5s ease;
 }
 
+.open {
+    top: 5%;
+
+    /* transform: translateZ(0); */
+    transform: translateY(5%);
+}
 .close-button {
     display: flex;
     justify-content: flex-end;
@@ -21,8 +32,12 @@
 
 @media (min-width: 760px) {
     .dialog {
-        top: 10%;
         width: 60%;
+    }
+    .open {
+        transform: translateY(10%);
+
+        /* top: 10%; */
     }
     .content {
         padding: 0 40px 40px;
@@ -32,4 +47,5 @@
 .container {
     display: flex;
     align-items: center;
+    justify-content: center;
 }
