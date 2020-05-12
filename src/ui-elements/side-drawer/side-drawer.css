@@ -9,7 +9,7 @@
     height: 100vh;
     background: var(--gray-super-light);
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
-    transition: transform 5s ease;
+    transition: transform 0.5s ease;
 }
 
 .open {

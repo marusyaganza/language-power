@@ -11,8 +11,7 @@ import { PopUp } from '../../ui-elements/pop-up/pop-up';
 import { Button } from '../../ui-elements/buttons/button/button';
 
 export const WordCard = memo(({ word, addWord, deleteWord, isAdded }) => {
-  const { name, defs, particle, pronunciation, fullDef, stems } = word;
-  const { examples } = fullDef;
+  const { name, defs, particle, pronunciation, examples, stems } = word;
   const [isModalOpen, setModalIsOpen] = useState(false);
 
   const closeHandler = () => {
@@ -70,8 +69,10 @@ export const WordCard = memo(({ word, addWord, deleteWord, isAdded }) => {
     );
   };
   const renderAudio = data => {
-    if (!data.length) return null;
-    const { transcription, audioUrl } = data[0];
+    if (!data) {
+      return null;
+    }
+    const { transcription, audioUrl } = data;
     return audioUrl ? (
       <AudioButton buttonText={`[${transcription}]`} src={audioUrl} size={18} />
     ) : (
