@@ -123,6 +123,7 @@ export const WordCard = memo(({ word, addWord, deleteWord, isAdded }) => {
                 size="M"
                 onClick={addHandler}
                 disabled={isAdded}
+                disposable
               />
             )}
           </div>

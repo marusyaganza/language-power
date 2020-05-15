@@ -33,14 +33,14 @@ export const GamesCatalog = ({ games, onClick }) => {
             />
           </picture>
           <article className={styles.gameCard}>
-            <header className={styles.header}>
-              <h3>{game.title}</h3>
+            <header>
+              <h3 className={styles.gameTitle}>{game.title}</h3>
             </header>
             <main>
               <p className={styles.description}>{game.description}</p>
             </main>
             <footer>
-              <Button onClick={clickHandler} size="L">
+              <Button onClick={clickHandler} size="L" kind="purple">
                 Start game
               </Button>
             </footer>

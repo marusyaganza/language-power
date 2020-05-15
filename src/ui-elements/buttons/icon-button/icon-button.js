@@ -1,19 +1,36 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import styles from './icon-button.css';
 import { Icon } from '../../icons/icon';
 import { SIZES, KINDS } from './constants';
 
-export const IconButton = ({ kind, onClick, size, iconHint, disabled, id }) => {
+export const IconButton = ({
+  kind,
+  onClick,
+  size,
+  iconHint,
+  disabled,
+  id,
+  disposable
+}) => {
+  const [isDisabled, setIsDisabled] = useState(disabled);
+
+  const clickHandler = () => {
+    if (disposable) {
+      setIsDisabled(true);
+    }
+    onClick();
+  };
   return (
     <button
       id={id}
       className={cn(styles.button, styles[kind])}
       type="button"
-      onClick={onClick}
-      disabled={disabled}
+      onClick={clickHandler}
+      disabled={isDisabled}
     >
+      <span hidden>{kind}</span>
       <Icon
         id={kind}
         width={SIZES[size]}
@@ -30,6 +47,7 @@ IconButton.propTypes = {
   kind: PropTypes.oneOf(KINDS).isRequired,
   size: PropTypes.oneOf(SIZES),
   disabled: PropTypes.bool,
+  disposable: PropTypes.bool,
   id: PropTypes.string
 };
 
@@ -38,5 +56,6 @@ IconButton.defaultProps = {
   onClick: () => {},
   size: SIZES.M,
   disabled: false,
+  disposable: false,
   id: null
 };

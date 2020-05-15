@@ -5,7 +5,7 @@
     padding: 5px 20px;
     border-radius: 10%;
     font-family: var(--font-libreBaskerville);
-    transition: all 0.2s ease;
+    transition: background-color 0.5s ease;
 }
 
 .size-s {
@@ -25,12 +25,14 @@
     border: 1px solid var(--notification-danger);
     background: var(--notification-danger-lighter);
     box-shadow: 0 3px 0 var(--gray-base);
+
+    /* color: var(--gray-lightest); */
     color: var(--yellow-lightest);
 }
 
 .red:hover {
-    background: var(--yellow-lightest);
-    color: var(--notification-danger);
+    background: var(--notification-danger);
+    color: var(--white);
 }
 
 .yellow {
@@ -41,8 +43,8 @@
 }
 
 .yellow:hover {
-    border: 1px solid var(--yellow-lighter);
-    background: var(--yellow-base);
+    /* border: 1px solid var(--yellow-lighter); */
+    background: var(--yellow-lighter);
     color: var(--purple-lighter);
 }
 
@@ -52,4 +54,29 @@
     background: var(--gray-lighter);
     color: var(--purple-darkest);
     cursor: not-allowed;
+}
+
+.purple {
+    padding: 0.6em 1.2em 0.6em 1.2em;
+    border: 0;
+    background: var(--purple-base);
+    color: white;
+    font-weight: bold;
+}
+
+.purple:hover {
+    background: var(--purple-darker);
+}
+
+.login {
+    padding: 8px 20px;
+    border: 2px solid var(--yellow-lighter);
+    background: var(--yellow-lightest);
+    border-radius: 2.3em;
+    color: var(--purple-darker);
+    font-weight: bold;
+}
+
+.login:hover {
+    background: var(--yellow-base);
 }

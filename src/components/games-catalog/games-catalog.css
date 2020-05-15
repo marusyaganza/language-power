@@ -7,51 +7,34 @@
     font-family: var(--font-libreBaskerville);
 }
 
-.catalog-header {
-    border-top: 1px solid var(--gray-base);
-    margin-top: 80px;
-    text-align: center;
-}
-
-.catalog-heading {
-    position: relative;
-    top: -0.95rem;
-    display: inline-block;
-    padding: 0 20px;
-    margin: 0;
-    background: var(--white);
-    font-family: var(--font-libreBaskerville);
-}
-
 .catalog-item {
     margin: 2% 1%;
     background: white;
+}
 
-    /* background: var(--gray-lightest); */
+.game-title {
+    margin-top: 0;
+    color: var(--purple-dark);
 }
 
 .logo {
     width: 100%;
     margin-bottom: 4%;
 }
-
-.header {
-    margin: 3% auto;
-}
 .game-card {
     display: flex;
     flex-direction: column;
     align-content: center;
     align-items: center;
-    padding: 3%;
+    padding: 6%;
 }
 
 .description {
     display: block;
-    min-height: 80px;
+    min-height: 4em;
     margin: 3% 0;
     color: var(--gray-darkest);
-    font-size: 18px;
+    font-size: 0.9em;
     text-align: center;
 }
 

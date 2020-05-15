@@ -5,8 +5,15 @@ import sprite from './sprite.svg';
 const Icon = ({ width, height, id, tooltip, className }) => {
   const img = `${sprite}#${id}`;
   return (
-    <svg width={width} height={height} className={className}>
-      {tooltip && <title>{tooltip}</title>}
+    <svg
+      width={width}
+      height={height}
+      className={className}
+      focusable="false"
+      role="img"
+      aria-labelledby={tooltip ? id : null}
+    >
+      {tooltip && <title id={id}>{tooltip}</title>}
       <use xlinkHref={img} />
     </svg>
   );
