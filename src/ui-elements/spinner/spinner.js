@@ -5,6 +5,7 @@ import styles from './spinner.css';
 export const Spinner = () => {
   return (
     <div className={styles.spinnerBox}>
+      <p className={styles.altText}>Loading...</p>
       <div className={styles.pulseContainer}>
         <div className={cn(styles.pulseBubble, styles.pulseBubble1)} />
         <div className={cn(styles.pulseBubble, styles.pulseBubble2)} />

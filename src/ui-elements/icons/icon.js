@@ -10,10 +10,9 @@ const Icon = ({ width, height, id, tooltip, className }) => {
       height={height}
       className={className}
       focusable="false"
-      role="img"
-      aria-labelledby={tooltip ? id : null}
+      aria-label={tooltip ? null : id}
     >
-      {tooltip && <title id={id}>{tooltip}</title>}
+      {tooltip && <title>{tooltip}</title>}
       <use xlinkHref={img} />
     </svg>
   );

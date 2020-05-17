@@ -1,3 +1,7 @@
+@import '../../assets/styles/font-sizes.css';
+@import '../../assets/styles/fonts.css';
+@import '../../assets/styles/colors.css';
+
 .catalog {
     display: flex;
     flex-wrap: wrap;
@@ -31,10 +35,10 @@
 
 .description {
     display: block;
-    min-height: 4em;
+    min-height: 4rem;
     margin: 3% 0;
     color: var(--gray-darkest);
-    font-size: 0.9em;
+    font-size: var(--font-size-s);
     text-align: center;
 }
 

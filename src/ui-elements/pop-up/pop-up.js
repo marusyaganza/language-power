@@ -21,7 +21,7 @@ const PopUp = ({ children, open, id, onClose }) => {
 
   const focusOutsideHandler = event => {
     if (!dialogRef.current.contains(event.target)) {
-      dialogRef.current.querySelector('#close').focus();
+      dialogRef.current.querySelector('button[data-id="close"]').focus();
     }
   };
 
@@ -57,11 +57,12 @@ const PopUp = ({ children, open, id, onClose }) => {
       >
         <span className={styles.closeButton}>
           <IconButton
-            id="close"
+            data-id="close"
             onClick={onClose}
             kind="close"
             iconHint="close window"
             tabIndex="0"
+            altText="close window"
           />
         </span>
         <div className={styles.content}>{children}</div>

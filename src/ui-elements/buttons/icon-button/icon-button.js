@@ -12,7 +12,9 @@ export const IconButton = ({
   iconHint,
   disabled,
   id,
-  disposable
+  disposable,
+  altText,
+  ...rest
 }) => {
   const [isDisabled, setIsDisabled] = useState(disabled);
 
@@ -29,8 +31,9 @@ export const IconButton = ({
       type="button"
       onClick={clickHandler}
       disabled={isDisabled}
+      {...rest}
     >
-      <span hidden>{kind}</span>
+      <span hidden>{altText || kind}</span>
       <Icon
         id={kind}
         width={SIZES[size]}
@@ -48,7 +51,8 @@ IconButton.propTypes = {
   size: PropTypes.oneOf(SIZES),
   disabled: PropTypes.bool,
   disposable: PropTypes.bool,
-  id: PropTypes.string
+  id: PropTypes.string,
+  altText: PropTypes.string
 };
 
 IconButton.defaultProps = {
@@ -57,5 +61,6 @@ IconButton.defaultProps = {
   size: SIZES.M,
   disabled: false,
   disposable: false,
-  id: null
+  id: null,
+  altText: null
 };

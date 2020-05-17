@@ -9,6 +9,7 @@ import { useFetch } from '../../utils/hooks/fetch/useFetch';
 import { AppContext } from '../../app-context/appContext';
 import { Spinner } from '../../ui-elements/spinner/spinner';
 import { userUrl } from '../../constants/urls';
+import commonStyles from '../../assets/styles/common-styles.css';
 
 export const LoginForm = ({ onSubmit }) => {
   const { login } = useContext(AppContext);
@@ -67,8 +68,10 @@ export const LoginForm = ({ onSubmit }) => {
   return (
     <>
       {error && (
-        <section className={styles.error}>
-          <p>Error occured: {error}</p>
+        <section>
+          <p role="alert" className={commonStyles.error}>
+            Error occured: {error}
+          </p>
         </section>
       )}
       {renderForm()}

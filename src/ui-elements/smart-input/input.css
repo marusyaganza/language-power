@@ -1,9 +1,10 @@
 @import '../../assets/styles/colors.css';
+@import '../../assets/styles/font-sizes.css';
 
 .label {
     width: 100%;
     color: var(--gray-darker);
-    font-size: 0.7em;
+    font-size: var(--font-size-xxs);
     text-align: center;
 }
 
@@ -17,7 +18,7 @@
     color: var(--gray-darkest);
     color: inherit;
     font-family: inherit;
-    font-size: 16px;
+    font-size: var(--font-size-xs);
 }
 
 .input-container {
@@ -33,7 +34,6 @@
 .input:focus {
     border-bottom: 1px solid rgba(57, 20, 175, 0.7);
     background: transparent;
-    outline: none;
 }
 .error {
     border: 1px solid var(--notification-danger-lighter);

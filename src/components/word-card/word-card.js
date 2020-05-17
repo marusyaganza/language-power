@@ -113,12 +113,14 @@ export const WordCard = memo(({ word, addWord, deleteWord, isAdded }) => {
                 kind="delete"
                 iconHint="delete card"
                 size="M"
+                altText={`delete ${word.name}`}
                 onClick={closeHandler}
               />
             )}
             {addWord && (
               <IconButton
                 kind="add"
+                altText={`add ${word.name}`}
                 iconHint="add card"
                 size="M"
                 onClick={addHandler}
