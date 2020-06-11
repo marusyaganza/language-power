@@ -49,7 +49,11 @@ export const WordSearch = ({ addWord }) => {
       return <Spinner />;
     }
     if (error) {
-      return <div className={commonStyles.error}> {error.message} </div>;
+      return (
+        <div className={commonStyles.error} role="alert">
+          {error.message}
+        </div>
+      );
     }
     if (result) {
       const { suggestions, match, related } = result;

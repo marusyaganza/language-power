@@ -11,7 +11,6 @@ const webpack = require('webpack');
 const WebpackBundleAnalyzer = require('webpack-bundle-analyzer')
   .BundleAnalyzerPlugin;
 const DuplicatePackageCheckerPlugin = require('duplicate-package-checker-webpack-plugin');
-
 const path = require('path');
 
 module.exports = () => {

@@ -1,5 +1,6 @@
 @import '../../assets/styles/colors.css';
 @import '../../assets/styles/fonts.css';
+@import '../../assets/styles/font-sizes.css';
 
 .red {
     color: var(--notification-danger);
@@ -21,5 +22,5 @@
     justify-content: center;
     color: var(--purple-dark);
     font-family: var(--font-kalam);
-    font-size: 25px;
+    font-size: var(--font-size-l);
 }

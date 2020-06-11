@@ -29,6 +29,7 @@
 .pulse-bubble {
     width: 20px;
     height: 20px;
+    animation: none;
     background-color: var(--purple-base);
     border-radius: 50%;
 }
@@ -41,4 +42,23 @@
 }
 .pulse-bubble3 {
     animation: pulse 0.4s ease 0.4s infinite alternate;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .pulse-bubble1 {
+        animation: none;
+    }
+    .pulse-bubble2 {
+        animation: none;
+    }
+    .pulse-bubble3 {
+        animation: none;
+    }
+    .alt-text {
+        opacity: 1;
+    }
+}
+
+.alt-text {
+    opacity: 0;
 }

@@ -1,5 +1,6 @@
 @import '../../../assets/styles/colors.css';
 @import '../../../assets/styles/fonts.css';
+@import '../../../assets/styles/font-sizes.css';
 
 .game {
     width: 100%;
@@ -7,7 +8,7 @@
 }
 
 .game-results {
-    font-size: 16px;
+    font-size: var(--font-size-xs);
     text-align: center;
 }
 
@@ -22,7 +23,7 @@
 .main-result {
     margin: 20px auto;
     color: var(--gray-darkest);
-    font-size: 20px;
+    font-size: var(--font-size-m);
     font-weight: bold;
     text-align: center;
 }
@@ -57,7 +58,7 @@
     margin-bottom: 20px;
     color: var(--purple-darkest);
     font-family: var(--font-libreBaskerville);
-    font-size: 14px;
+    font-size: var(--font-size-xxs);
 }
 
 .correct-answer {

@@ -1,3 +1,6 @@
+@import '../../assets/styles/font-sizes.css';
+@import '../../assets/styles/colors.css';
+
 .form {
     padding: 20px;
     border-bottom: 1px solid var(--gray-base);
@@ -8,14 +11,9 @@
     align-items: center;
     justify-content: center;
     color: var(--gray-darkest);
-    font-size: 16px;
+    font-size: var(--font-size-xs);
 }
 
 .mode-set-text {
     margin-right: 10px;
-}
-.error {
-    padding-top: 20px;
-    color: var(--notification-danger);
-    text-align: center;
 }

@@ -1,5 +1,6 @@
 @import '../../../assets/styles/colors.css';
 @import '../../../assets/styles/fonts.css';
+@import '../../../assets/styles/font-sizes.css';
 
 .play-button {
     display: flex;
@@ -13,7 +14,7 @@
 .button-text {
     margin-right: 2px;
     font-family: var(--font-libreBaskerville);
-    font-size: 16px;
+    font-size: var(--font-size-xs);
     font-style: italic;
 }
 .play-button:hover {

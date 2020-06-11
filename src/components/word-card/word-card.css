@@ -1,7 +1,6 @@
 @import '../../assets/styles/colors.css';
 @import '../../assets/styles/fonts.css';
-
-/* @import '../../assets//img/jpg/hand-spock-solid.svg'; */
+@import '../../assets/styles/font-sizes.css';
 
 .word {
     padding: 15px;
@@ -34,7 +33,7 @@
     font-family: var(--font-kalam);
 }
 .examples-title {
-    font-size: 18px;
+    font-size: var(--font-size-s);
 }
 
 .examples-list {
@@ -58,7 +57,7 @@
 }
 .def-item {
     margin: 10px 0;
-    line-height: 1.5em;
+    line-height: 1.5rem;
 }
 .top {
     display: flex;
@@ -67,7 +66,7 @@
 }
 .audio {
     color: var(--gray-darkest);
-    font-size: 16px;
+    font-size: var(--font-size-xs);
     font-style: italic;
 }
 

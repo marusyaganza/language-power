@@ -31,6 +31,7 @@ module.exports = {
     'react/jsx-props-no-spreading': 'off',
     'no-plusplus': 'off',
     'space-before-function-paren': 0,
+    'operator-linebreak': 'off',
 
     'max-len': ['warn', 100, 2, { ignoreUrls: true, ignoreStrings: true , ignoreComments: true}],
     'no-console': 'error',

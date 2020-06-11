@@ -75,7 +75,7 @@ export const Header = ({ navItems }) => {
       </SideDrawer>
       <header className={styles.header}>
         <div className={styles.burgerButton}>
-          <IconButton kind="bars" onClick={sideDrawerHandler} size="XL" />
+          <IconButton kind="menu" onClick={sideDrawerHandler} size="XL" />
         </div>
         <Link className={classnames(styles.logo, styles.navLink)} to="/">
           <div>Language power</div>
@@ -87,13 +87,14 @@ export const Header = ({ navItems }) => {
           <ul className={styles.navItems}>{renderNav(navItems)}</ul>
         </nav>
         {userId ? (
-          <Button onClick={loginHandler} size="S">
+          <Button kind="login" onClick={loginHandler} size="S">
             Logout
           </Button>
         ) : (
           <Button
             size="S"
             onClick={loginHandler}
+            kind="login"
             aria-haspopup
             aria-controls="login"
           >

@@ -42,10 +42,10 @@ const loginFields = [
   },
   {
     name: 'password',
-    id: 'passowrd',
+    id: 'password',
     type: 'password',
     label: 'Password',
-    autoComplete: 'on',
+    autoComplete: 'off',
     validators: [VALIDATOR_PASSWORD()],
     errorText:
       'password should contain 6 to 16 valid characters, at least 1 special character and one number'

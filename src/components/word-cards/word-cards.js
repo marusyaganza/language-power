@@ -62,7 +62,11 @@ export const WordCards = () => {
   };
   return (
     <>
-      {wordCards.error && <div>error</div>}
+      {wordCards.error && (
+        <div className={commonStyles.error} role="alert">
+          error
+        </div>
+      )}
       {wordCards.loading ? (
         <Spinner />
       ) : (
@@ -72,16 +76,18 @@ export const WordCards = () => {
           </PopUp>
           <section>
             <h2 className={commonStyles.subheading}>
-              You have added {wordCards.result.length} cards
+              You have added {wordCards.result ? wordCards.result.length : 0}{' '}
+              cards
             </h2>
             <ul className={styles.cardsList}>
-              {wordCards.result.map(word => (
-                <li key={word.uuid}>
-                  <Suspense fallback={<Spinner />}>
-                    <WordCard word={word} deleteWord={deleteHandler} />
-                  </Suspense>
-                </li>
-              ))}
+              {wordCards.result &&
+                wordCards.result.map(word => (
+                  <li key={word.uuid}>
+                    <Suspense fallback={<Spinner />}>
+                      <WordCard word={word} deleteWord={deleteHandler} />
+                    </Suspense>
+                  </li>
+                ))}
             </ul>
           </section>
         </>

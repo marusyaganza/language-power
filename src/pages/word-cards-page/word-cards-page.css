@@ -1,9 +1,10 @@
 @import '../../assets/styles/colors.css';
 @import '../../assets/styles/fonts.css';
+@import '../../assets/styles/font-sizes.css';
 
 .main-heading {
     color: var(--purple-darker);
     font-family: var(--font-libreBaskerville);
-    font-size: 35px;
+    font-size: var(--font-size-xl);
     text-align: center;
 }

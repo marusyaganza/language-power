@@ -1,5 +1,6 @@
 @import '../../../assets/styles/colors.css';
 @import '../../../assets/styles/fonts.css';
+@import '../../../assets/styles/font-sizes.css';
 
 .button {
     padding: 5px 20px;
@@ -18,14 +19,14 @@
     color: var(--purple-lighter);
 }
 .size-s {
-    font-size: 14px;
+    font-size: var(--font-size-xxs);
 }
 .size-m {
-    font-size: 16px;
+    font-size: var(--font-size-xs);
 }
 .size-l {
-    font-size: 18px;
+    font-size: var(--font-size-s);
 }
 .size-xl {
-    font-size: 20px;
+    font-size: var(--font-size-m);
 }

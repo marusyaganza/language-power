@@ -11,7 +11,11 @@ a {
 button,
 summary {
     cursor: pointer;
-    outline: none;
+    outline-color: var(--yellow-base);
+}
+
+input {
+    outline-color: var(--yellow-base);
 }
 
 body {
