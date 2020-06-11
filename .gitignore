@@ -6,3 +6,4 @@ config
 coverage
 .firebase
 public
+sentry.properties
