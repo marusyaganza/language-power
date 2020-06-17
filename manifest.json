@@ -1,0 +1,49 @@
+{
+    "name": "Language power",
+    "short_name": "LP",
+    "icons": [
+        {
+            "src": "/src/assets/img/jpg/app-logo-48x48.png",
+            "type": "image/png",
+            "sizes": "48x48"
+        },
+        {
+            "src": "/src/assets/img/jpg/app-logo-96x96.png",
+            "type": "image/png",
+            "sizes": "96x96"
+        },
+        {
+            "src": "/src/assets/img/jpg/app-logo-144x144 .png",
+            "type": "image/png",
+            "sizes": "144x144"
+        },
+        {
+            "src": "/src/assets/img/jpg/app-logo-192x192.png",
+            "type": "image/png",
+            "sizes": "192x192"
+        },
+        {
+            "src": "/src/assets/img/jpg/app-logo-256x256.png",
+            "type": "image/png",
+            "sizes": "256x256"
+        },
+        {
+            "src": "/src/assets/img/jpg/app-logo-384x384.png",
+            "type": "image/png",
+            "sizes": "384x384"
+        },
+        {
+            "src": "/src/assets/img/jpg/app-logo-512x521.png",
+            "type": "image/png",
+            "sizes": "512x512"
+        }
+    ],
+    "start_url": "/",
+    "scope": ".",
+    "display": "standalone",
+    "orirentation": "portrait-primary",
+    "background_color": "#ffe773",
+    "theme_color": "#3914af",
+    "description": "app for B2+ English learners",
+    "lang": "en-UK"
+}
