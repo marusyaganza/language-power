@@ -1,11 +1,14 @@
 import React from 'react';
 import cn from 'classnames';
 import styles from './spinner.css';
+// import commonStyles from '../../assets/styles/common-styles.css';
 
 export const Spinner = () => {
   return (
     <div className={styles.spinnerBox}>
-      <p className={styles.altText}>Loading...</p>
+      <p className={styles.altText} role="alert">
+        Loading...
+      </p>
       <div className={styles.pulseContainer}>
         <div className={cn(styles.pulseBubble, styles.pulseBubble1)} />
         <div className={cn(styles.pulseBubble, styles.pulseBubble2)} />
