@@ -30,16 +30,6 @@ export const OptionBox = React.memo(
           const hash = uuid();
           return (
             <li key={hash} className={styles.box}>
-              <input
-                autoFocus
-                className={styles.optionInput}
-                onChange={changeHandler}
-                type={type}
-                checked={checked}
-                id={option}
-                name="optionBox"
-                value={i}
-              />
               <label
                 className={cn(
                   styles.option,
@@ -48,6 +38,16 @@ export const OptionBox = React.memo(
                 )}
                 htmlFor={option}
               >
+                <input
+                  autoFocus
+                  className={styles.optionInput}
+                  onChange={changeHandler}
+                  type={type}
+                  checked={checked}
+                  id={option}
+                  name="optionBox"
+                  value={i}
+                />
                 <DictionaryEntity text={option} />
               </label>
             </li>

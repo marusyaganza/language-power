@@ -6,7 +6,7 @@ import { AppContext } from '../../app-context/appContext';
 import { Spinner } from '../../ui-elements/spinner/spinner';
 import { Warning } from '../../components/warning/warning';
 import { wordsUrl } from '../../constants/urls';
-import commonStyles from '../../assets/styles/common-styles.css';
+import { ErrorContainer } from '../../ui-elements/error-container/error-container';
 
 export const SearchPage = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -45,12 +45,12 @@ export const SearchPage = () => {
 
   return (
     <main>
-      <div className={commonStyles.error}>{error}</div>
+      <ErrorContainer>{error}</ErrorContainer>
       <PopUp open={isModalOpen} onClose={closeHandler}>
         {loading ? (
           <Spinner />
         ) : (
-          <Warning text={warning} buttonHandler={closeHandler} />
+          isModalOpen && <Warning text={warning} buttonHandler={closeHandler} />
         )}
       </PopUp>
 

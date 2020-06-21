@@ -8,6 +8,7 @@ import { useFetch } from '../../utils/hooks/fetch/useFetch';
 import { Spinner } from '../../ui-elements/spinner/spinner';
 import { AppContext } from '../../app-context/appContext';
 import { Warning } from '../../components/warning/warning';
+import { ErrorContainer } from '../../ui-elements/error-container/error-container';
 
 const GamesCatalog = React.lazy(() => import('../../components/games-catalog'));
 const Game = React.lazy(() => import('../../components/game'));
@@ -84,7 +85,7 @@ export const WordGamesPage = () => {
         mainHeading="Word games"
         subHeading="Practice makes perfect"
       />
-      {error && <div>{error}</div>}
+      {error && <ErrorContainer>{error}</ErrorContainer>}
       {renderGames()}
     </main>
   );

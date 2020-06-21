@@ -10,6 +10,7 @@
 }
 
 .spinner-box {
+    position: relative;
     display: flex;
     width: 300px;
     height: 300px;
@@ -43,8 +44,20 @@
 .pulse-bubble3 {
     animation: pulse 0.4s ease 0.4s infinite alternate;
 }
+.alt-text {
+    position: absolute;
+    z-index: 0;
+    top: 40%;
+    color: var(--purple-base);
+    font-family: var(--font-libreBaskerville);
+    font-size: var(--font-size-m);
+    opacity: 0;
+}
 
 @media (prefers-reduced-motion: reduce) {
+    .pulse-container {
+        display: none;
+    }
     .pulse-bubble1 {
         animation: none;
     }
@@ -57,8 +70,4 @@
     .alt-text {
         opacity: 1;
     }
-}
-
-.alt-text {
-    opacity: 0;
 }

@@ -12,6 +12,7 @@ import { gameReducer } from './game-reducer';
 import { initialState } from './initialState';
 import { ACTIONS } from './actions';
 import { gameUrl } from '../../../constants/urls';
+import { ErrorContainer } from '../../../ui-elements/error-container/error-container';
 
 export const GameEngine = ({
   closeHandler,
@@ -95,7 +96,11 @@ export const GameEngine = ({
         {status === STATUSES.SUCCESS && (
           <div className={styles.correctAnswer}>{state.text}</div>
         )}
-        {status && <div className={styles[status]}>{MESSAGES[status]}</div>}
+        {status && (
+          <div role="status" aria-live="polite" className={styles[status]}>
+            {MESSAGES[status]}
+          </div>
+        )}
       </header>
     );
   };
@@ -177,7 +182,7 @@ export const GameEngine = ({
   return (
     <>
       {renderStatusBar()}
-      {error && <div className={styles.error}>{error}</div>}
+      {error && <ErrorContainer>{error}</ErrorContainer>}
       <article className={styles.game}>{renderGame()}</article>
     </>
   );

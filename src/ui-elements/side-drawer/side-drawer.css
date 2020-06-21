@@ -15,3 +15,9 @@
 .open {
     transform: translateX(100%);
 }
+
+@media (prefers-reduced-motion: reduce) {
+    .open {
+        animation: none;
+    }
+}
