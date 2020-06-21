@@ -12,16 +12,12 @@
     border-radius: 2%;
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
     color: var(--purple-darker);
-
-    /* transform: translateZ(0); */
     transform: translateY(-150%);
     transition: transform 0.5s ease;
 }
 
 .open {
     top: 5%;
-
-    /* transform: translateZ(0); */
     transform: translateY(5%);
 }
 .close-button {
@@ -30,22 +26,26 @@
     padding: 10px;
 }
 
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 @media (min-width: 760px) {
     .dialog {
         width: 60%;
     }
     .open {
         transform: translateY(10%);
-
-        /* top: 10%; */
     }
     .content {
         padding: 0 40px 40px;
     }
 }
 
-.container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+@media (prefers-reduced-motion: reduce) {
+    .dialog {
+        animation: none;
+    }
 }
