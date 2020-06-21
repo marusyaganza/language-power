@@ -1,7 +1,6 @@
 import React from 'react';
 import cn from 'classnames';
 import styles from './spinner.css';
-// import commonStyles from '../../assets/styles/common-styles.css';
 
 export const Spinner = () => {
   return (

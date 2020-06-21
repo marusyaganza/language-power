@@ -41,7 +41,6 @@
 }
 
 .yellow:hover {
-    /* border: 1px solid var(--yellow-lighter); */
     background: var(--yellow-lighter);
     color: var(--purple-lighter);
 }

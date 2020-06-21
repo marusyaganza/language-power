@@ -12,6 +12,7 @@ import { gameReducer } from './game-reducer';
 import { initialState } from './initialState';
 import { ACTIONS } from './actions';
 import { gameUrl } from '../../../constants/urls';
+import { ErrorContainer } from '../../../ui-elements/error-container/error-container';
 
 export const GameEngine = ({
   closeHandler,
@@ -181,11 +182,7 @@ export const GameEngine = ({
   return (
     <>
       {renderStatusBar()}
-      {error && (
-        <div className={styles.error} role="alert" aria-live="assertive">
-          {error}
-        </div>
-      )}
+      {error && <ErrorContainer>{error}</ErrorContainer>}
       <article className={styles.game}>{renderGame()}</article>
     </>
   );
