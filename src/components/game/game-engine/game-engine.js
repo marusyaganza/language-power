@@ -95,7 +95,11 @@ export const GameEngine = ({
         {status === STATUSES.SUCCESS && (
           <div className={styles.correctAnswer}>{state.text}</div>
         )}
-        {status && <div className={styles[status]}>{MESSAGES[status]}</div>}
+        {status && (
+          <div role="status" aria-live="polite" className={styles[status]}>
+            {MESSAGES[status]}
+          </div>
+        )}
       </header>
     );
   };
@@ -177,7 +181,11 @@ export const GameEngine = ({
   return (
     <>
       {renderStatusBar()}
-      {error && <div className={styles.error}>{error}</div>}
+      {error && (
+        <div className={styles.error} role="alert" aria-live="assertive">
+          {error}
+        </div>
+      )}
       <article className={styles.game}>{renderGame()}</article>
     </>
   );

@@ -17,3 +17,9 @@
 .mode-set-text {
     margin-right: 10px;
 }
+
+.form-heading {
+    color: var(--purple-darkest);
+    font-size: var(--font-size-l);
+    text-align: center;
+}

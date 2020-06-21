@@ -90,9 +90,3 @@
     font-size: var(--font-size-s);
     text-transform: uppercase;
 }
-
-.form-heading {
-    color: var(--purple-darkest);
-    font-size: var(--font-size-l);
-    text-align: center;
-}

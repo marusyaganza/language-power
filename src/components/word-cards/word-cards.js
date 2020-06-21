@@ -8,6 +8,7 @@ import { Warning } from '../warning/warning';
 import { wordsUrl } from '../../constants/urls';
 import commonStyles from '../../assets/styles/common-styles.css';
 import styles from './word-cards.css';
+import { ErrorContainer } from '../../ui-elements/error-container/error-container';
 
 const WordCard = React.lazy(() => import('../word-card'));
 
@@ -63,9 +64,7 @@ export const WordCards = () => {
   return (
     <>
       {wordCards.error && (
-        <div className={commonStyles.error} role="alert">
-          error
-        </div>
+        <ErrorContainer>error: {wordCards.error.message}</ErrorContainer>
       )}
       {wordCards.loading ? (
         <Spinner />

@@ -10,6 +10,7 @@ import { searchUrl } from '../../constants/urls';
 import { Icon } from '../../ui-elements/icons/icon';
 import styles from './word-search.css';
 import commonStyles from '../../assets/styles/common-styles.css';
+import { ErrorContainer } from '../../ui-elements/error-container/error-container';
 
 const WordCard = React.lazy(() => import('../word-card'));
 
@@ -49,11 +50,7 @@ export const WordSearch = ({ addWord }) => {
       return <Spinner />;
     }
     if (error) {
-      return (
-        <div className={commonStyles.error} role="alert">
-          {error.message}
-        </div>
-      );
+      return <ErrorContainer>{error.message}</ErrorContainer>;
     }
     if (result) {
       const { suggestions, match, related } = result;
