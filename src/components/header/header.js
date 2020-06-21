@@ -57,8 +57,7 @@ export const Header = ({ navItems }) => {
     return (
       <Suspense fallback={<Spinner />}>
         <PopUp open={showLoginForm} onClose={formCloseHandler} id="login">
-          <h2 className={styles.formHeading}>Sign up</h2>
-          {showLoginForm && <LoginForm onSubmit={formCloseHandler} />}
+          <LoginForm onSubmit={formCloseHandler} />
         </PopUp>
       </Suspense>
     );

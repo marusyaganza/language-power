@@ -51,7 +51,6 @@ const PopUp = ({ children, open, id, onClose }) => {
         onKeyUp={keyHandler}
         className={cn({ [`${styles.open}`]: open }, styles.dialog)}
         id={id}
-        open={open}
         ref={dialogRef}
         role="dialog"
       >
