@@ -24,16 +24,13 @@
 }
 .red {
     border: 1px solid var(--notification-danger);
-    background: var(--notification-danger-lighter);
+    background: var(--notification-danger);
     box-shadow: 0 3px 0 var(--gray-base);
-
-    /* color: var(--gray-lightest); */
-    color: var(--yellow-lightest);
+    color: var(--white);
 }
 
 .red:hover {
-    background: var(--notification-danger);
-    color: var(--white);
+    background: var(--notification-danger-dark);
 }
 
 .yellow {
