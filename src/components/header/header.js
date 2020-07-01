@@ -1,6 +1,6 @@
-import React, { useState, useContext, Suspense } from 'react';
+import React, { useState, useContext } from 'react';
 import PropTypes from 'prop-types';
-import uuid from 'uuid';
+import { v4 as uuid } from 'uuid';
 import { NavLink, Link } from 'react-router-dom';
 import classnames from 'classnames';
 import { Icon } from '../../ui-elements/icons/icon';
@@ -10,10 +10,9 @@ import { SideDrawer } from '../../ui-elements/side-drawer/side-drawer';
 import { Button } from '../../ui-elements/buttons/button/button';
 import styles from './header.css';
 import { LoginForm } from '../login-form/login-form';
+import PopUp from '../../ui-elements/pop-up/index';
 import { AppContext } from '../../app-context/appContext';
-import { Spinner } from '../../ui-elements/spinner/spinner';
 
-const PopUp = React.lazy(() => import('../../ui-elements/pop-up'));
 export const Header = ({ navItems }) => {
   const [showSidedrawer, setShowSidedrawer] = useState(false);
   const [showLoginForm, setShowLoginform] = useState(false);
@@ -55,11 +54,9 @@ export const Header = ({ navItems }) => {
   };
   const renderLoginForm = () => {
     return (
-      <Suspense fallback={<Spinner />}>
-        <PopUp open={showLoginForm} onClose={formCloseHandler} id="login">
-          <LoginForm onSubmit={formCloseHandler} />
-        </PopUp>
-      </Suspense>
+      <PopUp open={showLoginForm} onClose={formCloseHandler} id="login">
+        <LoginForm onSubmit={formCloseHandler} />
+      </PopUp>
     );
   };
   return (
@@ -96,6 +93,7 @@ export const Header = ({ navItems }) => {
             kind="login"
             aria-haspopup
             aria-controls="login"
+            data-testid="login-button"
           >
             Login
           </Button>

@@ -26,6 +26,7 @@ export const IconButton = ({
   };
   return (
     <button
+      data-testid={kind}
       id={id}
       className={cn(styles.button, styles[kind])}
       type="button"

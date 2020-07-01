@@ -65,22 +65,9 @@
     justify-content: space-between;
 }
 .audio {
-    color: var(--gray-darkest);
     font-size: var(--font-size-xs);
+}
+.transcription {
+    color: var(--gray-darkest);
     font-style: italic;
-}
-
-.modal {
-    margin: 20px auto;
-    text-align: center;
-}
-
-.button-set {
-    display: flex;
-    justify-content: center;
-    margin: 20px auto;
-}
-
-.button {
-    margin: 0 10px;
 }

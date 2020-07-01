@@ -1,3 +1,5 @@
-import { WordCard } from './word-card';
+import React from 'react';
 
-export default WordCard;
+export const WordCard = React.lazy(() => import('./word-card'));
+
+// export default WordCard;

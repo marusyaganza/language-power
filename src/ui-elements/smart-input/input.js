@@ -50,6 +50,8 @@ export const Input = ({
           { [`${styles.errorTextActive}`]: isError },
           styles.errorText
         )}
+        aria-hidden={!isError}
+        role="status"
       >
         {errorText}
       </p>
