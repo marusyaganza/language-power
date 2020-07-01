@@ -8,6 +8,7 @@ import { OptionBox } from '../option-box/option-box';
 import { DictionaryEntity } from '../dictionary-entity/dictionary-entity';
 import { playAudio } from './helpers';
 
+// TODO extract gameData fetch logic from gameEngine and put it here
 export const Game = ({ closeHandler, config, gameId }) => {
   const renderQuestion = text => {
     if (config.AUDIO_IS_REQUIRED) {

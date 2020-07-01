@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 
-import { render, fireEvent, screen } from '@testing-library/react';
+import { render, fireEvent, screen, cleanup } from '@testing-library/react';
 
 import '@testing-library/jest-dom';
 import { Header } from '../header';
@@ -14,9 +14,8 @@ const getItem = jest.fn();
 const removeItem = jest.fn();
 
 describe('Header', () => {
-  beforeEach(() => {
-    jest.resetAllMocks();
-  });
+  afterEach(cleanup);
+
   beforeAll(() => {
     delete window.localStorage;
     window.localStorage = { getItem, setItem, removeItem };

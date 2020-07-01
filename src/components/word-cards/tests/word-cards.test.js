@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, screen, fireEvent, cleanup } from '@testing-library/react';
 
 import '@testing-library/jest-dom';
 import { WordCards } from '../word-cards';
@@ -15,11 +15,13 @@ jest.mock('react', () => {
 });
 
 jest.mock('../../../utils/hooks/fetch/useFetch');
-// const addWord = jest.fn();
+
 const fetchFunc = jest.fn();
 const resetData = jest.fn();
 
 describe('WordVards', () => {
+  afterEach(cleanup);
+
   it('not render empty list of cards', () => {
     React.useContext.mockReturnValue({
       wordCards: {
@@ -95,47 +97,29 @@ describe('WordVards', () => {
     );
 
     expect(screen.getByText('You have added 2 cards')).toBeInTheDocument();
+
     fireEvent.click(screen.getByTitle('delete shoal card'));
-    expect(screen.getByTestId('close')).toHaveFocus();
+
+    expect(screen.getByText('Cancel')).toHaveFocus();
     expect(setIsModalOpen).toHaveBeenCalledWith(true);
+
     fireEvent.click(screen.getByText('Cancel'));
+
     expect(setIsModalOpen).toHaveBeenCalledWith(false);
+
     fireEvent.click(screen.getByTitle('delete shoal card'));
     fireEvent.click(screen.getByText('Delete'));
+
     expect(updateCards).toHaveBeenCalled();
     expect(setIsModalOpen).toHaveBeenCalledWith(false);
     expect(fetchFunc).toHaveBeenCalledWith(reqMock);
 
     fireEvent.click(screen.getByTitle('delete broken card'));
     fireEvent.click(screen.getByText('Delete'));
+
     expect(fetchFunc).toHaveBeenCalledTimes(1);
   });
-  // it('should show warning cards', () => {
-  //   const setIsModalOpen = jest.fn();
-  //   const updateCards = jest.fn();
-  //   React.useContext.mockReturnValue({
-  //     wordCards: {
-  //       loading: false,
-  //       error: false,
-  //       result: mock
-  //     },
-  //     setIsModalOpen,
-  //     updateCards,
-  //     token: 'token'
-  //   });
-  //   useFetch.mockReturnValue([
-  //     { result: { message: 'deleted' }, error: 'err' },
-  //     fetchFunc,
-  //     resetData
-  //   ]);
-  //   render(
-  //     <AppProvider>
-  //       <WordCards />
-  //     </AppProvider>
-  //   );
 
-  //   expect(screen.getByText('deleted')).toBeInTheDocument();
-  // });
   it('should show spinner when deleting is in progress', () => {
     const setIsModalOpen = jest.fn();
     const updateCards = jest.fn();
@@ -158,6 +142,7 @@ describe('WordVards', () => {
 
     expect(screen.getByTestId('spinner-animation')).toBeInTheDocument();
   });
+
   it('should handle error on delete', () => {
     const setIsModalOpen = jest.fn();
     const updateCards = jest.fn();

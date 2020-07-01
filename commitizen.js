@@ -1,4 +1,3 @@
-// TODO translate
 // TODO create separate configs for git, jest, linters etc.
 module.exports = {
   types: [

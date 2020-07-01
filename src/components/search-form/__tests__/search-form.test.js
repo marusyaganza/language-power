@@ -1,14 +1,13 @@
 import React from 'react';
-import { render, fireEvent, screen } from '@testing-library/react';
+import { render, fireEvent, screen, cleanup } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { SearchForm } from '../search-form';
 
 const submitFunc = jest.fn();
 
 describe('Search Form', () => {
-  beforeEach(() => {
-    jest.resetAllMocks();
-  });
+  afterEach(cleanup);
+
   it('should not submit empty query', () => {
     render(<SearchForm onFormSubmit={submitFunc} />);
     const button = screen.getByText('Search');

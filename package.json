@@ -17,7 +17,7 @@
     "prettier": "prettier --write src/**/*.js",
     "test": "jest --silent",
     "test:watch": "jest --watch --silent",
-    "coverage": "yarn jest --collect-coverage --silent",
+    "coverage": "jest --collect-coverage",
     "ready": "yarn prettier && yarn eslint --fix && yarn stylelint --fix && yarn coverage"
   },
   "husky": {

@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, screen, fireEvent, cleanup } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { BrowserRouter } from 'react-router-dom';
 
@@ -25,9 +25,7 @@ const resetData = jest.fn();
 const finishButtonText = 'Finish game';
 
 describe('Game', () => {
-  beforeEach(() => {
-    jest.resetAllMocks();
-  });
+  afterEach(cleanup);
   it('should handle loading', () => {
     useFetch.mockReturnValue([{ loading: true }, fetchFunc, resetData]);
     render(
@@ -81,10 +79,6 @@ describe('Game', () => {
     fireEvent.click(finishButton);
     expect(fetchFunc).toHaveBeenCalledTimes(2);
     expect(spy).toHaveBeenCalled();
-    // TODO refactor component to make it testable
-    // expect(screen.getByText('Results are saved')).toBeInTheDocument();
-    // fireEvent.click(finishButton);
-    // expect(handler).toHaveBeenCalled();
   });
   it('should render writing game', () => {
     useFetch.mockReturnValue([
@@ -214,5 +208,23 @@ describe('Game', () => {
       '/search_words'
     );
     expect(fetchFunc).toHaveBeenCalledTimes(1);
+  });
+  it('should save game and close', () => {
+    useFetch.mockReturnValue([
+      { result: { ...gameData.audio, message: 'Results are saved' } },
+      fetchFunc,
+      resetData
+    ]);
+    render(
+      <BrowserRouter>
+        <AppProvider>
+          <Game config={config.audio} closeHandler={handler} gameId="audio" />
+        </AppProvider>
+      </BrowserRouter>
+    );
+    expect(screen.getByText('Results are saved')).toBeInTheDocument();
+    const finishButton = screen.getByText(finishButtonText);
+    fireEvent.click(finishButton);
+    expect(handler).toHaveBeenCalled();
   });
 });

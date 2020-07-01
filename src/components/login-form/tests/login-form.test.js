@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, fireEvent, screen } from '@testing-library/react';
+import { render, fireEvent, screen, cleanup } from '@testing-library/react';
 
 import '@testing-library/jest-dom';
 import { LoginForm } from '../login-form';
@@ -19,9 +19,8 @@ const fetchFunc = jest.fn();
 const resetData = jest.fn();
 
 describe('form', () => {
-  beforeEach(() => {
-    jest.resetAllMocks();
-  });
+  afterEach(cleanup);
+
   it('should switch login and sign up modes', () => {
     useFetch.mockReturnValue([{ error: 'Dummy error' }, fetchFunc, resetData]);
     render(

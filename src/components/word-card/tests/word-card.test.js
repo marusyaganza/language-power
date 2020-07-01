@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, fireEvent, screen } from '@testing-library/react';
+import { render, fireEvent, screen, cleanup } from '@testing-library/react';
 
 import '@testing-library/jest-dom';
 import { mock, reducedMock } from './word.mock';
@@ -9,9 +9,8 @@ import { AppProvider } from '../../../app-context/appContext';
 const buttonHandler = jest.fn();
 
 describe('WordVards', () => {
-  beforeEach(() => {
-    jest.resetAllMocks();
-  });
+  afterEach(cleanup);
+
   it('should show examples', () => {
     render(
       <AppProvider>

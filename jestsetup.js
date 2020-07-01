@@ -11,12 +11,3 @@ jest.mock('react-dom', () => {
     }
   };
 });
-
-// jest.mock('react', () => {
-//   return {
-//     ...jest.requireActual('react-dom'),
-//     Suspense: element => {
-//       return element;
-//     }
-//   };
-// });
