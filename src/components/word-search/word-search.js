@@ -12,7 +12,7 @@ import styles from './word-search.css';
 import commonStyles from '../../assets/styles/common-styles.css';
 import { ErrorContainer } from '../../ui-elements/error-container/error-container';
 
-const WordCard = React.lazy(() => import('../word-card'));
+import { WordCard } from '../word-card/word-card';
 
 export const WordSearch = ({ addWord }) => {
   const { wordCards } = useContext(AppContext);
@@ -34,10 +34,14 @@ export const WordSearch = ({ addWord }) => {
     return (
       <ul>
         {arr.map(item => {
-          const isAdded = wordCards.result.some(i => i.uuid === item.uuid);
+          const isAdded = Array.isArray(wordCards.result)
+            ? wordCards.result.some(i => i.uuid === item.uuid)
+            : false;
           return (
             <li key={item.uuid}>
-              <WordCard word={item} isAdded={isAdded} addWord={addWord} />
+              <Suspense fallback={<Spinner />}>
+                <WordCard word={item} isAdded={isAdded} addWord={addWord} />
+              </Suspense>
             </li>
           );
         })}
@@ -55,7 +59,7 @@ export const WordSearch = ({ addWord }) => {
     if (result) {
       const { suggestions, match, related } = result;
       return (
-        <article>
+        <article data-testid="search-result">
           <section>
             <h2 className={commonStyles.subheading}>
               <Icon className={styles.red} id="meteor" /> Results for{' '}
@@ -98,7 +102,7 @@ export const WordSearch = ({ addWord }) => {
   return (
     <section className={commonStyles.container}>
       <SearchForm onFormSubmit={handleSearchSubmit} />
-      <Suspense fallback={<Spinner />}>{renderResult()}</Suspense>
+      {renderResult()}
     </section>
   );
 };

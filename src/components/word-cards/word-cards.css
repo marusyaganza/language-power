@@ -2,3 +2,17 @@
     display: flex;
     flex-direction: column-reverse;
 }
+.modal {
+    margin: 20px auto;
+    text-align: center;
+}
+
+.button-set {
+    display: flex;
+    justify-content: center;
+    margin: 20px auto;
+}
+
+.button {
+    margin: 0 10px;
+}

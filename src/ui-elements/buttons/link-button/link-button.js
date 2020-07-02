@@ -6,7 +6,6 @@ import { Link } from 'react-router-dom';
 import styles from './link-button.css';
 import { SIZES } from './constants';
 
-// TODO add unique styles for this component
 export const LinkButton = ({ children, href, size }) => {
   return (
     <Link className={cn(styles.button, styles[`size${size}`])} to={href}>

@@ -12,7 +12,7 @@ import { AppContext } from '../../app-context/appContext';
 const PopUp = ({ children, open, id, onClose }) => {
   const { setIsModalOpen } = useContext(AppContext);
   const keyHandler = e => {
-    if (e.key === 'Escape') {
+    if (e.key === 'Escape' && open) {
       onClose();
     }
   };
@@ -28,7 +28,7 @@ const PopUp = ({ children, open, id, onClose }) => {
   useEffect(() => {
     if (open) {
       const focusable = dialogRef.current.querySelector('input')
-      || dialogRef.current.querySelector('button[type=button]:not(#close)');
+      || dialogRef.current.querySelector('button[type=button]:not([data-id=close])');
       if (focusable) {
         focusable.focus();
       }
