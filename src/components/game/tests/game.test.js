@@ -26,6 +26,9 @@ const finishButtonText = 'Finish game';
 
 describe('Game', () => {
   afterEach(cleanup);
+  beforeEach(() => {
+    jest.resetAllMocks();
+  });
   it('should handle loading', () => {
     useFetch.mockReturnValue([{ loading: true }, fetchFunc, resetData]);
     render(
