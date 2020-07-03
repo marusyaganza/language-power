@@ -4,7 +4,6 @@ import { Header } from './components/header/header';
 import { PATHS } from './constants/paths';
 import { AppProvider } from './app-context/appContext';
 import { Spinner } from './ui-elements/spinner/spinner';
-import { PageContainer } from './components/page-container/page-container';
 import ErrorBuondary from './components/error-boundary/error-boundary';
 import './styles.css';
 
@@ -19,18 +18,16 @@ const navItems = Object.values(PATHS);
 export const App = () => (
   <ErrorBuondary>
     <AppProvider>
-      <PageContainer>
-        <Header navItems={navItems} />
-        <Suspense fallback={<Spinner />}>
-          <Switch>
-            <Route path="/" exact component={Home} />
-            <Route path="/word_games" component={GamesPage} />
-            <Route path="/word_cards" component={CardPage} />
-            <Route path="/search_words" component={SearchPage} />
-            <Route path="*" component={NotFoundPage} />
-          </Switch>
-        </Suspense>
-      </PageContainer>
+      <Header navItems={navItems} />
+      <Suspense fallback={<Spinner />}>
+        <Switch>
+          <Route path="/" exact component={Home} />
+          <Route path="/word_games" component={GamesPage} />
+          <Route path="/word_cards" component={CardPage} />
+          <Route path="/search_words" component={SearchPage} />
+          <Route path="*" component={NotFoundPage} />
+        </Switch>
+      </Suspense>
     </AppProvider>
   </ErrorBuondary>
 );

@@ -32,12 +32,11 @@
 }
 
 .question {
-    display: flex;
-    justify-content: center;
     margin: 20px auto;
     color: var(--purple-darkest);
     font-family: var(--font-kalam);
     line-height: 1.1;
+    text-align: center;
 }
 .answer {
     display: flex;

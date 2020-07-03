@@ -11,3 +11,7 @@ jest.mock('react-dom', () => {
     }
   };
 });
+
+Object.defineProperty(global.document, 'querySelector', {
+  value: () => ({ setAttribute: jest.fn(), removeAttribute: jest.fn() })
+});

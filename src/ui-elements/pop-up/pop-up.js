@@ -2,15 +2,14 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import PropTypes from 'prop-types';
 import { createPortal } from 'react-dom';
-import React, { useEffect, useRef, useContext } from 'react';
+import React, { useEffect, useRef } from 'react';
 import cn from 'classnames';
 import styles from './pop-up.css';
 import { IconButton } from '../buttons/icon-button/icon-button';
 import { Backdrop } from '../backdrop/backdrop';
-import { AppContext } from '../../app-context/appContext';
+import 'wicg-inert';
 
 const PopUp = ({ children, open, id, onClose }) => {
-  const { setIsModalOpen } = useContext(AppContext);
   const keyHandler = e => {
     if (e.key === 'Escape' && open) {
       onClose();
@@ -26,21 +25,22 @@ const PopUp = ({ children, open, id, onClose }) => {
   };
 
   useEffect(() => {
+    const root = document.querySelector('#root');
     if (open) {
+      root.setAttribute('inert', '');
       const focusable = dialogRef.current.querySelector('input')
       || dialogRef.current.querySelector('button[type=button]:not([data-id=close])');
       if (focusable) {
         focusable.focus();
       }
-      setIsModalOpen(open);
       document.addEventListener('focusin', focusOutsideHandler);
     } else {
-      setIsModalOpen(open);
+      root.removeAttribute('inert');
       document.removeEventListener('focusin', focusOutsideHandler);
     }
 
     return () => {
-      setIsModalOpen(false);
+      root.removeAttribute('inert');
       document.removeEventListener('focusin', focusOutsideHandler);
     };
   }, [open]);
