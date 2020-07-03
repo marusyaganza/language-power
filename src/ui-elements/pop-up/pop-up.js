@@ -2,7 +2,7 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import PropTypes from 'prop-types';
 import { createPortal } from 'react-dom';
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import cn from 'classnames';
 import styles from './pop-up.css';
 import { IconButton } from '../buttons/icon-button/icon-button';
@@ -10,6 +10,7 @@ import { Backdrop } from '../backdrop/backdrop';
 import 'wicg-inert';
 
 const PopUp = ({ children, open, id, onClose }) => {
+  const [show, setShow] = useState(false);
   const keyHandler = e => {
     if (e.key === 'Escape' && open) {
       onClose();
@@ -24,10 +25,17 @@ const PopUp = ({ children, open, id, onClose }) => {
     }
   };
 
+  const transitionHandler = () => {
+    if (!show) {
+      onClose();
+    }
+  };
+
   useEffect(() => {
     const root = document.querySelector('#root');
     if (open) {
       root.setAttribute('inert', '');
+      setShow(true);
       const focusable = dialogRef.current.querySelector('input')
       || dialogRef.current.querySelector('button[type=button]:not([data-id=close])');
       if (focusable) {
@@ -45,11 +53,16 @@ const PopUp = ({ children, open, id, onClose }) => {
     };
   }, [open]);
 
-  const component = (
+  const closeHandler = () => {
+    setShow(false);
+  };
+
+  const component = open ? (
     <div className={styles.container}>
       <div
+        onTransitionEnd={transitionHandler}
         onKeyUp={keyHandler}
-        className={cn({ [`${styles.open}`]: open }, styles.dialog)}
+        className={cn({ [`${styles.open}`]: show }, styles.dialog)}
         id={id}
         ref={dialogRef}
         role="dialog"
@@ -57,7 +70,7 @@ const PopUp = ({ children, open, id, onClose }) => {
         <span className={styles.closeButton}>
           <IconButton
             data-id="close"
-            onClick={onClose}
+            onClick={closeHandler}
             kind="close"
             iconHint="close window"
             tabIndex="0"
@@ -66,9 +79,9 @@ const PopUp = ({ children, open, id, onClose }) => {
         </span>
         <div className={styles.content}>{children}</div>
       </div>
-      {open && <Backdrop onClick={onClose} />}
+      {open && <Backdrop onClick={closeHandler} />}
     </div>
-  );
+  ) : null;
   return createPortal(component, document.getElementById('modal'));
 };
 
