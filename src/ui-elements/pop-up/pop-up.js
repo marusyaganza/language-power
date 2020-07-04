@@ -7,7 +7,6 @@ import cn from 'classnames';
 import styles from './pop-up.css';
 import { IconButton } from '../buttons/icon-button/icon-button';
 import { Backdrop } from '../backdrop/backdrop';
-import 'wicg-inert';
 
 const PopUp = ({ children, open, id, onClose }) => {
   const [show, setShow] = useState(false);
@@ -32,9 +31,7 @@ const PopUp = ({ children, open, id, onClose }) => {
   };
 
   useEffect(() => {
-    const root = document.querySelector('#root');
     if (open) {
-      root.setAttribute('inert', '');
       setShow(true);
       const focusable = dialogRef.current.querySelector('input')
       || dialogRef.current.querySelector('button[type=button]:not([data-id=close])');
@@ -43,12 +40,10 @@ const PopUp = ({ children, open, id, onClose }) => {
       }
       document.addEventListener('focusin', focusOutsideHandler);
     } else {
-      root.removeAttribute('inert');
       document.removeEventListener('focusin', focusOutsideHandler);
     }
 
     return () => {
-      root.removeAttribute('inert');
       document.removeEventListener('focusin', focusOutsideHandler);
     };
   }, [open]);
@@ -57,7 +52,11 @@ const PopUp = ({ children, open, id, onClose }) => {
     setShow(false);
   };
 
-  const component = open ? (
+  if (!open) {
+    return null;
+  }
+
+  const component = (
     <div className={styles.container}>
       <div
         onTransitionEnd={transitionHandler}
@@ -79,9 +78,9 @@ const PopUp = ({ children, open, id, onClose }) => {
         </span>
         <div className={styles.content}>{children}</div>
       </div>
-      {open && <Backdrop onClick={closeHandler} />}
+      <Backdrop onClick={closeHandler} show={show} />
     </div>
-  ) : null;
+  );
   return createPortal(component, document.getElementById('modal'));
 };
 

@@ -117,7 +117,6 @@ export const WordCards = () => {
         </h2>
         {renderCards()}
       </section>
-      )
     </>
   );
 };

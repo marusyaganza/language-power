@@ -3,8 +3,7 @@ module.exports = {
   coveragePathIgnorePatterns: ['tests', 'node_modules'],
   setupFiles: ['./jestsetup.js'],
   transform: {
-    '^.+\\.js$': 'babel-jest',
-    '^.+\\.svg$': 'jest-svg-transformer'
+    '^.+\\.js$': 'babel-jest'
   },
   coverageThreshold: {
     global: {
@@ -15,7 +14,8 @@ module.exports = {
     }
   },
   moduleNameMapper: {
-    '\\.(jpg|jpeg|png|webp|ttf|woff|woff2)$': '<rootDir>/__mocks__/fileMock.js',
+    '\\.(jpg|jpeg|png|svg|webp|ttf|woff|woff2)$':
+      '<rootDir>/__mocks__/fileMock.js',
     '\\.(css|less)$': 'identity-obj-proxy'
   }
 };

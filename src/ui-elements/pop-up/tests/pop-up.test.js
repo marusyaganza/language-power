@@ -45,15 +45,7 @@ describe('PopUp', () => {
         </div>
       </AppProvider>
     );
-    expect(screen.getByTestId('input')).not.toHaveFocus();
-    expect(screen.queryByLabelText('backdrop')).toBeNull();
-    fireEvent.keyUp(screen.getByRole('dialog'), {
-      key: 'Escape',
-      code: 'Escape'
-    });
-    expect(onClose).toHaveBeenCalledTimes(0);
-    fireEvent.focusIn(screen.getByTestId('outer'));
-    expect(screen.getByTestId('close')).not.toHaveFocus();
+    expect(screen.queryByRole('dialog')).toBeNull();
   });
   it('should have initial focus on link', () => {
     const onClose = jest.fn();

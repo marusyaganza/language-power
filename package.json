@@ -15,9 +15,9 @@
     "lint": "yarn eslint && yarn stylelint",
     "format-fix": "yarn eslint --fix && yarn stylelint --fix",
     "prettier": "prettier --write src/**/*.js",
-    "test": "jest --silent",
+    "test": "jest",
     "test:watch": "jest --watch --silent",
-    "coverage": "jest --collect-coverage",
+    "coverage": "jest --collect-coverage --silent",
     "ready": "yarn prettier && yarn eslint --fix && yarn stylelint --fix && yarn coverage"
   },
   "husky": {
@@ -93,7 +93,6 @@
     "husky": "^4.2.3",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^26.0.1",
-    "jest-svg-transformer": "^1.0.0",
     "jest-transform-css": "^2.0.0",
     "mini-css-extract-plugin": "^0.9.0",
     "preload-webpack-plugin": "^3.0.0-beta.4",

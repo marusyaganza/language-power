@@ -5,7 +5,6 @@ import { NavLink, Link } from 'react-router-dom';
 import classnames from 'classnames';
 import { Icon } from '../../ui-elements/icons/icon';
 import { IconButton } from '../../ui-elements/buttons/icon-button/icon-button';
-import { Backdrop } from '../../ui-elements/backdrop/backdrop';
 import { SideDrawer } from '../../ui-elements/side-drawer/side-drawer';
 import { Button } from '../../ui-elements/buttons/button/button';
 import styles from './header.css';
@@ -61,8 +60,7 @@ export const Header = ({ navItems }) => {
   };
   return (
     <>
-      {showSidedrawer && <Backdrop onClick={sideDrawerHandler} />}
-      <SideDrawer open={showSidedrawer}>
+      <SideDrawer open={showSidedrawer} backdropHandler={sideDrawerHandler}>
         <nav className={styles.drawerNav}>
           <ul className={styles.sideDrawerNav}>
             {renderNav(navItems, sideDrawerHandler)}

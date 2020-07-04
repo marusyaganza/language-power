@@ -38,12 +38,15 @@ describe('Header', () => {
     expect(screen.getByText('Language power')).toBeInTheDocument();
     expect(screen.queryByLabelText('backdrop')).toBeNull();
     expect(screen.getByText('Logout')).toBeInTheDocument();
+
     fireEvent.click(screen.getByText('Logout'));
+
     expect(screen.queryByText('Logout')).toBeNull();
     expect(screen.getByTestId('login-button')).toBeInTheDocument();
     expect(removeItem).toHaveBeenCalledWith('userData');
   });
-  it('show login form', () => {
+
+  it('show and hide login form', async () => {
     getItem.mockReturnValue('null');
     render(
       <BrowserRouter>
@@ -52,13 +55,29 @@ describe('Header', () => {
         </AppProvider>
       </BrowserRouter>
     );
+
+    expect(screen.queryByLabelText('backdrop')).toBeNull();
+    expect(screen.queryByRole('dialog')).toBeNull();
+
     fireEvent.click(screen.getByTestId('login-button'));
+
     expect(screen.queryByLabelText('backdrop')).toBeInTheDocument();
     expect(screen.queryByRole('dialog')).toBeVisible();
     expect(screen.getByLabelText('Email')).toHaveFocus();
-    fireEvent.click(screen.getByTitle('close window'));
+
+    fireEvent.transitionEnd(screen.getByRole('dialog'));
+
+    expect(screen.queryByLabelText('backdrop')).toBeInTheDocument();
+    expect(screen.queryByRole('dialog')).toBeVisible();
+    expect(screen.getByLabelText('Email')).toHaveFocus();
+
+    fireEvent.click(screen.getByLabelText('backdrop'));
+    fireEvent.transitionEnd(screen.getByRole('dialog'));
+
     expect(screen.queryByLabelText('backdrop')).toBeNull();
+    expect(screen.queryByRole('dialog')).toBeNull();
   });
+
   it('show sideDrawer after click on menu button', () => {
     getItem.mockReturnValue('null');
     render(
@@ -68,9 +87,23 @@ describe('Header', () => {
         </AppProvider>
       </BrowserRouter>
     );
-    fireEvent.click(screen.getByTitle('menu'));
-    expect(screen.queryByLabelText('backdrop')).toBeInTheDocument();
-    fireEvent.click(screen.getByLabelText('backdrop'));
     expect(screen.queryByLabelText('backdrop')).toBeNull();
+    expect(screen.queryByTestId('sidedrawer')).toBeNull();
+
+    fireEvent.click(screen.getByTitle('menu'));
+
+    expect(screen.getByLabelText('backdrop')).toBeInTheDocument();
+    expect(screen.getByTestId('sidedrawer')).toBeInTheDocument();
+
+    fireEvent.transitionEnd(screen.getByTestId('sidedrawer'));
+
+    expect(screen.getByLabelText('backdrop')).toBeInTheDocument();
+    expect(screen.getByTestId('sidedrawer')).toBeInTheDocument();
+
+    fireEvent.click(screen.getByLabelText('backdrop'));
+    fireEvent.transitionEnd(screen.getByTestId('sidedrawer'));
+
+    expect(screen.queryByLabelText('backdrop')).toBeNull();
+    expect(screen.queryByTestId('sidedrawer')).toBeNull();
   });
 });
