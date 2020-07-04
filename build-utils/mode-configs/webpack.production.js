@@ -48,7 +48,7 @@ module.exports = () => {
         filename: '[id].[chunkhash:16].css',
         chunkFilename: '[id].[chunkhash:16].css'
       }),
-      new CopyPlugin([{ from: 'static/*', flatten: true }]),
+      new CopyPlugin({ patterns: [{ from: 'static/*', flatten: true }] }),
       new PreloadWebpackPlugin({
         rel: 'preload',
         include: 'allChunks'
