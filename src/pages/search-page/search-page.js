@@ -25,7 +25,7 @@ export const SearchPage = () => {
       const method = 'POST';
       const headers = {
         'Content-Type': 'application/json',
-        Authorization: `bearer ${token}`
+        Authorization: `Bearer ${token}`
       };
       sendRequest({ url, requestOptions: { body, method, headers } });
     }

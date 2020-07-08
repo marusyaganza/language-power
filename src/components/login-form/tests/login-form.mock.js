@@ -11,7 +11,7 @@ export const reqParams = {
     body: JSON.stringify(result),
     method: 'POST'
   },
-  url: 'undefined/api/user/login'
+  url: 'host/api/user/login'
 };
 
 export const signUpReqParams = {
@@ -20,12 +20,12 @@ export const signUpReqParams = {
     body: JSON.stringify(signUpResult),
     method: 'POST'
   },
-  url: 'undefined/api/user/signup'
+  url: 'host/api/user/signup'
 };
 
 export const fetchWordReq = {
   requestOptions: {
     headers: { Authorization: 'Bearer token' }
   },
-  url: 'undefined/api/words/'
+  url: 'host/api/words/'
 };

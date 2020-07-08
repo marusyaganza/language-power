@@ -34,10 +34,20 @@ export const reducedMock = {
 export const reqMock = {
   requestOptions: {
     headers: {
-      Authorization: 'bearer token',
+      Authorization: 'Bearer tokenString'
+    },
+    signal: new AbortController().signal
+  },
+  url: 'host/api/words/'
+};
+export const reqDeleteMock = {
+  requestOptions: {
+    headers: {
+      Authorization: 'Bearer tokenString',
       'Content-Type': 'application/json'
     },
-    method: 'DELETE'
+    method: 'DELETE',
+    signal: new AbortController().signal
   },
-  url: 'undefined/api/words/mockid'
+  url: 'host/api/words/mockid'
 };

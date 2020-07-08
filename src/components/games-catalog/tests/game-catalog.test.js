@@ -18,7 +18,7 @@ describe('GameCatalog', () => {
     });
     expect(screen.getByAltText('name logo.')).toHaveAttribute(
       'src',
-      `undefined/${games[0].logo}`
+      `host/${games[0].logo}`
     );
   });
   it('should render default logo', () => {

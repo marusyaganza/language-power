@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext, Suspense } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { PopUp } from '../../ui-elements/pop-up/pop-up';
 import bannerImg from '../../assets/img/jpg/games_banner.jpg';
 import bannerImgMobile from '../../assets/img/jpg/games_banner.mobile.jpg';
@@ -49,9 +49,7 @@ export const WordGamesPage = () => {
     if (currentGame) {
       return (
         <>
-          <Suspense fallback={<Spinner />}>
-            <Game closeHandler={gameHandler} {...currentGame} />
-          </Suspense>
+          <Game closeHandler={gameHandler} {...currentGame} />
         </>
       );
     }
@@ -68,9 +66,7 @@ export const WordGamesPage = () => {
           <PopUp open={isOpen} onClose={gameHandler}>
             {renderGame()}
           </PopUp>
-          <Suspense fallback={<Spinner />}>
-            <GamesCatalog games={result} onClick={catalogHandler} />
-          </Suspense>
+          <GamesCatalog games={result} onClick={catalogHandler} />
         </>
       );
     }

@@ -58,7 +58,7 @@ describe('WordSearch', () => {
     fireEvent.click(screen.getByText('Search'));
 
     expect(fetchFunc).toHaveBeenCalledWith({
-      url: 'undefined/api/words/search/shoal'
+      url: 'host/api/words/search/shoal'
     });
     expect(screen.getByText('May be you meant')).toBeInTheDocument();
     expect(screen.getByText('No words found')).toBeInTheDocument();

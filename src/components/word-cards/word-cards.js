@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect, Suspense } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { AppContext } from '../../app-context/appContext';
 import { PopUp } from '../../ui-elements/pop-up/pop-up';
 import { Button } from '../../ui-elements/buttons/button/button';
@@ -19,7 +19,6 @@ export const WordCards = () => {
   const [deleteCardId, setDeleteCardId] = useState('');
   const [state, sendRequest] = useFetch();
   const { result, loading, error } = state;
-
   const closeHandler = () => {
     setModalIsOpen(false);
   };
@@ -29,7 +28,7 @@ export const WordCards = () => {
     const method = 'DELETE';
     const headers = {
       'Content-Type': 'application/json',
-      Authorization: `bearer ${token}`
+      Authorization: `Bearer ${token}`
     };
     sendRequest({ url, requestOptions: { method, headers } });
     setDeleteCardId('');
@@ -61,24 +60,22 @@ export const WordCards = () => {
     }
     if (wordCards.result && wordCards.result.length) {
       return (
-        <PopUp open={isModalOpen} onClose={closeHandler}>
-          <div className={styles.modal}>
-            <h2>Are you sure?</h2>
-            <p>Deleting card is irreversible</p>
-            <div className={styles.buttonSet}>
-              <Button className={styles.button} onClick={closeHandler}>
-                Cancel
-              </Button>
-              <Button
-                className={styles.button}
-                onClick={deleteHandler}
-                kind="red"
-              >
-                Delete
-              </Button>
-            </div>
+        <div className={styles.modal}>
+          <h2>Are you sure?</h2>
+          <p>Deleting card is irreversible</p>
+          <div className={styles.buttonSet}>
+            <Button className={styles.button} onClick={closeHandler}>
+              Cancel
+            </Button>
+            <Button
+              className={styles.button}
+              onClick={deleteHandler}
+              kind="red"
+            >
+              Delete
+            </Button>
           </div>
-        </PopUp>
+        </div>
       );
     }
     return null;
@@ -90,9 +87,7 @@ export const WordCards = () => {
         <ul className={styles.cardsList} data-testid="cards-list">
           {wordCards.result.map(word => (
             <li key={word.uuid}>
-              <Suspense fallback={<Spinner />}>
-                <WordCard word={word} deleteWord={deleteButtonHandler} />
-              </Suspense>
+              <WordCard word={word} deleteWord={deleteButtonHandler} />
             </li>
           ))}
         </ul>
@@ -110,10 +105,16 @@ export const WordCards = () => {
       {wordCards.error && (
         <ErrorContainer>error: {wordCards.error.message}</ErrorContainer>
       )}
-      {renderModal()}
+      <PopUp open={isModalOpen} onClose={closeHandler}>
+        {renderModal()}
+      </PopUp>
       <section>
         <h2 className={commonStyles.subheading}>
-          You have added {wordCards.result && wordCards.result.length} cards
+          You have added{' '}
+          {wordCards.result && wordCards.result.length
+            ? wordCards.result.length
+            : 0}{' '}
+          cards
         </h2>
         {renderCards()}
       </section>
