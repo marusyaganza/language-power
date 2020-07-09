@@ -20,7 +20,7 @@ export const Banner = ({
     <section
       style={style}
       className={cn(styles.banner, className)}
-      data-testId="banner"
+      data-testid="banner"
     >
       <header className={styles.heading}>
         <h1 className={styles.mainHeading}>{mainHeading}</h1>

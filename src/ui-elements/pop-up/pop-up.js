@@ -9,7 +9,8 @@ import { IconButton } from '../buttons/icon-button/icon-button';
 import { Backdrop } from '../backdrop/backdrop';
 
 const PopUp = ({ children, open, id, onClose }) => {
-  const [show, setShow] = useState(false);
+  const [close, setClose] = useState(true);
+  const [openClass, setOpenClass] = useState(false);
   const keyHandler = e => {
     if (e.key === 'Escape' && open) {
       onClose();
@@ -25,14 +26,12 @@ const PopUp = ({ children, open, id, onClose }) => {
   };
 
   const transitionHandler = () => {
-    if (!show) {
-      onClose();
-    }
+    setClose(!open);
   };
 
   useEffect(() => {
+    setOpenClass(open);
     if (open) {
-      setShow(true);
       const focusable = dialogRef.current.querySelector('input')
       || dialogRef.current.querySelector('button[type=button]:not([data-id=close])');
       if (focusable) {
@@ -48,11 +47,7 @@ const PopUp = ({ children, open, id, onClose }) => {
     };
   }, [open]);
 
-  const closeHandler = () => {
-    setShow(false);
-  };
-
-  if (!open) {
+  if (!open && close) {
     return null;
   }
 
@@ -61,7 +56,7 @@ const PopUp = ({ children, open, id, onClose }) => {
       <div
         onTransitionEnd={transitionHandler}
         onKeyUp={keyHandler}
-        className={cn({ [`${styles.open}`]: show }, styles.dialog)}
+        className={cn({ [`${styles.open}`]: openClass }, styles.dialog)}
         id={id}
         ref={dialogRef}
         role="dialog"
@@ -69,7 +64,7 @@ const PopUp = ({ children, open, id, onClose }) => {
         <span className={styles.closeButton}>
           <IconButton
             data-id="close"
-            onClick={closeHandler}
+            onClick={onClose}
             kind="close"
             iconHint="close window"
             tabIndex="0"
@@ -78,7 +73,7 @@ const PopUp = ({ children, open, id, onClose }) => {
         </span>
         <div className={styles.content}>{children}</div>
       </div>
-      <Backdrop onClick={closeHandler} show={show} />
+      <Backdrop onClick={onClose} show={!close} />
     </div>
   );
   return createPortal(component, document.getElementById('modal'));
