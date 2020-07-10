@@ -1,10 +1,26 @@
 module.exports = {
   env: {
     es6: true,
-    browser: true
+    browser: true,
+    'cypress/globals': true
   },
-  extends: ['airbnb', 'plugin:jest/recommended', 'plugin:sonarjs/recommended'],
-  plugins: ['babel', 'import', 'jsx-a11y', 'react', 'prettier', 'sonarjs'],
+  extends: [
+    'airbnb',
+    'plugin:jest/recommended',
+    'plugin:sonarjs/recommended',
+    'plugin:cypress/recommended',
+    'plugin:testing-library/recommended'
+  ],
+  plugins: [
+    'babel',
+    'import',
+    'jsx-a11y',
+    'react',
+    'prettier',
+    'sonarjs',
+    'cypress',
+    'testing-library'
+  ],
   parser: 'babel-eslint',
   parserOptions: {
     ecmaVersion: 6,

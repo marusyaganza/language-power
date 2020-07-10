@@ -40,7 +40,12 @@ export const GamesCatalog = ({ games, onClick }) => {
               <p className={styles.description}>{game.description}</p>
             </main>
             <footer>
-              <Button onClick={clickHandler} size="L" kind="purple">
+              <Button
+                onClick={clickHandler}
+                size="L"
+                kind="purple"
+                data-testid={`start ${game.name}`}
+              >
                 Start game
               </Button>
             </footer>
