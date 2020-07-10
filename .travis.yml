@@ -11,8 +11,12 @@ addons:
       - libgconf-2-4
 cache:
   yarn: true
+  npm: true
   directories:
     - ~/.cache
+
+    install:
+      npm install
 
 jobs:
   include:
