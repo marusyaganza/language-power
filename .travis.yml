@@ -14,12 +14,9 @@ cache:
   npm: true
   directories:
     - ./node_modules
-    - ~/.cache
+    - ~/.cache/
     - ~/.npm
-
-    override:
-      - npm ci
-      - cypress verify
+    - ~/.cache/Cypress
 
 jobs:
   include:
