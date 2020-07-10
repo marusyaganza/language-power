@@ -3,20 +3,29 @@ dist: bionic
 language: node_js
 
 node_js:
-  - 13.14.0
+  - 'lts/*'
 
 addons:
+  chrome: stable
   apt:
     packages:
       - libgconf-2-4
 cache:
-  yarn: true
   npm: true
   directories:
+    - ./node_modules
     - ~/.cache
+    - ~/.npm
 
-install:
-  -npm install
+    override:
+      - npm ci
+      - cypress verify
+
+install: 
+  - npm ci
+
+script: 
+  - npm run ci
 
 jobs:
   include:
