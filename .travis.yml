@@ -21,12 +21,6 @@ cache:
       - npm ci
       - cypress verify
 
-install: 
-  - npm ci
-
-script: 
-  - npm run ci
-
 jobs:
   include:
     - stage: linting
