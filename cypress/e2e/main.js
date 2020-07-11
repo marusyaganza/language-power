@@ -1,5 +1,24 @@
 /* eslint-disable testing-library/await-async-query */
 /* eslint-disable jest/expect-expect */
+function terminalLog(violations) {
+  cy.task(
+    'log',
+    `${violations.length} accessibility violation${
+      violations.length === 1 ? '' : 's'
+    } ${violations.length === 1 ? 'was' : 'were'} detected`
+  );
+  // pluck specific keys to keep the table readable
+  const violationData = violations.map(
+    ({ id, impact, description, nodes }) => ({
+      id,
+      impact,
+      description,
+      nodes: nodes.length
+    })
+  );
+
+  cy.task('table', violationData);
+}
 const singleOptionGames = ['audio', 'writing'];
 const successTexts = [
   'You made 1 mistakes',
@@ -10,7 +29,15 @@ const successTexts = [
 describe('homepage', () => {
   it('search word', () => {
     cy.visit('/');
+    cy.injectAxe();
     cy.findByRole('link', { name: /search words/i }).click();
+    cy.checkA11y(
+      null,
+      {
+        includedImpacts: ['critical']
+      },
+      terminalLog
+    );
     cy.findByLabelText(/type word to look up/i).type('demure');
     cy.findByRole('button', { name: /search/i }).click();
     cy.findByRole('button', { name: /add demure to cards/i }).click();

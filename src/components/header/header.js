@@ -90,7 +90,6 @@ export const Header = ({ navItems }) => {
             onClick={loginHandler}
             kind="login"
             aria-haspopup
-            aria-controls="login"
             data-testid="login-button"
           >
             Login

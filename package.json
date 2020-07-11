@@ -5,7 +5,7 @@
   "main": "src/index.js",
   "scripts": {
     "start": "yarn dev --env.API_URL=http://localhost:3000 --env.MOCK_SEARCH=true",
-    "start:serve": "yarn dev --env.API_URL=https://lp-develop.herokuapp.com --env.MOCK_SEARCH=true",
+    "start:serve": "yarn dev --env.API_URL=https://lp-develop.herokuapp.com --env.MOCK_SEARCH=true --silent",
     "build": "yarn prod --env.API_URL=https://language-power.herokuapp.com",
     "server": "http-server",
     "dev": "yarn webpack-dev-server --env.mode development",
@@ -21,10 +21,10 @@
     "test:watch": "jest --watch --silent",
     "coverage": "jest --collect-coverage --silent",
     "cypress": "npx cypress open --config defaultCommandTimeout=100000",
-    "cypress:ci": "cypress run --browser chrome --config defaultCommandTimeout=100000",
-    "e2e": "npm-run-all --parallel ci cypress",
+    "cypress:ci": "cypress run --browser chrome --config defaultCommandTimeout=100000 --quiet",
+    "e2e": "npm-run-all --parallel start:serve cypress",
     "test:e2e": "npm-run-all --parallel --race server cypress:ci",
-    "ready": "yarn prettier && yarn eslint --fix && yarn stylelint --fix && yarn coverage && yarn test:e2e"
+    "ready": "yarn prettier && yarn eslint --fix && yarn stylelint --fix && yarn coverage && yarn build:preprod && yarn test:e2e"
   },
   "husky": {
     "hooks": {
@@ -86,6 +86,7 @@
     "cssnano-webpack-plugin": "^1.0.3",
     "csso-webpack-plugin": "^2.0.0-beta.1",
     "cypress": "^4.10.0",
+    "cypress-axe": "^0.8.1",
     "cz-customizable": "^6.2.0",
     "duplicate-package-checker-webpack-plugin": "^3.0.0",
     "eslint": "^7.3.0",
