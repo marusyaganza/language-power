@@ -26,8 +26,8 @@ describe('homepage', () => {
     cy.findByText(/submit/i).click();
     cy.findByText(/logout/i).should('exist');
     cy.findByRole('button', { name: /add demure to cards/i }).click();
-    cy.findByText('card added').should('exist');
     cy.findByRole('dialog').should('exist');
+    cy.findByText('card added').should('exist');
     cy.findByRole('button', { name: 'OK' }).click();
     cy.findByRole('dialog').should('not.exist');
     cy.findByRole('button', { name: /add demure to cards/i }).should(
