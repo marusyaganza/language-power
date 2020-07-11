@@ -24,6 +24,7 @@
     "cypress:ci": "cypress run --browser chrome --config defaultCommandTimeout=100000 --quiet",
     "e2e": "npm-run-all --parallel start:serve cypress",
     "test:e2e": "npm-run-all --parallel --race server cypress:ci",
+    "ci:e2e": "yarn build:preprod && yarn test:e2e",
     "ready": "yarn prettier && yarn eslint --fix && yarn stylelint --fix && yarn coverage && yarn build:preprod && yarn test:e2e"
   },
   "husky": {
