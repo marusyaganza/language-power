@@ -7,9 +7,9 @@
     "start": "yarn dev --env.API_URL=http://localhost:3000 --env.MOCK_SEARCH=true",
     "start:serve": "yarn dev --env.API_URL=https://lp-develop.herokuapp.com --env.MOCK_SEARCH=true",
     "build": "yarn prod --env.API_URL=https://language-power.herokuapp.com",
-    "local": "serve public/",
+    "server": "http-server",
     "dev": "yarn webpack-dev-server --env.mode development",
-    "ci": "yarn webpack-dev-server --env.mode production --env.API_URL=https://lp-develop.herokuapp.com --env.MOCK_SEARCH=true",
+    "build:preprod": "yarn prod --env.API_URL=https://lp-develop.herokuapp.com --env.MOCK_SEARCH=true",
     "prod": "yarn webpack -- --env.mode production",
     "react": "yarn dev -- --env.presets react",
     "eslint": "eslint --debug src/",
@@ -23,7 +23,7 @@
     "cypress": "npx cypress open --config defaultCommandTimeout=100000",
     "cypress:ci": "cypress run --browser chrome --config defaultCommandTimeout=100000",
     "e2e": "npm-run-all --parallel ci cypress",
-    "test:e2e": "npm-run-all --parallel --race start:serve cypress:ci",
+    "test:e2e": "npm-run-all --parallel --race server cypress:ci",
     "ready": "yarn prettier && yarn eslint --fix && yarn stylelint --fix && yarn coverage && yarn test:e2e"
   },
   "husky": {
@@ -53,6 +53,7 @@
   "dependencies": {
     "@sentry/browser": "^5.17.0",
     "classnames": "^2.2.6",
+    "http-server": "^0.12.3",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",

@@ -24,6 +24,8 @@ jobs:
       script: eslint
     - stage: unit tests
       script: yarn coverage
+    - stage: build
+      script: yarn build:preprod
     - stage: e2e tests
       script: yarn test:e2e
 
