@@ -9,6 +9,16 @@ const successTexts = [
 ];
 
 describe('homepage', () => {
+  it('can login and logout', () => {
+    cy.visit('/');
+    cy.findByRole('button', { name: /login/i })
+      .click()
+      .findByLabelText('Email')
+      .type('test@test.com')
+      .findByLabelText('Password')
+      .type('test777*')
+      .findByRole('button', { name: '/submit/i' });
+  });
   it('search word', () => {
     cy.visit('/');
     cy.injectAxe();
@@ -37,24 +47,6 @@ describe('homepage', () => {
     cy.findByRole('button', { name: /add demure to cards/i }).should(
       'be.disabled'
     );
-  });
-  it('play audio and writing games with 1 word', () => {
-    cy.findByRole('link', { name: /word games/i }).click();
-    singleOptionGames.forEach(game => {
-      cy.findByTestId(`start ${game}`).click();
-      cy.findByLabelText('Type your answer').type('dem');
-      cy.findByRole('button', { name: /check/i }).click();
-      cy.findByText('incorrect, try again 😕').should('exist');
-      cy.findByLabelText('Type your answer').type('ure');
-      cy.findByRole('button', { name: /check/i }).click();
-      successTexts.forEach(text => {
-        cy.findByText(text).should('exist');
-      });
-      cy.findByRole('button', { name: /finish game/i }).click();
-      cy.findByText('games results saved').should('exist');
-      cy.findByRole('button', { name: /finish game/i }).click();
-      cy.findByRole('dialog').should('not.exist');
-    });
   });
   it('should delete card', () => {
     cy.findByRole('link', { name: /word cards/i }).click();
