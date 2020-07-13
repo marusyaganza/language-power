@@ -9,8 +9,11 @@ export const Backdrop = ({ onClick, onKeyUp, show }) => {
   useEffect(() => {
     const root = document.querySelector('#root');
     root.setAttribute('inert', '');
+    root.classList.add(styles.stalled);
+
     return () => {
       root.removeAttribute('inert');
+      root.classList.remove(styles.stalled);
     };
   }, []);
   return createPortal(

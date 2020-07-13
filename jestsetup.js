@@ -15,7 +15,11 @@ jest.mock('react-dom', () => {
 });
 
 Object.defineProperty(global.document, 'querySelector', {
-  value: () => ({ setAttribute: jest.fn(), removeAttribute: jest.fn() })
+  value: () => ({
+    setAttribute: jest.fn(),
+    removeAttribute: jest.fn(),
+    classList: { add: jest.fn(), remove: jest.fn() }
+  })
 });
 
 const mockStorage = {};
