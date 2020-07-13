@@ -57,7 +57,7 @@ module.exports = {
     radix: 'off',
     'no-tabs': 'off',
     'comma-dangle': 'off',
-
+    'import/no-extraneous-dependencies': 'off',
     'react/forbid-prop-types': 'off',
     'react/jsx-filename-extension': ['error', { extensions: ['.js'] }],
     'react/no-did-mount-set-state': 'off',

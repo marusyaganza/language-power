@@ -1,3 +1,8 @@
+/* eslint-disable no-console */
+const {
+  addMatchImageSnapshotPlugin
+} = require('cypress-image-snapshot/plugin');
+
 module.exports = (on, config) => {
   on('task', {
     log(message) {
@@ -11,4 +16,5 @@ module.exports = (on, config) => {
       return null;
     }
   });
+  addMatchImageSnapshotPlugin(on, config);
 };
