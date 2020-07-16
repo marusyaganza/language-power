@@ -8,8 +8,6 @@ const CssnanoPlugin = require('cssnano-webpack-plugin');
 const BrotliPlugin = require('brotli-webpack-plugin');
 const CssoWebpackPlugin = require('csso-webpack-plugin').default;
 const webpack = require('webpack');
-// const WebpackBundleAnalyzer = require('webpack-bundle-analyzer')
-//   .BundleAnalyzerPlugin;
 const DuplicatePackageCheckerPlugin = require('duplicate-package-checker-webpack-plugin');
 const path = require('path');
 
@@ -58,7 +56,6 @@ module.exports = () => {
       new BrotliPlugin({ test: /\.(js|css)$/ }),
       new webpack.HashedModuleIdsPlugin(),
       new DuplicatePackageCheckerPlugin({ verbose: true, emitError: true })
-      // new WebpackBundleAnalyzer()
     ],
     module: {
       rules: [
