@@ -1,10 +1,26 @@
 module.exports = {
   env: {
     es6: true,
-    browser: true
+    browser: true,
+    'cypress/globals': true
   },
-  extends: ['airbnb', 'plugin:jest/recommended', 'plugin:sonarjs/recommended'],
-  plugins: ['babel', 'import', 'jsx-a11y', 'react', 'prettier', 'sonarjs'],
+  extends: [
+    'airbnb',
+    'plugin:jest/recommended',
+    'plugin:sonarjs/recommended',
+    'plugin:cypress/recommended',
+    'plugin:testing-library/recommended'
+  ],
+  plugins: [
+    'babel',
+    'import',
+    'jsx-a11y',
+    'react',
+    'prettier',
+    'sonarjs',
+    'cypress',
+    'testing-library'
+  ],
   parser: 'babel-eslint',
   parserOptions: {
     ecmaVersion: 6,
@@ -41,7 +57,7 @@ module.exports = {
     radix: 'off',
     'no-tabs': 'off',
     'comma-dangle': 'off',
-
+    'import/no-extraneous-dependencies': 'off',
     'react/forbid-prop-types': 'off',
     'react/jsx-filename-extension': ['error', { extensions: ['.js'] }],
     'react/no-did-mount-set-state': 'off',
