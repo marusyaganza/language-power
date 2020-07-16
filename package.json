@@ -10,7 +10,7 @@
     "server": "http-server",
     "dev": "yarn webpack-dev-server --env.mode development",
     "build:preprod": "yarn prod --env.API_URL=https://lp-develop.herokuapp.com --env.MOCK_SEARCH=true",
-    "prod": "yarn webpack -- --env.mode production",
+    "prod": "yarn webpack -- --env.mode production --env.presets dotenv",
     "react": "yarn dev -- --env.presets react",
     "eslint": "eslint --debug src/",
     "stylelint": "stylelint src/",
@@ -54,6 +54,7 @@
   "dependencies": {
     "@sentry/browser": "^5.17.0",
     "classnames": "^2.2.6",
+    "dotenv": "^8.2.0",
     "http-server": "^0.12.3",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",

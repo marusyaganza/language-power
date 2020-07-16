@@ -21,7 +21,7 @@ export const words = [
   'rubber'
 ];
 
-export const creds = { password: 'test777*', email: 'test@test.com' };
+export const creds = { password: Cypress.env('userPassword') , email: Cypress.env('userEmail')  };
 
 export const navLinks = {
   search: 'search words',
