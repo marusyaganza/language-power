@@ -21,7 +21,7 @@ export const words = [
   'rubber'
 ];
 
-export const creds = { password: process.env.password, email: process.env.email };
+export const creds = { password: 'test777*', email: 'test@test.com' };
 
 export const navLinks = {
   search: 'search words',
