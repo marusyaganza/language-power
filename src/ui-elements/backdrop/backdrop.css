@@ -6,4 +6,17 @@
     width: 100%;
     height: 100vh;
     background: rgba(0, 0, 0, 0.4);
+    opacity: 0;
+    transition: opacity 0.5s ease-out;
+}
+
+.show {
+    opacity: 1;
+}
+
+.stalled {
+    position: absolute;
+    overflow: hidden;
+    width: 100%;
+    height: 100vh;
 }

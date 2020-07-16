@@ -8,8 +8,6 @@ const CssnanoPlugin = require('cssnano-webpack-plugin');
 const BrotliPlugin = require('brotli-webpack-plugin');
 const CssoWebpackPlugin = require('csso-webpack-plugin').default;
 const webpack = require('webpack');
-const WebpackBundleAnalyzer = require('webpack-bundle-analyzer')
-  .BundleAnalyzerPlugin;
 const DuplicatePackageCheckerPlugin = require('duplicate-package-checker-webpack-plugin');
 const path = require('path');
 
@@ -48,7 +46,7 @@ module.exports = () => {
         filename: '[id].[chunkhash:16].css',
         chunkFilename: '[id].[chunkhash:16].css'
       }),
-      new CopyPlugin([{ from: 'static/*', flatten: true }]),
+      new CopyPlugin({ patterns: [{ from: 'static/*', flatten: true }] }),
       new PreloadWebpackPlugin({
         rel: 'preload',
         include: 'allChunks'
@@ -57,8 +55,7 @@ module.exports = () => {
       new CompressionPlugin({ test: /\.(js|css)$/, algorithm: 'gzip' }),
       new BrotliPlugin({ test: /\.(js|css)$/ }),
       new webpack.HashedModuleIdsPlugin(),
-      new DuplicatePackageCheckerPlugin({ verbose: true, emitError: true }),
-      new WebpackBundleAnalyzer()
+      new DuplicatePackageCheckerPlugin({ verbose: true, emitError: true })
     ],
     module: {
       rules: [

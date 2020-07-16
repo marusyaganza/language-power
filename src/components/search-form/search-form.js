@@ -13,8 +13,10 @@ export const SearchForm = ({ onFormSubmit }) => {
 
   const handleSearchSubmit = e => {
     e.preventDefault();
-    onFormSubmit(query);
-    setQuery('');
+    if (query) {
+      onFormSubmit(query);
+      setQuery('');
+    }
   };
 
   return (

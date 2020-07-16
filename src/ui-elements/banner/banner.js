@@ -17,7 +17,11 @@ export const Banner = ({
   const style = { backgroundImage: `url(${image})`, height: `${imgHeight}px` };
 
   return (
-    <section style={style} className={cn(styles.banner, className)}>
+    <section
+      style={style}
+      className={cn(styles.banner, className)}
+      data-testid="banner"
+    >
       <header className={styles.heading}>
         <h1 className={styles.mainHeading}>{mainHeading}</h1>
         {subHeading && <p className={styles.subheading}>{subHeading}</p>}

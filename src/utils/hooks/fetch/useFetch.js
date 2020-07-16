@@ -18,7 +18,7 @@ export const useFetch = (customInitialState = {}) => {
   const activeRequests = useRef([]);
 
   const sendRequest = useCallback(
-    async ({ url, requestOptions = {}, query, formatData }) => {
+    async ({ url, requestOptions = {}, query }) => {
       dispatch({
         type: FETCHING
       });
@@ -41,7 +41,7 @@ export const useFetch = (customInitialState = {}) => {
         dispatch({
           type: RESPONSE_COMPLETE,
           payload: {
-            res: formatData ? formatData(res) : res,
+            res,
             query
           }
         });

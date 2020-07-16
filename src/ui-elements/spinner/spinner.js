@@ -8,7 +8,7 @@ export const Spinner = () => {
       <p className={styles.altText} role="alert">
         Loading...
       </p>
-      <div className={styles.pulseContainer}>
+      <div className={styles.pulseContainer} data-testid="spinner-animation">
         <div className={cn(styles.pulseBubble, styles.pulseBubble1)} />
         <div className={cn(styles.pulseBubble, styles.pulseBubble2)} />
         <div className={cn(styles.pulseBubble, styles.pulseBubble3)} />

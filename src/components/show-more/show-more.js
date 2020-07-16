@@ -28,9 +28,9 @@ export const ShowMore = ({
     <section className={className || styles.showMore}>
       <p className={styles.item}>
         <span className={styles.title}>{title}</span>
-        {content}
-        {renderButton()}
+        <span data-testid="content">{content}</span>
       </p>
+      {renderButton()}
     </section>
   );
 };

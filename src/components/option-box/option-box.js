@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import cn from 'classnames';
-import uuid from 'uuid';
+import { v4 as uuid } from 'uuid';
 import styles from './option-box.css';
 import { DictionaryEntity } from '../dictionary-entity/dictionary-entity';
 

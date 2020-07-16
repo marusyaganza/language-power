@@ -1,15 +1,26 @@
 module.exports = {
   env: {
     es6: true,
-    browser: true
+    browser: true,
+    'cypress/globals': true
   },
   extends: [
     'airbnb',
     'plugin:jest/recommended',
-    'jest-enzyme',
-    'plugin:sonarjs/recommended'
+    'plugin:sonarjs/recommended',
+    'plugin:cypress/recommended',
+    'plugin:testing-library/recommended'
   ],
-  plugins: ['babel', 'import', 'jsx-a11y', 'react', 'prettier', 'sonarjs'],
+  plugins: [
+    'babel',
+    'import',
+    'jsx-a11y',
+    'react',
+    'prettier',
+    'sonarjs',
+    'cypress',
+    'testing-library'
+  ],
   parser: 'babel-eslint',
   parserOptions: {
     ecmaVersion: 6,
@@ -33,15 +44,20 @@ module.exports = {
     'space-before-function-paren': 0,
     'operator-linebreak': 'off',
 
-    'max-len': ['warn', 100, 2, { ignoreUrls: true, ignoreStrings: true , ignoreComments: true}],
+    'max-len': [
+      'warn',
+      100,
+      2,
+      { ignoreUrls: true, ignoreStrings: true, ignoreComments: true }
+    ],
     'no-console': 'error',
     'no-alert': 'error',
 
     'no-param-reassign': 'off',
-    'radix': 'off',
+    radix: 'off',
     'no-tabs': 'off',
     'comma-dangle': 'off',
-
+    'import/no-extraneous-dependencies': 'off',
     'react/forbid-prop-types': 'off',
     'react/jsx-filename-extension': ['error', { extensions: ['.js'] }],
     'react/no-did-mount-set-state': 'off',
@@ -49,6 +65,7 @@ module.exports = {
     'react/button-has-type': 'warn',
     'jsx-a11y/label-has-associated-control': 'off',
     'jsx-a11y/no-autofocus': 'off',
+    'sonarjs/cognitive-complexity': 'warn',
     'jsx-a11y/anchor-is-valid': [
       'error',
       { components: ['Link'], specialLink: ['to'] }

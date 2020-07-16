@@ -84,7 +84,7 @@ export const config = {
     },
     texts: {
       changeModeButtonText: 'sign up',
-      changeModeText: 'Do not have an account? Sign upt, it is free!'
+      changeModeText: 'Do not have an account? Sign up, it is free!'
     }
   }
 };

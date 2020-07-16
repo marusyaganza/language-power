@@ -1,7 +1,7 @@
 /.git
 /.idea
 node.modules
-*.mock.js
 webpack.config.js
 mocks
 public
+drafts

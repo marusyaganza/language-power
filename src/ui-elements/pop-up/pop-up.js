@@ -2,17 +2,17 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import PropTypes from 'prop-types';
 import { createPortal } from 'react-dom';
-import React, { useEffect, useRef, useContext } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import cn from 'classnames';
 import styles from './pop-up.css';
 import { IconButton } from '../buttons/icon-button/icon-button';
 import { Backdrop } from '../backdrop/backdrop';
-import { AppContext } from '../../app-context/appContext';
 
 const PopUp = ({ children, open, id, onClose }) => {
-  const { setIsModalOpen } = useContext(AppContext);
+  const [close, setClose] = useState(true);
+  const [openClass, setOpenClass] = useState(false);
   const keyHandler = e => {
-    if (e.key === 'Escape') {
+    if (e.key === 'Escape' && open) {
       onClose();
     }
   };
@@ -25,31 +25,38 @@ const PopUp = ({ children, open, id, onClose }) => {
     }
   };
 
+  const transitionHandler = () => {
+    setClose(!open);
+  };
+
   useEffect(() => {
+    setOpenClass(open);
     if (open) {
       const focusable = dialogRef.current.querySelector('input')
-      || dialogRef.current.querySelector('button[type=button]:not(#close)');
+      || dialogRef.current.querySelector('button[type=button]:not([data-id=close])');
       if (focusable) {
         focusable.focus();
       }
-      setIsModalOpen(open);
       document.addEventListener('focusin', focusOutsideHandler);
     } else {
-      setIsModalOpen(open);
       document.removeEventListener('focusin', focusOutsideHandler);
     }
 
     return () => {
-      setIsModalOpen(false);
       document.removeEventListener('focusin', focusOutsideHandler);
     };
   }, [open]);
 
+  if (!open && close) {
+    return null;
+  }
+
   const component = (
     <div className={styles.container}>
       <div
+        onTransitionEnd={transitionHandler}
         onKeyUp={keyHandler}
-        className={cn({ [`${styles.open}`]: open }, styles.dialog)}
+        className={cn({ [`${styles.open}`]: openClass }, styles.dialog)}
         id={id}
         ref={dialogRef}
         role="dialog"
@@ -66,7 +73,7 @@ const PopUp = ({ children, open, id, onClose }) => {
         </span>
         <div className={styles.content}>{children}</div>
       </div>
-      {open && <Backdrop onClick={onClose} />}
+      <Backdrop onClick={onClose} show={!close} />
     </div>
   );
   return createPortal(component, document.getElementById('modal'));

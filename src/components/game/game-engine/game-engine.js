@@ -160,7 +160,7 @@ export const GameEngine = ({
     }
     return (
       <>
-        <div className={styles.question}>
+        <div className={styles.question} data-testid="question">
           {renderQuestion(qa[currentIndex].q)}
         </div>
         <form className={styles.answer} onSubmit={submitHandler}>

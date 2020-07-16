@@ -4,6 +4,9 @@ import styles from './warning.css';
 import { Button } from '../../ui-elements/buttons/button/button';
 
 export const Warning = ({ text, buttonHandler }) => {
+  if (!text) {
+    return null;
+  }
   return (
     <div className={styles.modal}>
       <p className={styles.warning}>{text}</p>
