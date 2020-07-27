@@ -1,6 +1,6 @@
 # language-power
 
-## Dedication
+## Purpose
 
 Language power is a simple web app for English learners. It's recommended for B2+ learners, for whom English to English translation is preferable.
 
@@ -13,7 +13,7 @@ Language power is a simple web app for English learners. It's recommended for B2
 * Jest
 * Cypress
 
-## What can you do with it?
+## How to use it?
 
 * Search for words. You don't need even registrate for it! App uses *Merriam-Webster's dictionary api*, so, you'll get the most accurate and verified definition of word.
 
