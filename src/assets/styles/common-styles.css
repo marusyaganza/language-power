@@ -21,6 +21,13 @@
     margin: 20px 5px;
 }
 
+.button-set {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+}
+
 @media (min-width: 760px) {
     .container {
         margin: 20px 40px;

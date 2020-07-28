@@ -74,7 +74,7 @@ export const WordGamesPage = () => {
   };
 
   return (
-    <main>
+    <>
       <Banner
         imgSrc={bannerImg}
         mobileImg={bannerImgMobile}
@@ -83,6 +83,6 @@ export const WordGamesPage = () => {
       />
       {error && <ErrorContainer>{error}</ErrorContainer>}
       {renderGames()}
-    </main>
+    </>
   );
 };

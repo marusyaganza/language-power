@@ -44,7 +44,7 @@ export const SearchPage = () => {
   };
 
   return (
-    <main>
+    <>
       <ErrorContainer>{error}</ErrorContainer>
       <PopUp open={isModalOpen} onClose={closeHandler}>
         {loading ? (
@@ -55,6 +55,6 @@ export const SearchPage = () => {
       </PopUp>
 
       <WordSearch addWord={addCard} />
-    </main>
+    </>
   );
 };

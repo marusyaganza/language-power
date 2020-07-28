@@ -40,7 +40,7 @@ Banner.propTypes = {
 };
 
 Banner.defaultProps = {
-  imgHeight: 470,
+  imgHeight: 370,
   subHeading: null,
   imgSrc: null,
   className: null,

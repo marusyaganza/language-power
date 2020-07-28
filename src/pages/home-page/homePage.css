@@ -1,0 +1,50 @@
+@import '../../assets/styles/font-sizes.css';
+@import '../../assets/styles/fonts.css';
+@import '../../assets/styles/colors.css';
+
+.catalog {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0;
+    background: var(--gray-super-light);
+    font-family: var(--font-libreBaskerville);
+    text-align: center;
+}
+
+.catalog-item {
+    flex: 0 0 98%;
+    margin: 2% 1%;
+    background: white;
+}
+.button {
+    margin: 10px;
+}
+.item-content {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    padding: 6%;
+}
+
+.description {
+    display: block;
+    min-height: 4rem;
+    margin: 3% 0;
+    color: var(--gray-darkest);
+    font-size: var(--font-size-s);
+    text-align: center;
+}
+
+@media (min-width: 980px) {
+    .catalog-item {
+        flex: 0 0 30%;
+        flex-wrap: nowrap;
+    }
+}
+@media (min-width: 760px) and (max-width: 979px) {
+    .catalog-item {
+        flex: 0 0 48%;
+    }
+}
