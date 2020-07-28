@@ -25,7 +25,7 @@ Language power is a simple web app for English learners. It's recommended for B2
 
 * Learn your words by playing 6 simple games. After training a word 6 times without mistakes it will be marked as learned and no longer appear in games. 
 
-![game example](https://photos.app.goo.gl/X1aXFWRssfbkqe5dA)
+![game example](https://lh3.googleusercontent.com/r6O3HFtvQjOGGHbhiR88Zser2VeEyPl7ORSriORQ9PztO2GP07_xWiQF01u4ZqY96dkMyDQn1pa2u5p-EFaI0OP9Wcq6xaWIBk1_ZifPgH7c7LUCZIbvFFPLbUuJznZ_iZFoLgVxkhkwcmOVl-iFy4dNMakuViei2oSucca0IJerhN6t5jzfp7Lu8DOO96SPgWfbtgfhHCdsN5kjUvEQ_NHYnvm2pD844E7Luq4JMYO-4b080Dc-N8i6SHKY1AysgFmAnPgmDLOEaQsZ8-b7FL0qEyFmosUVg7CM8nDXx1YC4-ph0ugF2pR-4vDAhNqwZP5fG7mbe4ipPExk-11awQZ2DdoWzz8lZBcYWdEMnxFDj8idZwgfGDGVgaz_yiOQHhFQmwXEHxBPZiY7lqgkZlPuj0Ai9SXuOCPvXUqJwPg97V1mIzuM-8adp34YbVLvo9TYBRo27EeYyo6z1Wr4hNIH9ab_bZiK0cSYFV86CyrJNtStot5Y6af_3OWZjUiDdEtsBQNSaVRjkuvim0Pcdm8EGYCxIxqfjGrB68L75O387h6KvYcihpqC6qbmLPE9zCmgB3sBdFAxYo2fb3G_pxXJFKRcyDPUelbOlpmJfn3XPTZJHsuF-yuPD7ftcqsT-zDP4ja4w7Oe2lSqgwhXKLArW8MnhlXAnDjS9LC8WI-11VcGMXo4mX9ICpvyeg=w490-h426-no?authuser=0)
 
 ## Try it out
 You can find deployed version of this app [here](https://language-power.web.app/) 
