@@ -6,6 +6,8 @@ import { AppProvider } from './app-context/appContext';
 import { Spinner } from './ui-elements/spinner/spinner';
 import ErrorBuondary from './components/error-boundary/error-boundary';
 import './styles.css';
+import styles from './app.css';
+import { Footer } from './components/footer/footer';
 
 const Home = lazy(() => import('./pages/home-page'));
 const NotFoundPage = lazy(() => import('./pages/not-found-page'));
@@ -18,16 +20,21 @@ const navItems = Object.values(PATHS);
 export const App = () => (
   <ErrorBuondary>
     <AppProvider>
-      <Header navItems={navItems} />
-      <Suspense fallback={<Spinner />}>
-        <Switch>
-          <Route path="/" exact component={Home} />
-          <Route path="/word_games" component={GamesPage} />
-          <Route path="/word_cards" component={CardPage} />
-          <Route path="/search_words" component={SearchPage} />
-          <Route path="*" component={NotFoundPage} />
-        </Switch>
-      </Suspense>
+      <div className={styles.page}>
+        <Header navItems={navItems} />
+        <main className={styles.main}>
+          <Suspense fallback={<Spinner />}>
+            <Switch>
+              <Route path="/" exact component={Home} />
+              <Route path="/word_games" component={GamesPage} />
+              <Route path="/word_cards" component={CardPage} />
+              <Route path="/search_words" component={SearchPage} />
+              <Route path="*" component={NotFoundPage} />
+            </Switch>
+          </Suspense>
+        </main>
+        <Footer />
+      </div>
     </AppProvider>
   </ErrorBuondary>
 );

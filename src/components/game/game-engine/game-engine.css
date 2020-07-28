@@ -81,12 +81,6 @@
     margin: 0 10px;
 }
 
-.button-set {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-}
-
 @media (min-width: 760px) {
     .game {
         padding: 5px;

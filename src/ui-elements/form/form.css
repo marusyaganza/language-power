@@ -6,11 +6,6 @@
     flex-direction: column-reverse;
     font-size: var(--font-size-xs);
 }
-.button-set {
-    display: flex;
-    justify-content: center;
-    margin: 10px auto;
-}
 
 .label {
     padding: 5px 20px;

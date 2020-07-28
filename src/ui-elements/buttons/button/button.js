@@ -2,6 +2,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
+import { Link } from 'react-router-dom';
 import styles from './button.css';
 import { SIZES, TYPES, DEFAULT_TYPE, DEFAULT_SIZE } from './constants';
 
@@ -15,8 +16,24 @@ export const Button = ({
   kind,
   autoFocus,
   id,
+  href,
   ...rest
 }) => {
+  if (href) {
+    return (
+      <Link
+        to={href}
+        className={cn(
+          styles.button,
+          styles[`size${size}`],
+          className,
+          styles[kind]
+        )}
+      >
+        {children}
+      </Link>
+    );
+  }
   return (
     <button
       className={cn(
@@ -46,7 +63,8 @@ Button.propTypes = {
   onClick: PropTypes.func,
   kind: PropTypes.string,
   id: PropTypes.string,
-  autoFocus: PropTypes.bool
+  autoFocus: PropTypes.bool,
+  href: PropTypes.string
 };
 
 Button.defaultProps = {
@@ -58,5 +76,6 @@ Button.defaultProps = {
   onClick: () => {},
   kind: 'yellow',
   id: null,
-  autoFocus: false
+  autoFocus: false,
+  href: null
 };
