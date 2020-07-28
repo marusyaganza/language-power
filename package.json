@@ -1,7 +1,7 @@
 {
   "name": "language-power",
   "version": "1.4.0",
-  "description": "",
+  "description": "web app for English learners",
   "main": "src/index.js",
   "scripts": {
     "start": "yarn dev --env.API_URL=http://localhost:3000 --env.MOCK_SEARCH=true",
@@ -12,7 +12,6 @@
     "build:preprod": "yarn prod --env.API_URL=https://lp-develop.herokuapp.com --env.MOCK_SEARCH=true",
     "analyze": "yarn build --env.presets analyze",
     "prod": "yarn webpack -- --env.mode production --env.presets dotenv",
-    "react": "yarn dev -- --env.presets react",
     "eslint": "eslint --debug src/",
     "stylelint": "stylelint src/",
     "lint": "yarn eslint && yarn stylelint",
@@ -23,9 +22,7 @@
     "coverage": "jest --collect-coverage --silent",
     "cypress": "npx cypress open --config defaultCommandTimeout=100000",
     "cypress:ci": "cypress run --browser chrome --config defaultCommandTimeout=100000 --quiet",
-    "e2e": "npm-run-all --parallel start:serve cypress",
     "test:e2e": "npm-run-all --parallel --race server cypress:ci",
-    "ci:e2e": "yarn build:preprod && yarn test:e2e",
     "ready": "yarn prettier && yarn eslint --fix && yarn stylelint --fix && yarn coverage && yarn build:preprod && yarn test:e2e"
   },
   "husky": {
@@ -38,8 +35,8 @@
     "type": "git",
     "url": "git+https://github.com/marusyaganza/language-power.git"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Marusya Ganza",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/marusyaganza/language-power/issues"
   },
