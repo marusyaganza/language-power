@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 import styles from './form.css';
+import commonStyles from '../../assets/styles/common-styles.css';
 import { Input } from '../smart-input/input';
 import { Button } from '../buttons/button/button';
 import { useForm } from '../../utils/hooks/useForm';
@@ -37,7 +38,7 @@ export const Form = ({ onSubmit, initialState, fields }) => {
   return (
     <form onSubmit={submitHandler}>
       {renderFields()}
-      <div className={styles.buttonSet}>
+      <div className={commonStyles.buttonSet}>
         <Button disabled={!isValid} type="submit">
           Submit
         </Button>

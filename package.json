@@ -9,7 +9,7 @@
     "build": "yarn prod --env.API_URL=https://language-power.herokuapp.com",
     "server": "http-server",
     "dev": "yarn webpack-dev-server --env.mode development",
-    "build:preprod": "yarn prod --env.API_URL=https://lp-develop.herokuapp.com --env.MOCK_SEARCH=true",
+    "build:preprod": "yarn prod --env.API_URL=http://localhost:3000 --env.MOCK_SEARCH=true",
     "analyze": "yarn build --env.presets analyze",
     "prod": "yarn webpack -- --env.mode production --env.presets dotenv",
     "react": "yarn dev -- --env.presets react",

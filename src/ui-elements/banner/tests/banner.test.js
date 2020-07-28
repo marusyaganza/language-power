@@ -13,7 +13,7 @@ describe('Banner', () => {
     expect(screen.getByText(props.subHeading)).toBeInTheDocument();
     expect(screen.getByTestId('banner')).toHaveAttribute(
       'style',
-      `background-image: url(${props.imgSrc}); height: 470px;`
+      `background-image: url(${props.imgSrc}); height: 370px;`
     );
   });
   it('renders on mobile with appropriate image', () => {

@@ -1,7 +1,6 @@
 import React from 'react';
 import cn from 'classnames';
 import { PropTypes } from 'prop-types';
-import { LinkButton } from '../../ui-elements/buttons/link-button/link-button';
 import styles from './error-display.css';
 import { Button } from '../../ui-elements/buttons/button/button';
 import { Icon } from '../../ui-elements/icons/icon';
@@ -25,9 +24,9 @@ export const ErrorDisplay = ({
         <h2 className={styles.subheading}>{subHeading}</h2>
         <div className={styles.buttonContainer}>
           {link ? (
-            <LinkButton size="L" href={link}>
+            <Button size="L" href={link}>
               {buttonText}
-            </LinkButton>
+            </Button>
           ) : (
             <Button size="L" onClick={buttonHandler}>
               {buttonText} <Icon id="reload" width="16" height="16" />

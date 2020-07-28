@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import { AppContext } from '../../../app-context/appContext';
 import { Button } from '../../../ui-elements/buttons/button/button';
 import { Icon } from '../../../ui-elements/icons/icon';
-import { LinkButton } from '../../../ui-elements/buttons/link-button/link-button';
 import { STATUSES, MESSAGES } from './config';
 import styles from './game-engine.css';
+import commonStyles from '../../../assets/styles/common-styles.css';
 import { Spinner } from '../../../ui-elements/spinner/spinner';
 import { useFetch } from '../../../utils/hooks/fetch/useFetch';
 import { gameReducer } from './game-reducer';
@@ -114,10 +114,10 @@ export const GameEngine = ({
         <section className={styles.gameResults}>
           <div className={styles.mainResult}>
             All words are learnt, congrats!
-            <div className={styles.buttonSet}>
-              <LinkButton href="/search_words" size="S">
+            <div className={commonStyles.buttonSet}>
+              <Button href="/search_words" size="S">
                 Add new words
-              </LinkButton>
+              </Button>
             </div>
           </div>
         </section>
@@ -136,7 +136,7 @@ export const GameEngine = ({
               <p>You practiced {qa.length} words</p>
             </div>
           </section>
-          <div className={styles.buttonSet}>
+          <div className={commonStyles.buttonSet}>
             <Button type="button" onClick={completeGame} autoFocus>
               Finish game
             </Button>
@@ -150,7 +150,7 @@ export const GameEngine = ({
           <div className={styles.resultDetails}>
             {state.message || 'See you later'}
           </div>
-          <div className={styles.buttonSet}>
+          <div className={commonStyles.buttonSet}>
             <Button type="button" onClick={closeHandler} autoFocus>
               Finish game
             </Button>

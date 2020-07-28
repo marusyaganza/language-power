@@ -63,7 +63,7 @@ export const WordCards = () => {
         <div className={styles.modal}>
           <h2>Are you sure?</h2>
           <p>Deleting card is irreversible</p>
-          <div className={styles.buttonSet}>
+          <div className={commonStyles.buttonSet}>
             <Button className={styles.button} onClick={closeHandler}>
               Cancel
             </Button>

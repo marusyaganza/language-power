@@ -5,9 +5,9 @@ import commonStyles from '../../assets/styles/common-styles.css';
 
 export const WordCardsPage = () => {
   return (
-    <main className={commonStyles.container}>
+    <div className={commonStyles.container}>
       <h1 className={styles.mainHeading}>Word cards</h1>
       <WordCards />
-    </main>
+    </div>
   );
 };
