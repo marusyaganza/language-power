@@ -13,6 +13,7 @@ export const HomePage = () => {
       <Banner
         imgSrc={img}
         mainHeading="Welcome to Language Power"
+        subHeading="Start learning English today!"
         mobileImg={mobileImg}
       />
       <ul className={styles.catalog}>
