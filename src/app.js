@@ -14,6 +14,7 @@ const NotFoundPage = lazy(() => import('./pages/not-found-page'));
 const GamesPage = lazy(() => import('./pages/games-page'));
 const CardPage = lazy(() => import('./pages/word-cards-page'));
 const SearchPage = lazy(() => import('./pages/search-page'));
+const EditWordPage = lazy(() => import('./pages/edit-word-card-page'));
 
 const navItems = Object.values(PATHS);
 
@@ -29,6 +30,7 @@ export const App = () => (
               <Route path="/word_games" component={GamesPage} />
               <Route path="/word_cards" component={CardPage} />
               <Route path="/search_words" component={SearchPage} />
+              <Route path="/words/edit/:id" component={EditWordPage} />
               <Route path="*" component={NotFoundPage} />
             </Switch>
           </Suspense>

@@ -64,14 +64,8 @@ export const WordCards = () => {
           <h2>Are you sure?</h2>
           <p>Deleting card is irreversible</p>
           <div className={commonStyles.buttonSet}>
-            <Button className={styles.button} onClick={closeHandler}>
-              Cancel
-            </Button>
-            <Button
-              className={styles.button}
-              onClick={deleteHandler}
-              kind="red"
-            >
+            <Button onClick={closeHandler}>Cancel</Button>
+            <Button onClick={deleteHandler} kind="red">
               Delete
             </Button>
           </div>
@@ -87,7 +81,11 @@ export const WordCards = () => {
         <ul className={styles.cardsList} data-testid="cards-list">
           {wordCards.result.map(word => (
             <li key={word.uuid}>
-              <WordCard word={word} deleteWord={deleteButtonHandler} />
+              <WordCard
+                word={word}
+                isEditable
+                deleteWord={deleteButtonHandler}
+              />
             </li>
           ))}
         </ul>
