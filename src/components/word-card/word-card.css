@@ -61,8 +61,13 @@
 }
 .top {
     display: flex;
+    width: 100%;
     flex-direction: row;
+    flex-wrap: wrap;
     justify-content: space-between;
+}
+.top header {
+    padding: 10px 0;
 }
 .audio {
     font-size: var(--font-size-xs);
@@ -70,4 +75,16 @@
 .transcription {
     color: var(--gray-darkest);
     font-style: italic;
+}
+.edit-icon {
+    color: var(--purple-lightest);
+
+    /* margin: 0 20px; */
+}
+
+.controls-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
 }

@@ -9,6 +9,13 @@
     font-size: var(--font-size-m);
 }
 
+.main-heading {
+    color: var(--purple-darker);
+    font-family: var(--font-libreBaskerville);
+    font-size: var(--font-size-xl);
+    text-align: center;
+}
+
 .subheading {
     padding: 15px;
     color: var(--gray-darkest);
@@ -26,6 +33,7 @@
     flex-wrap: wrap;
     justify-content: center;
     margin-top: 20px;
+    gap: 20px;
 }
 
 @media (min-width: 760px) {
