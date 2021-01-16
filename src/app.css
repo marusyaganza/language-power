@@ -1,10 +1,13 @@
+.container {
+    height: 100vh;
+}
 .page {
     display: flex;
-    height: 100vh;
+    height: 100%;
     flex-direction: column;
     justify-content: space-between;
 }
 
 .main {
-    flex: 0 0 86%;
+    flex: 1 0 auto;
 }

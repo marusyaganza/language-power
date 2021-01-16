@@ -1,6 +1,3 @@
-@import '../../assets/styles/fonts.css';
-@import '../../assets/styles/font-sizes.css';
-
 .modal {
     margin: 20px auto;
     font-family: var(--font-libreBaskerville);

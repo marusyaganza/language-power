@@ -1,10 +1,7 @@
-@import '../../assets/styles/colors.css';
-@import '../../assets/styles/fonts.css';
-@import '../../assets/styles/font-sizes.css';
-
 .header {
     display: flex;
-    height: 4em;
+    height: 60px;
+    flex: 0 0 auto;
     align-items: center;
     justify-content: space-between;
     padding: 0 1em;

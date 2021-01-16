@@ -13,7 +13,7 @@ export const EditWordPage = ({ match: { params } }) => {
 };
 
 EditWordPage.propTypes = {
-  match: { params: { id: PropTypes.string } }
+  match: PropTypes.object
 };
 
 EditWordPage.defaultProps = {

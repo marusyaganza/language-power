@@ -92,7 +92,7 @@ export const WordCard = memo(
             </header>
             <div className={styles.controlsContainer}>
               {isEditable && (
-                <Link to={`/words/edit/${word.uuid}`}>
+                <Link to={`/word_cards/${word.uuid}`}>
                   <Icon
                     width={20}
                     height={18}
