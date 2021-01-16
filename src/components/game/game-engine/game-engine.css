@@ -1,7 +1,3 @@
-@import '../../../assets/styles/colors.css';
-@import '../../../assets/styles/fonts.css';
-@import '../../../assets/styles/font-sizes.css';
-
 .game {
     width: 100%;
     padding-bottom: 15px;
@@ -57,7 +53,7 @@
     margin-bottom: 20px;
     color: var(--purple-darkest);
     font-family: var(--font-libreBaskerville);
-    font-size: var(--font-size-xxs);
+    font-size: var(--font-size-xs);
 }
 
 .correct-answer {

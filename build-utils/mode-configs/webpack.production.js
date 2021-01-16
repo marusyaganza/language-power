@@ -15,6 +15,7 @@ module.exports = () => {
   return {
     output: {
       path: path.resolve(__dirname, '../../', 'public'),
+      publicPath: '/',
       filename: '[name].[chunkhash:16].js'
     },
     optimization: {

@@ -1,10 +1,7 @@
-@import '../../assets/styles/fonts.css';
-@import '../../assets/styles/font-sizes.css';
-@import '../../assets/styles/colors.css';
-
 .option-box {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     padding: 0;
     font-family: var(--font-libreBaskerville);
 }
