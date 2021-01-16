@@ -35,10 +35,6 @@
     margin: 0 10px;
 }
 
-/* .button-set:last-child {
-    margin: 0;
-} */
-
 @media (min-width: 760px) {
     .container {
         margin: 20px 40px;
