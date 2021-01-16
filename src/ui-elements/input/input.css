@@ -1,6 +1,3 @@
-@import '../../assets/styles/colors.css';
-@import '../../assets/styles/font-sizes.css';
-
 .label {
     width: 100%;
     color: var(--gray-darkest);

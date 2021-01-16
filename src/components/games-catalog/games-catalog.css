@@ -1,7 +1,3 @@
-@import '../../assets/styles/font-sizes.css';
-@import '../../assets/styles/fonts.css';
-@import '../../assets/styles/colors.css';
-
 .catalog {
     display: flex;
     flex-wrap: wrap;
