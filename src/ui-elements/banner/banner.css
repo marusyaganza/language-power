@@ -1,7 +1,3 @@
-@import '../../assets/styles/colors.css';
-@import '../../assets/styles/fonts.css';
-@import '../../assets/styles/font-sizes.css';
-
 .banner {
     display: flex;
     width: 100%;

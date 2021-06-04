@@ -144,7 +144,7 @@ export const EditWord = ({ wordId }) => {
   }
 
   return (
-    <>
+    <article>
       {warning && (
         <PopUp open={warning} onClose={closeHandler}>
           <Warning text={warning} buttonHandler={closeHandler} />
@@ -161,12 +161,12 @@ export const EditWord = ({ wordId }) => {
             <form onSubmit={submitHandler}>
               {MUTABLE_PROPERTIES.map(key => {
                 return (
-                  <fieldset title={key} className={styles.formField}>
+                  <fieldset title={key} key={key} className={styles.formField}>
                     <legend>{key}</legend>
                     {fields[key].map((entity, i) => {
                       const isLast = i === fields[key].length - 1;
                       return (
-                        <div className={styles.inputContainer}>
+                        <div className={styles.inputContainer} key={entity}>
                           <input
                             className={styles.input}
                             value={entity}
@@ -204,7 +204,7 @@ export const EditWord = ({ wordId }) => {
           )}
         </div>
       )}
-    </>
+    </article>
   );
 };
 
